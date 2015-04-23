@@ -39,6 +39,9 @@
  	results = indent(results, 1)
  	replacements["results"] = results
 
+    replacements["animal_hint"] = animal or "Enter an animal"
+    replacements["badanimal_hint"] = bad_animal or "Enter an animal"
+
 	outputText = text.format(**replacements)
 
 	print 'Content-type: text/html\r\n\r\n'
