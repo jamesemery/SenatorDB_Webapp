@@ -14,6 +14,10 @@
 
 import cgi
 
+
+import cgitb
+cgitb.enable()
+
 def main():
 	params = getParameters()
 	printHtmlPage(params['senator'], params['state'], 'template.html')
