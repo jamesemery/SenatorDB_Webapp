@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>Jadrian's tiny but smarter web application</title>
+</head>
+
+<body>
+    <h2>Jadrian's tiny but smarter web application</h2>
+
+    <!-- results go here -->
+{results}
+    
+    <form action="webapp.py" method="get">
+        <p>Favorite animal? <input type="text" name="animal" placeholder="{animal_hint}" /></p>
+        <p>Least favorite animal? <input type="text" name="badanimal" placeholder="{badanimal_hint}" /></p>
+        <p><input type="submit" value="Go" /></p>
+    </form>
+
+    <!-- links go here -->
+{links}
+</body>
+</html>
+
