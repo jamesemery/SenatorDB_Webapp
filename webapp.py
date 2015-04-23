@@ -55,11 +55,11 @@ def getParameters():
 	params = {}
 	form = cgi.FieldStorage()
 	if 'senator' in form:
-		params['senator'] = sanitizeInput(form['animal'].value)
+		params['senator'] = sanitizeInput(form['senator'].value)
 	else:
 		params['senator'] = ''
 	if 'state' in form:
-		params['state'] = sanitizeInput(form['animal'].value)
+		params['state'] = sanitizeInput(form['senator'].value)
 	else:
 		params['state'] = ''
 	return params
