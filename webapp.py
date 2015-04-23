@@ -15,10 +15,34 @@
  import cgi
 
  def main():
+ 	params = getParameters()
+ 	makeHtmlPage(asdlfj)
 
 
+ def printHtmlPage(senator, state, template_name):
+ 	#Load the template file
+ 	try:
+ 		f = open(template_name)
+ 		text = f.read()
+ 		f.close()
+ 	except Exception, e:
+ 		text = "Cannot read template file <tt>%s</tt>. " % (template_name)
 
- def makeHtmlPage():
+ 	replacements = {}
+
+ 	#Build results string, save in dictionary
+ 	results = ""
+ 	if senator:
+ 		results += "<p>Searching for Senator %s</p>\n" % (senator)
+ 	if state:
+ 		results += "<p>Finding senators from %s</p>\n" % (state)
+ 	#indentation stuff...................................................................................................
+ 	replacements["results"] = results
+
+	outputText = text.format(**replacements)
+
+	print 'Content-type: text/html\r\n\r\n'
+	print outputText
 
 
  def getParameters():
@@ -28,6 +52,7 @@
  		params['senator'] = sanitizeInput(form['animal'].value)
  	if 'state' in form:
  		params['state'] = sanitizeInput(form['animal'].value)
+ 	return params
 
 
 
