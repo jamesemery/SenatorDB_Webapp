@@ -59,7 +59,7 @@ def getParameters():
 	else:
 		params['senator'] = ''
 	if 'state' in form:
-		params['state'] = sanitizeInput(form['senator'].value)
+		params['state'] = sanitizeInput(form['state'].value)
 	else:
 		params['state'] = ''
 	return params
