@@ -36,7 +36,7 @@
  		results += "<p>Searching for Senator %s</p>\n" % (senator)
  	if state:
  		results += "<p>Finding senators from %s</p>\n" % (state)
- 	#indentation stuff...................................................................................................
+ 	results = indent(results, 1)
  	replacements["results"] = results
 
 	outputText = text.format(**replacements)
@@ -54,7 +54,11 @@
  		params['state'] = sanitizeInput(form['animal'].value)
  	return params
 
-
+def indent(s, k):
+    """Returns an indented copy of the string, with 4*k spaces prepended to
+    each line.
+    """
+    return "\n".join([" "*(4*k) + line for line in s.splitlines()])
 
  def sanitizeInput(yarn):
  	chars_to_remove = ";,\\/:'\"<>@"
