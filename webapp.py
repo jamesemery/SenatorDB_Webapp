@@ -61,3 +61,7 @@
  	for ch in chars_to_remove:
  		yarn = yarn.replace(ch, '');
  	return yarn
+
+
+if __name__ == '__main__':
+    main()
