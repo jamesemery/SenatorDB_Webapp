@@ -16,7 +16,7 @@
 
  def main():
  	params = getParameters()
- 	makeHtmlPage(asdlfj)
+ 	makeHtmlPage(params['senator'], params['state'], template.html)
 
 
  def printHtmlPage(senator, state, template_name):
@@ -39,8 +39,7 @@
  	results = indent(results, 1)
  	replacements["results"] = results
 
-    replacements["animal_hint"] = animal or "Enter an animal"
-    replacements["badanimal_hint"] = bad_animal or "Enter an animal"
+    replacements["senator"] = senator or "Enter a Senator"
 
 	outputText = text.format(**replacements)
 
