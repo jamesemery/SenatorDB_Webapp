@@ -12,34 +12,34 @@
  Ondich's earlier versions.
  """
 
- import cgi
+import cgi
 
- def main():
- 	params = getParameters()
- 	makeHtmlPage(params['senator'], params['state'], template.html)
+def main():
+	params = getParameters()
+	printHtmlPage(params['senator'], params['state'], 'template.html')
 
 
- def printHtmlPage(senator, state, template_name):
- 	#Load the template file
- 	try:
- 		f = open(template_name)
- 		text = f.read()
- 		f.close()
- 	except Exception, e:
- 		text = "Cannot read template file <tt>%s</tt>. " % (template_name)
+def printHtmlPage(senator, state, template_name):
+	#Load the template file
+	try:
+		f = open(template_name)
+		text = f.read()
+		f.close()
+	except Exception, e:
+		text = "Cannot read template file <tt>%s</tt>. " % (template_name)
 
- 	replacements = {}
+	replacements = {}
 
- 	#Build results string, save in dictionary
- 	results = ""
- 	if senator:
- 		results += "<p>Searching for Senator %s</p>\n" % (senator)
- 	if state:
- 		results += "<p>Finding senators from %s</p>\n" % (state)
- 	results = indent(results, 1)
- 	replacements["results"] = results
+	#Build results string, save in dictionary
+	results = ""
+	if senator:
+		results += "<p>Searching for Senator %s</p>\n" % (senator)
+	if state:
+		results += "<p>Finding senators from %s</p>\n" % (state)
+	results = indent(results, 1)
+	replacements["results"] = results
 
-    replacements["senator"] = senator or "Enter a Senator"
+	replacements["senator"] = senator or "Enter a Senator"
 
 	outputText = text.format(**replacements)
 
@@ -47,27 +47,31 @@
 	print outputText
 
 
- def getParameters():
- 	params = {}
- 	form = cgi.FieldStorage()
- 	if 'senator' in form:
- 		params['senator'] = sanitizeInput(form['animal'].value)
- 	if 'state' in form:
- 		params['state'] = sanitizeInput(form['animal'].value)
- 	return params
+def getParameters():
+	params = {}
+	form = cgi.FieldStorage()
+	if 'senator' in form:
+		params['senator'] = sanitizeInput(form['animal'].value)
+	else:
+		params['senator'] = ''
+	if 'state' in form:
+		params['state'] = sanitizeInput(form['animal'].value)
+	else:
+		params['state'] = ''
+	return params
 
 def indent(s, k):
-    """Returns an indented copy of the string, with 4*k spaces prepended to
-    each line.
-    """
-    return "\n".join([" "*(4*k) + line for line in s.splitlines()])
+	"""Returns an indented copy of the string, with 4*k spaces prepended to
+	each line.
+	"""
+	return "\n".join([" "*(4*k) + line for line in s.splitlines()])
 
- def sanitizeInput(yarn):
- 	chars_to_remove = ";,\\/:'\"<>@"
- 	for ch in chars_to_remove:
- 		yarn = yarn.replace(ch, '');
- 	return yarn
+def sanitizeInput(yarn):
+	chars_to_remove = ";,\\/:'\"<>@"
+	for ch in chars_to_remove:
+		yarn = yarn.replace(ch, '');
+	return yarn
 
 
 if __name__ == '__main__':
-    main()
+	main()
