@@ -19,4 +19,32 @@ class Bill:
 		HtmlString = ""
 		return HtmlString
 
-	#DO WE WANT GETTERS HERE? IT'S NOT SPECIFIED ON THE DEV PLAN
+	#Gets the bill's name
+	def getName(self):
+		return this.name
+
+	#Gets the bill's id tag
+	def getId(self):
+		return this.id
+
+	#Gets the bill's HR tag
+	def getHr(self):
+		return this.hr
+
+	#Gets the date on which the bill was voted.
+	def getDate(self):
+		return this.date
+
+	#Gets the congress that voted on the bill.
+	def getCongress(self):
+		return this.congress
+
+	#Gets the bill's description.
+	def getDescription(self):
+		return this.description
+
+	#Returns the vote tally: a two-dimensional list of the votes; vote_tally[0] is a list of
+	#senators, vote_tally[1] is a list of strings representing votes:
+	#"Yea", "Nay", "Absent", or "Abstain"
+	def getVoteTally(self):
+		return this.vote_tally
