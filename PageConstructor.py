@@ -1,7 +1,7 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
-class Bill:
+class PageConstructor:
 
 	#Constructor that builds a PageConstructor object and stores what type of 
 	#page this constructor is building then calls fillHeader(self) to add the
