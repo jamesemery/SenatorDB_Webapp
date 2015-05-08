@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c0cd675b-1362-4ca3-8e30-c2ffa8c4b886" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Phase 2 - Mockups.docx" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Phase 2 - Mockups.pdf" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-    </list>
+    <list default="true" id="c0cd675b-1362-4ca3-8e30-c2ffa8c4b886" name="Default" comment="" />
     <ignored path="Project2.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path="$PROJECT_DIR$/out/" />
@@ -376,7 +372,7 @@
       <updated>1429234680007</updated>
       <workItem from="1429234681614" duration="19000" />
       <workItem from="1429234714401" duration="1662000" />
-      <workItem from="1429507950538" duration="19000" />
+      <workItem from="1429507950538" duration="354000" />
     </task>
     <task id="LOCAL-00001" summary="Added documentation for phase1.">
       <created>1429244897460</created>
@@ -388,7 +384,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1700000" />
+    <option name="totallyTimeSpent" value="2035000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="40" y="32" width="1400" height="790" extended-state="0" />
