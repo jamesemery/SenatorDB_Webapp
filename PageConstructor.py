@@ -16,7 +16,7 @@ class PageConstructor:
 
 	#Checks the page type and calls the appropriate method to fill the main
 	#content of the page.
-	def fillContent(self, page_type):
+	def fillContent(self, page_type, param):
 		#do stuff
 
 	#Gets html from homepageTemplate.html, fills in a list of the most recent
