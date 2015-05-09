@@ -3,10 +3,9 @@
 
 class PageConstructor:
 
-	#Constructor that builds a PageConstructor object and stores what type of 
-	#page this constructor is building then calls fillHeader(self) to add the
-	#common interface parts to page
-	def __init__(self, page_type):
+	#Constructor that builds a PageConstructor object and calls fillHeader(self)
+	#to add the common interface parts to page
+	def __init__(self):
 		#do stuff
 
 	#Method that reads headerTemplate.html and makes changes to it based on
@@ -17,7 +16,7 @@ class PageConstructor:
 
 	#Checks the page type and calls the appropriate method to fill the main
 	#content of the page.
-	def fillContent(self):
+	def fillContent(self, page_type):
 		#do stuff
 
 	#Gets html from homepageTemplate.html, fills in a list of the most recent
