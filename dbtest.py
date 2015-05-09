@@ -69,7 +69,7 @@ try:
     cursor.execute('SELECT * FROM senators;')
     print '<pre>'
     for row in cursor:
-        print str(type(row))
+        print row[1]
         print row
     print '</pre>'
 except:
