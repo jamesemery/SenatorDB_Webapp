@@ -69,7 +69,8 @@ try:
     cursor.execute('SELECT * FROM senators;')
     print '<pre>'
     for row in cursor:
-        print type(row)
+        print row[1]
+        print row
     print '</pre>'
 except:
     print 'Problem with select query. =(<br>'
