@@ -16,36 +16,9 @@ import cgi
 
 def main():
 	params = getParameters()
-	printHtmlPage(params['senator'], params['state'], 'template.html')
-
-
-def printHtmlPage(senator, state, template_name):
-	#Load the template file
-	try:
-		f = open(template_name)
-		text = f.read()
-		f.close()
-	except Exception, e:
-		text = "Cannot read template file <tt>%s</tt>. " % (template_name)
-
-	replacements = {}
-
-	#Build results string, save in dictionary
-	results = ""
-	if senator:
-		results += "<p>Searching for Senator %s</p>\n" % (senator)
-	if state:
-		results += "<p>Finding senators from %s</p>\n" % (state)
-	results = indent(results, 1)
-	replacements["results"] = results
-
-	replacements["senator"] = senator or "Enter a Senator"
-
-	outputText = text.format(**replacements)
-
-	print 'Content-type: text/html\r\n\r\n'
-	print outputText
-
+	backend = UserInputParser(params)
+	htmlPage = backend.generateHtmlPageOutput()
+	print htmlPage
 
 def getParameters():
 	params = {}
@@ -61,12 +34,6 @@ def getParameters():
 	if 'page_type' in form:
 		params['page_type'] = sanitizeInput(form['page_type'].value)
 	return params
-
-def indent(s, k):
-	"""Returns an indented copy of the string, with 4*k spaces prepended to
-	each line.
-	"""
-	return "\n".join([" "*(4*k) + line for line in s.splitlines()])
 
 def sanitizeInput(yarn):
 	chars_to_remove = ";,\\/:'\"<>@"
