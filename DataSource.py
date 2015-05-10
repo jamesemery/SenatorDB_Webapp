@@ -146,8 +146,7 @@ class DataSource:
             return None
 
 
-    #Returns a list of the id number for every senator in the specified 
-    #congress (for example, 114 would return all current senators)
+    #Returns a list of senators corresponding to the members of the specified congress
     def getSenatorsInSession(self, session):
         try:
             cursor = db_connection.cursor()
@@ -160,7 +159,7 @@ class DataSource:
         except:
             return None
 
-    #Returns a tuple list of containing the last number (or all votes in the
+    #Returns a double list of containing the last number (or all votes in the
     #database number =0) chronological votes that the senator has participated
     #in. The first value in the tuple is an int corresponding the the ID number
     #of the bill in question and the second value is a string representing the
