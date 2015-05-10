@@ -29,6 +29,7 @@ class UserInputParser:
 			html_string += this.makeSenatorPage()
 		elif this.page_type == "bill" and this.params["bill"] != "":
 			html_string += this.makeBillPage()
+		#state should be listed as a 2-letter abbr. - e.g. MA, VT, WI
 		elif this.page_type == "state" and len(this.params["state"]) = 2:
 			html_string += this.makeStatePage()
 		elif this.page_type == "committee" and this.params["committee"] != "":
@@ -51,14 +52,14 @@ class UserInputParser:
 	#return it.
 	def makeSenatorPage(self):
 		id_tag = this.params["senator"]
-		senator_obj = Senator(this.db_source.getBiographyForSenator(id_tag))
+		senator_obj = this.db_source.getSenator(id_tag)
 		this.page_maker.fillContent("senator", senator_obj)
 		html_string = this.page_maker.displayPage()
 		return html_string
 
 	def makeBillPage(self):
 		id_tag = this.params["bill"]
-		bill_obj = Bill(this.db_source.getBillBiography(id_tag))
+		bill_obj = this.db_source.getBillWithVotes(id_tag)
 		this.page_maker.fillContent("bill", bill_obj)
 		html_string = this.page_maker.displayPage()
 		return html_string
@@ -72,7 +73,7 @@ class UserInputParser:
 
 	def makeCommitteePage(self):
 		committee_id = this.params["committee"]
-		committee_obj = this.db_source.getCommittee(committee_id)
+		committee_obj = this.db_source.getCommitteeWithMembers(committee_id)
 		this.page_maker.fillContent("committee", committee_obj)
 		html_string = this.page_maker.displayPage()
 		return html_string
