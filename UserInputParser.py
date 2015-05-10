@@ -1,6 +1,12 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
+from PageConstructor import PageConstructor
+from DataSource import DataSource
+from Bill import Bill
+from Senator import Senator
+from Committee import Committee
+
 class UserInputParser:
 	#Constructor that stores params internally for later calling as well
 	#as calling setPageType() so the class knows what it will be trying to
