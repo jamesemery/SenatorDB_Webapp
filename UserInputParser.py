@@ -44,7 +44,11 @@ class UserInputParser:
 			#generate an error page. Maybe call PageConstructor to make one?
 		return html_string
 
-
+	#The "make" methods all do about the same thing, but with enough
+	#variations that it'd be a pain to make them all one. They get the major
+	#info we need from the database, then call the requisite PageConstructor
+	#method to make the page, after which they get it back as a string and
+	#return it.
 	def makeSenatorPage(self):
 		id_tag = this.params["senator"]
 		senator_obj = Senator(this.db_source.getBiographyForSenator(id_tag))
@@ -62,7 +66,7 @@ class UserInputParser:
 	def makeStatePage(self):
 		state_name = this.params["state"]
 		senator_list = this.db_source.getSenatorsInState(stateName)
-		this.page_maker.fillContent("state", senatorList)
+		this.page_maker.fillContent("state", senator_list)
 		html_string = this.page_maker.displayPage()
 		return html_string
 
@@ -74,11 +78,14 @@ class UserInputParser:
 		return html_string
 
 	def makeSessionPage(self):
-		html_string = ""
+		session_id = this.params["session"]
+		senator_list = this.db_source.getSenatorsInSession(session_id)
+		this.page_maker.fillContent("session", senator_list)
+		html_string = this.page_maker.displayPage()
 		return html_string
 
 	def makeHomePage(self):
-		html_string = ""
+		html_string = this.page_maker.getHomepage()
 		return html_string		
 
 	#Takes a list of bills and a search criteria and returns a new list of bills
