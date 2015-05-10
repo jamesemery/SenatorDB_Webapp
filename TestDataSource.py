@@ -1,5 +1,9 @@
 import unittest
 import cgitb
+from DataSource import DataSource
+from Bill import Bill
+from Senator import Senator
+from Committee import Committee
 
 
 class TestDataSource(unittest.TestCase):
@@ -27,9 +31,9 @@ class TestDataSource(unittest.TestCase):
 	#senator example =
 
 
-
-
-	test_billnv = Bill([100, 109, 188, datetime'2005-07-14 18:53:00', 'amendment', 'On the Amendment S.Amdt. 1222 to H.R. 2360 (Department of Homeland Security Appropriations Act, 2006)'])
+	short_bill_list = []
+	short_bill_list = [100, 109, 188, datetime.date('2005-07-14 18:53:00'), 'amendment', 'On the Amendment S.Amdt. 1222 to H.R. 2360 (Department of Homeland Security Appropriations Act, 2006)']
+	test_billnv = Bill(short_bill_list)
 
 	#note, this is not entirely accurate as what db_source really passes to the
 	#constructor are lists of senator objects but in this case it is still
@@ -38,13 +42,14 @@ class TestDataSource(unittest.TestCase):
 
 
 	## testing that GetBill does indeed return the expectd bill object
-	testGetBill():
+	def testGetBill():
 		actual = db_source.getBill(100)
 		assert test_billnv.getId()==actual.getId()
 		assert test_billnv.getSession()==actual.getSession()
 		assert test_billnv.getRoll()==actual.getRoll()
 		assert test_billnv.getVoteDate()==actual.getVoteDate()
-		assert test_billnv.get()==actual.getRoll()
+		assert test_billnv.getType()==actual.getType()
+		assert test_billnv.getQuestion()==actual.getQuestion()
 
 
 
@@ -55,4 +60,4 @@ class TestDataSource(unittest.TestCase):
 
 
 	if __name__ == '__main__':
-    	unittest.main()
+		unittest.main()
