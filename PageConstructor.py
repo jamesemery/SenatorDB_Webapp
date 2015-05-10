@@ -27,7 +27,12 @@ class PageConstructor:
 
 	#Gets html from billPageTemplate.html, fills in the info of the bill passed
 	#to it, and appends to the page variable. 
-	def getBillPage(self,Bill bill):
+	def getBillPage(self, bill):
+		#do stuff
+
+	#Gets html from committeeTemplate.html, fills in info, and appends to the 
+	#page variable.
+	def getCommitteePage(self, committee):
 		#do stuff
 
 	#Gets html from billComparisonTemplate.html, fills in the info of the two
