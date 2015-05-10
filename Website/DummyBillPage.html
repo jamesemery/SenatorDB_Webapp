@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="description" content="Search recent senate activity by senate, bill, and more!">
+        <meta name="author" content="Joe Adkisson, Jamie Emery, and Michael Stoneman">
+        
+        <title>[bill name] | SV</title>
+
+        <!-- Bootstrap -->
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <!-- Our changes to it -->
+        <link rel="stylesheet" type="text/css" href="css/custom.css">
+	</head>
+
+	<body>
+		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+        <!-- Include all compiled plugins (below), or include individual files as needed -->
+        <script src="js/bootstrap.min.js"></script>
+
+		<nav class="navbar navbar-fixed-top">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="DummyHomepage.html">SenatorVotes</a>
+                </div>
+                <ol class="breadcrumb">
+                    <li><a href="DummyHomepage.html">Home</a></li>
+                    <li><a href="#">Bills</a></li>
+                    <li class="active">Bill Nye</li>
+                </ol>
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Senators<span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="#">(R-AK) Richard White</a></li>
+                            <li><a href="#">(D-WA) Laura Palmer</a></li>
+                            <li><a href="#">(S-VT) Bernie Sanders</a></li>
+                            <li class="divider"></li>
+                            <!-- Links to Senators by State? -->
+                            <li><a href="#">Past Senators</a></li>
+                        </ul>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Bills<span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="#">Bill Nye</a></li>
+                            <li><a href="#">Bill Gates</a></li>
+                            <li><a href="#">Bill Cosby</a></li>
+                            <li class="divider"></li>
+                            <li><a href="#">More Bills</a></li>
+                        </ul>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Congresses<span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="#">(2015-2016) 124<sup>th</sup></a></li>
+                            <li><a href="#">(2013-2014) 123<sup>rd</sup></a></li>
+                            <li><a href="#">(2011-2012) 122<sup>nd</sup></a></li>
+                            <li class="divider"></li>
+                            <li><a href="#">Past Congresses</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+
+        <!-- That's the navbar done with. Everything above this should be pretty
+        standard to all pages, save for the title, and even that doesn't need to
+        be custom if we don't want it to be. -->
+        <div class="container-fluid">
+            <div class="row" style="height:100px;"></div> <!-- padding -->
+
+            <!-- Section for the bill. -->
+
+            <div class="row">
+                <div class="col-md-3"> </div> <!-- padding -->
+                <div class="infobox2 col-md-6" style="background: #f5f5f5;">
+                    <h2>Bill Name</h2>
+                    <p>Type: [type]</p>
+                    <p>Session: [session]</p>
+                    <p>Vote Date: yyyy-mm-dd</p>
+                </div>
+                <div class="col-md-3"> </div> <!-- padding -->
+            </div>
+
+            <div class="row" style="height:50px;"></div> <!-- padding -->
+
+            <!-- Section for a table of votes -->
+
+            <div class="row"> <!-- Standardizes column heights. Might not
+                                             work with IE 9 or before. Problem? -->
+
+                <div class="col-md-2"> </div> <!-- padding -->
+                <div class="infobox col-md-8" style="background: #f5f5f5;">
+                    <h3>Voting Data</h3>
+                    <table class="table table-hover table-bordered table-fixed">
+                        <thead>
+                            <tr>
+                                <th class="col-md-2">Vote</th>
+                                <th class="col-md-4">Senator</th>
+                                <th class="col-md-3">State</th>
+                                <th class="col-md-3">Party</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>Aye</td><td>Richard White</td><td>Republican</td><td>Alaska</td></tr>
+                            <tr><td>Aye</td><td>Bernie Sanders</td><td>Socialist</td><td>Vermont</td></tr>
+                            <tr><td>Nay</td><td>Laura Palmer</td><td>Democrat</td><td>Washington</td></tr>
+                            <tr><td>Aye</td><td>Richard White</td><td>Republican</td><td>Alaska</td></tr>
+                            <tr><td>Aye</td><td>Bernie Sanders</td><td>Socialist</td><td>Vermont</td></tr>
+                            <tr><td>Nay</td><td>Laura Palmer</td><td>Democrat</td><td>Washington</td></tr>
+                            <tr><td>Aye</td><td>Richard White</td><td>Republican</td><td>Alaska</td></tr>
+                            <tr><td>Aye</td><td>Bernie Sanders</td><td>Socialist</td><td>Vermont</td></tr>
+                            <tr><td>Nay</td><td>Laura Palmer</td><td>Democrat</td><td>Washington</td></tr>
+                            <tr><td>Aye</td><td>Richard White</td><td>Republican</td><td>Alaska</td></tr>
+                            <tr><td>Aye</td><td>Bernie Sanders</td><td>Socialist</td><td>Vermont</td></tr>
+                            <tr><td>Nay</td><td>Laura Palmer</td><td>Democrat</td><td>Washington</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="col-md-2"> </div> <!-- padding -->
+            </div>
+
+            <div class="row" style="height:50px;"></div>
+        </div>
+        <nav class="navbar" id="footer">
+            <div class="container-fluid">
+                <div class="navbar-right" style="padding-right:50px;">
+                    <p>OUR DISCLAIMER THING. Our data is legit.</p>
+                </div>
+            </div>
+        </nav>
+	</body>
+</html>

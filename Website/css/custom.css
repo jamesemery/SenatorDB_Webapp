@@ -1,0 +1,49 @@
+
+
+
+.navbar {
+	background-color: #f5f5f5;
+    margin-bottom: 0;
+}
+
+.navbar-nav > li {
+  padding-left:10px;
+  padding-right:10px;
+}
+
+nav a {
+	color: #0052a5;
+}
+
+.breadcrumb {
+    margin: 0 7px;
+    background-color: #f5f5f5;
+}
+@media (min-width: 768px) {
+    .breadcrumb {
+        float: left;
+        margin: 7px 10px;
+    }
+}
+
+.infobox{
+	border-radius: 10px;
+    border: 2px solid #0052a5;
+}
+
+.infobox2{
+	border-radius: 10px;
+    border: 2px solid #E0162B;
+}
+
+
+.table-hover > tbody > tr:hover {
+  /*background-color: #ffffff;*/
+  font-weight: 500;
+}
+
+#footer {
+	padding-top: 14px;
+	font-size: small;
+	color: gray;
+}
