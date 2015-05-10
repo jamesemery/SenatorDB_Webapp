@@ -24,7 +24,7 @@ class DataSource:
             f.close()
         except:
             print "failed to connect to the database directory"
-            #print 'Your database password is %s.<br>' % PASSWORD
+            print 'Your database password is %s.<br>' % PASSWORD
             print 'Your database username is %s.<br>' % USERNAME
         try:
             db_connection = psycopg2.connect(user=USERNAME,
