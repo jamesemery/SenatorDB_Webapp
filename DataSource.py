@@ -5,6 +5,7 @@ import os.path
 import sys
 import psycopg2
 import cgitb
+import datetime
 
 class DataSource:
     #Constructor for the DataSource database interface class.
@@ -34,7 +35,7 @@ class DataSource:
     def getBill(self, bill_id):
         try:
             cursor = db_connection.cursor()
-            cursor.execute('SELECT id, session, roll, vote_date, type, question FROM bills WHERE id = (%s);',
+            cursor.execute('SELECT id, session, roll, vote_date, type, question FROM bills WHERE id = %s;',
                 (bill_id, ))
             bills = []
             for row in cursor:
