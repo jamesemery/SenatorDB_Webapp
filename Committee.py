@@ -14,7 +14,7 @@ class Committee:
 			self.senators = []
 
 	#Generates an Html link to this committee's page.
-	def generateCommitteeLink(self):
+	def getCommitteeLink(self):
 		return ""
 
 	def getId(self):
