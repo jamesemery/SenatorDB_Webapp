@@ -19,6 +19,7 @@ class DataSource:
         USERNAME = 'emeryj'
         DB_NAME = 'emeryj'
         try:
+            print os.path.join('/cs257', USERNAME)
             f = open(os.path.join('/cs257', USERNAME))
             PASSWORD = f.read().strip()
             print PASSWORD
