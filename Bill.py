@@ -21,30 +21,30 @@ class Bill:
 
 	#Gets the bill's name
 	def getName(self):
-		return this.name
+		return self.name
 
 	#Gets the bill's id tag
 	def getId(self):
-		return this.id
+		return self.id
 
 	#Gets the bill's HR tag
 	def getHr(self):
-		return this.hr
+		return self.hr
 
 	#Gets the date on which the bill was voted.
 	def getDate(self):
-		return this.date
+		return self.date
 
 	#Gets the congress that voted on the bill.
 	def getCongress(self):
-		return this.congress
+		return self.congress
 
 	#Gets the bill's description.
 	def getDescription(self):
-		return this.description
+		return self.description
 
 	#Returns the vote tally: a two-dimensional list of the votes; vote_tally[0] is a list of
 	#senators, vote_tally[1] is a list of strings representing votes:
 	#"Yea", "Nay", "Absent", or "Abstain"
 	def getVoteTally(self):
-		return this.vote_tally
+		return self.vote_tally
