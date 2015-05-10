@@ -37,7 +37,7 @@ class DataSource:
     def getBill(self, bill_id):
         try:
             cursor = db_connection.cursor()
-            cursor.execute('SELECT id, session, roll, vote_date, type, question FROM bills WHERE id = (%s);',
+            print cursor.mogrify('SELECT id, session, roll, vote_date, type, question FROM bills WHERE id = (%s);',
                 (bill_id, ))
             bills = []
             for row in cursor:
