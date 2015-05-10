@@ -41,6 +41,9 @@ class Bill:
 	def getVoteDate(self):
 		return self.vote_date
 
+	def getType(self):
+		return self.type
+
 	def getQuestion(self):
 		return self.question
 
@@ -51,7 +54,7 @@ class Bill:
 	def getVoteTally(self):
 		senator_list = []
 		vote_list = []
-		
+
 		for senator in self.yea_votes:
 			senator_list.append(senator)
 			vote_list.append("Yea")
@@ -67,5 +70,3 @@ class Bill:
 
 		vote_tally = [senator_list, vote_list]
 		return vote_tally
-
-		#TODO this. I'm not sure the exact format of the vote data.
