@@ -19,13 +19,16 @@ class Senator:
 		#if there is a 9th argument in params then it indicates that a list has
 		#committee objects from the database and will thus store them
 		if len(params) == 9:
-			committees = params[8]
+			self.committees = params[8]
 
 	#Generates a link to the senator’s page with the properly formatted text and
 	#returns it as a string(e.g. (R-AK) Richard White ).
-	def generateSenatorLink(self):
+	def getSenatorLink(self):
 		htmlLink = ""
 		return htmlLink
+
+	def getId(self):
+		return self.id
 
 	def getFirst(self):
 		return self.first
@@ -36,14 +39,20 @@ class Senator:
 	def getName(self):
 		return self.first + " " + self.last
 
-	def getId(self):
-		return self.id
+	def getBirthday(self):
+		return self.birthday
 
-	def getState(self):
-		return self.state
-
-	def getCongressesServed(self):
-		return self.congresses_served
+	def getGender(self):
+		return self.gender
 
 	def getParty(self):
 		return self.party
+
+	def getWiki(self):
+		return self.wiki
+
+	def isCurrent(self):
+		return self.current
+
+	def getCommittees(self):
+		return self.committees
