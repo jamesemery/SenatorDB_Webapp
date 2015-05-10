@@ -18,9 +18,9 @@ class DataSource:
     def __init__(self):
         USERNAME = 'emeryj'
         DB_NAME = 'emeryj'
-        PASSWORD  = 'recycle853dave'
         try:
-            f = open(os.path.join('/cs257', USERNAME))
+            f = open('testpassfileworkaround')
+            #f = open(os.path.join('/cs257', USERNAME)) ###TODO DELETE THIS
             PASSWORD = f.read().strip()
             f.close()
         except:
