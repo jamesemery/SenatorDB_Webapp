@@ -63,46 +63,49 @@ class UserInputParser:
 	def makeSenatorPage(self):
 		id_tag = self.params["senator"]
 		senator_obj = self.db_source.getSenatorWithCommittees(id_tag)
-		self.page_maker.getSenatorPage(senator_obj)
-		html_string = self.page_maker.displayPage()
+		self.page_maker.makeSenatorPage(senator_obj)
+		html_string = self.page_maker.getPage()
 		return html_string
 
 	def makeBillPage(self):
 		id_tag = self.params["bill"]
 		bill_obj = self.db_source.getBillWithVotes(id_tag)
-		self.page_maker.getBillPage(bill_obj)
-		html_string = self.page_maker.displayPage()
+		self.page_maker.makeBillPage(bill_obj)
+		html_string = self.page_maker.getPage()
 		return html_string
 
 	def makeStatePage(self):
 		state_name = self.params["state"]
 		senator_list = self.db_source.getSenatorsInState(state_name)
-		self.page_maker.getStatePage(state_name, senator_list)
-		html_string = self.page_maker.displayPage()
+		self.page_maker.makeStatePage(state_name, senator_list)
+		html_string = self.page_maker.getPage()
 		return html_string
 
 	def makeCommitteePage(self):
 		committee_id = self.params["committee"]
 		committee_obj = self.db_source.getCommitteeWithMembers(committee_id)
-		self.page_maker.getCommitteePage(committee_obj)
-		html_string = self.page_maker.displayPage()
+		self.page_maker.makeCommitteePage(committee_obj)
+		html_string = self.page_maker.getPage()
 		return html_string
 
 	def makeSessionPage(self):
 		session_id = self.params["session"]
 		senator_list = self.db_source.getSenatorsInSession(session_id)
-		self.page_maker.getSessionPage(session_id,)
-		html_string = self.page_maker.displayPage()
+		bill_list = self.db_source.getBillsInCongress(session_id, 0)
+		#The 0 argument specifies that we want all bills rather than a given
+		#number of them.
+		self.page_maker.makeSessionPage(session_id,senator_list,bill_list)
+		html_string = self.page_maker.getPage()
 		return html_string
 
 	def makeHomePage(self):
-		self.page_maker.getHomepage()
-		
+		self.page_maker.makeHomepage()
+		html_string = self.page_maker.getPage()
 		return html_string
 
 	def makeErrorPage(self):
-		self.page_maker.getErrorPage()
-		html_string = self.page_maker.displayPage()
+		self.page_maker.makeErrorPage()
+		html_string = self.page_maker.getPage()
 		return html_string		
 
 	#Takes a list of bills and a search criteria and returns a new list of bills
