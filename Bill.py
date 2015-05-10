@@ -18,43 +18,29 @@ class Bill:
 			self.present = params[8]
 			self.not_voting = params[9]
 
-	#Speaks to the database interface and populates vote_tally with the
-	#requisite senators and their votes from the database
-	def populateVotes(self):
-		#do stuff
-
 	#Generates a link to the bill’s page with the properly formatted HTML text
 	#and returns it as a string.
 	def generateBillLink(self):
 		HtmlString = ""
 		return HtmlString
 
-	#Gets the bill's name
-	def getName(self):
-		return self.name
-
-	#Gets the bill's id tag
 	def getId(self):
 		return self.id
 
-	#Gets the bill's HR tag
-	def getHr(self):
-		return self.hr
+	def getSession(self):
+		return self.session
 
-	#Gets the date on which the bill was voted.
-	def getDate(self):
-		return self.date
+	def getRoll(self):
+		return self.roll
 
-	#Gets the congress that voted on the bill.
-	def getCongress(self):
-		return self.congress
+	def getVoteDate(self):
+		return self.vote_date
 
-	#Gets the bill's description.
-	def getDescription(self):
-		return self.description
+	def getQuestion(self):
+		return self.question
 
 	#Returns the vote tally - a two-dimensional list of the votes; vote_tally[0] is a list of
 	#senators, vote_tally[1] is a list of strings representing votes:
 	#"Yea", "Nay", "Absent", or "Abstain"
 	def getVoteTally(self):
-		return self.vote_tally
+		#TODO this. I'm not sure the exact format of the vote data.
