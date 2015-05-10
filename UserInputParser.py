@@ -63,44 +63,46 @@ class UserInputParser:
 	def makeSenatorPage(self):
 		id_tag = self.params["senator"]
 		senator_obj = self.db_source.getSenatorWithCommittees(id_tag)
-		self.page_maker.fillContent("senator", senator_obj)
+		self.page_maker.getSenatorPage(senator_obj)
 		html_string = self.page_maker.displayPage()
 		return html_string
 
 	def makeBillPage(self):
 		id_tag = self.params["bill"]
 		bill_obj = self.db_source.getBillWithVotes(id_tag)
-		self.page_maker.fillContent("bill", bill_obj)
+		self.page_maker.getBillPage(bill_obj)
 		html_string = self.page_maker.displayPage()
 		return html_string
 
 	def makeStatePage(self):
 		state_name = self.params["state"]
-		senator_list = self.db_source.getSenatorsInState(stateName)
-		self.page_maker.fillContent("state", senator_list)
+		senator_list = self.db_source.getSenatorsInState(state_name)
+		self.page_maker.getStatePage(state_name, senator_list)
 		html_string = self.page_maker.displayPage()
 		return html_string
 
 	def makeCommitteePage(self):
 		committee_id = self.params["committee"]
 		committee_obj = self.db_source.getCommitteeWithMembers(committee_id)
-		self.page_maker.fillContent("committee", committee_obj)
+		self.page_maker.getCommitteePage(committee_obj)
 		html_string = self.page_maker.displayPage()
 		return html_string
 
 	def makeSessionPage(self):
 		session_id = self.params["session"]
 		senator_list = self.db_source.getSenatorsInSession(session_id)
-		self.page_maker.fillContent("session", senator_list)
+		self.page_maker.getSessionPage(session_id,)
 		html_string = self.page_maker.displayPage()
 		return html_string
 
 	def makeHomePage(self):
-		html_string = self.page_maker.getHomepage()
+		self.page_maker.getHomepage()
+		
 		return html_string
 
 	def makeErrorPage(self):
-		html_string = self.page_maker.getErrorPage()
+		self.page_maker.getErrorPage()
+		html_string = self.page_maker.displayPage()
 		return html_string		
 
 	#Takes a list of bills and a search criteria and returns a new list of bills

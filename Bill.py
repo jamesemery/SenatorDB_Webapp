@@ -53,7 +53,7 @@ class Bill:
 	def getDescription(self):
 		return self.description
 
-	#Returns the vote tally: a two-dimensional list of the votes; vote_tally[0] is a list of
+	#Returns the vote tally - a two-dimensional list of the votes; vote_tally[0] is a list of
 	#senators, vote_tally[1] is a list of strings representing votes:
 	#"Yea", "Nay", "Absent", or "Abstain"
 	def getVoteTally(self):
