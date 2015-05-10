@@ -86,6 +86,13 @@ th {
   font-weight: 500;
 }
 
+tbody a:link,
+tbody a:visited,
+tbody a:hover,
+tbody a:active {
+    text-decoration: none;
+}
+
 
 /* Footer */
 
