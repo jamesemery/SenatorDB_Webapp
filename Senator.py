@@ -18,7 +18,7 @@ class Senator:
 
 	#Generates a link to the senator’s page with the properly formatted text and
 	#returns it as a string(e.g. (R-AK) Richard White ).
-	def generateHtmlNameLink(self):
+	def generateSenatorLink(self):
 		htmlLink = ""
 		return htmlLink
 
