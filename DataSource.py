@@ -22,13 +22,15 @@ class DataSource:
             PASSWORD = f.read().strip()
             f.close()
         except:
-            print "fail"
+            print "failed to connect to the database directory"
+            print 'Your database password is %s.<br>' % PASSWORD
+            print 'Your database username is %s.<br>' % USERNAME
         try:
             db_connection = psycopg2.connect(user=USERNAME,
                                              database=DB_NAME,
                                              password=PASSWORD)
         except:
-            print "fail"
+            print "psycopg2 failed to load the directory"
 
     #Returns a bill object corresponding to id of the bill it is given withouth
     #any vote information
