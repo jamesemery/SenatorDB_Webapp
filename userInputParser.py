@@ -8,15 +8,15 @@ class UserInputParser:
 	def __init__(self, params):
 		this.page_type = params['page_type'].value
 		this.params = params
-		this.page_constructor = PageConstructor()
+		this.page_maker = PageConstructor()
 		this.dbSource = DataSource()
 
 
 	#Based on the page_type it grabs the relevant variables from params
 	#(with potential for throwing an invalid user input exception). The class
 	#then uses those variables from params to querey Database.py to grab the
-	#requested information and feed it to page_constructor to build the page.
-	#Then returns the html from page_constructor. (note much logic occurs here.
+	#requested information and feed it to page_maker to build the page.
+	#Then returns the html from page_maker. (note much logic occurs here.
 	#If there is a search query in the user input it calls billSearchCuller
 	#to remove from the list any bills that do not meet the criteria after
 	#the database search. 
@@ -29,7 +29,7 @@ class UserInputParser:
 			htmlString += this.makeSenatorPage()
 		elif this.page_type == "bill" and this.params["bill"] != "":
 			htmlString += this.makeBillPage()
-		elif this.page_type == "state" and this.params["state"] != "":
+		elif this.page_type == "state" and len(this.params["state"]) = 2:
 			htmlString += this.makeStatePage()
 		elif this.page_type == "committee" and this.params["committee"] != "":
 			htmlString += this.makeCommitteePage()
@@ -48,19 +48,22 @@ class UserInputParser:
 	def makeSenatorPage(self):
 		idTag = this.params["senator"]
 		senatorObj = Senator(this.dbSource.getBiographyForSenator(idTag))
-		this.page_constructor.fillContent("senator", senatorObj)
-		htmlString = this.page_constructor.displayPage()
+		this.page_maker.fillContent("senator", senatorObj)
+		htmlString = this.page_maker.displayPage()
 		return htmlString
 
 	def makeBillPage(self):
 		idTag = this.params["bill"]
 		billObj = Bill(this.dbSource.getBillBiography(idTag))
-		this.page_constructor.fillContent("bill", billObj)
-		htmlString = this.page_constructor.displayPage()
+		this.page_maker.fillContent("bill", billObj)
+		htmlString = this.page_maker.displayPage()
 		return htmlString
 
 	def makeStatePage(self):
-		htmlString = ""
+		stateName = this.params["state"]
+		senatorList = this.dbSource.getSenatorsInState(stateName)
+		this.page_maker.fillContent("state", senatorList)
+		htmlString = this.page_maker.displayPage()
 		return htmlString
 
 	def makeCommitteePage(self):
