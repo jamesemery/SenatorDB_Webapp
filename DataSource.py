@@ -46,6 +46,7 @@ class DataSource:
                 return bills[0]
             else: return None 
         except:
+            print "failed to retieve item from the database"
             return None
 
 
