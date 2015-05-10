@@ -4,27 +4,30 @@
 class Committee:
 
 	def __init__(self, params):
-		this.id = params[0]
-		this.name = params[1]
-		this.super_committee = params[2]
-		this.session = params[3]
-		this.senators = params[4]
+		self.id = params[0]
+		self.name = params[1]
+		self.super_committee = params[2]
+		self.session = params[3]
+		if (len(params) == 5):
+			self.senators = params[4]
+		else:
+			self.senators = []
 
 	#Generates an Html link to this committee's page.
 	def generateCommitteeLink(self):
 		return ""
 
 	def getId(self):
-		return this.id
+		return self.id
 
 	def getName(self):
-		return this.name
+		return self.name
 
 	def getSuperCommittee(self):
-		return this.super_committee
+		return self.super_committee
 
 	def getSession(self):
-		return this.session
+		return self.session
 
 	def getSenators(self):
-		return this.senators
+		return self.senators

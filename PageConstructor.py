@@ -6,7 +6,8 @@ class PageConstructor:
 	#Constructor that builds a PageConstructor object and calls fillHeader(self)
 	#to add the common interface parts to page
 	def __init__(self):
-		#do stuff
+		self.page = ""
+		self.fillHeader()
 
 	#Method that reads headerTemplate.html and makes changes to it based on
 	#page_type (for example graying out the current page link) then adds it to
@@ -22,7 +23,7 @@ class PageConstructor:
 	#Gets html from homepageTemplate.html, fills in a list of the most recent
 	#senatorial activity, then appends the now-complete html for the homepage
 	#to the page variable. 
-	def getHomepage(self,bill_list):
+	def getHomepage(self):
 		#do stuff
 
 	#Gets html from billPageTemplate.html, fills in the info of the bill passed
@@ -33,19 +34,6 @@ class PageConstructor:
 	#Gets html from committeeTemplate.html, fills in info, and appends to the 
 	#page variable.
 	def getCommitteePage(self, committee):
-		#do stuff
-
-	#Gets html from billComparisonTemplate.html, fills in the info of the two
-	#bills, and appends to the page variable. (both parameters are Bill objects)
-	def getBillComparisonPage(self,bill_one, bill_two):
-		#do stuff
-
-	#Generates the html formatting for a given search query page and adds it to
-	#the already partially filled in page variable then returns the html code
-	#for the page 
-
-	#NOT SURE ABOUT THE PARAMS FOR THIS ONE...
-	def getBillSearchQueryPage(self,bill_list,Senator=empty):
 		#do stuff
 
 	#Gets html from senatorPageTemplate.html, fills in the senator’s info, and
@@ -67,6 +55,9 @@ class PageConstructor:
 	#senators from the congress and the last few bills from the congress 
 	def getCongressPage(self, int congress,senator_list,bill_list):
 
-	#Prints the finished html page to standard output.
+	#Gets a general-purpose error page.
+	def getErrorPage(self):
+
+	#Returns the finished page.
 	def displayPage(self):
-		#do stuff
+		return self.page

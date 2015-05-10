@@ -6,10 +6,10 @@ class UserInputParser:
 	#as calling setPageType() so the class knows what it will be trying to
 	#return later
 	def __init__(self, params):
-		this.page_type = params['page_type'].value
-		this.params = params
-		this.page_maker = PageConstructor()
-		this.db_source = DataSource()
+		self.page_type = params['page_type']
+		self.params = params
+		self.page_maker = PageConstructor()
+		self.db_source = DataSource()
 
 
 	#Based on the page_type it grabs the relevant variables from params
@@ -25,20 +25,21 @@ class UserInputParser:
 		#The extra bits on the conditionals check that we're actually given a
 		#specific senator/state/bill by the CGI parameters. If not, it'll just
 		#go into the else.
-		if this.page_type == "senator" and this.params["senator"] != "":
-			html_string += this.makeSenatorPage()
-		elif this.page_type == "bill" and this.params["bill"] != "":
-			html_string += this.makeBillPage()
+		if self.page_type == "senator" and self.params["senator"] != "":
+			html_string += self.makeSenatorPage()
+		elif self.page_type == "bill" and self.params["bill"] != "":
+			html_string += self.makeBillPage()
 		#state should be listed as a 2-letter abbr. - e.g. MA, VT, WI
-		elif this.page_type == "state" and len(this.params["state"]) = 2:
-			html_string += this.makeStatePage()
-		elif this.page_type == "committee" and this.params["committee"] != "":
-			html_string += this.makeCommitteePage()
-		elif this.page_type == "session" and this.params["session"] != "":
-			html_string += this.makeSessionPage()
-		elif this.page_type == "home":
-			html_string += this.makeHomePage()
+		elif self.page_type == "state" and len(self.params["state"]) == 2:
+			html_string += self.makeStatePage()
+		elif self.page_type == "committee" and self.params["committee"] != "":
+			html_string += self.makeCommitteePage()
+		elif self.page_type == "session" and self.params["session"] != "":
+			html_string += self.makeSessionPage()
+		elif self.page_type == "home":
+			html_string += self.makeHomePage()
 		else:
+			html_string += self.makeErrorPage()	
 			#TODO make an error page, figure out where all of it fits.
 			#This is the hub, and any major errors should come to this
 			#method eventually, so this else might be a great place to
@@ -50,43 +51,50 @@ class UserInputParser:
 	#info we need from the database, then call the requisite PageConstructor
 	#method to make the page, after which they get it back as a string and
 	#return it.
+	#For Senators, Bills & Committees, the object returned by DataSource.py
+	#will be an object of the appropriate type; otherwise, it'll be a list of
+	#objects.
 	def makeSenatorPage(self):
-		id_tag = this.params["senator"]
-		senator_obj = this.db_source.getSenator(id_tag)
-		this.page_maker.fillContent("senator", senator_obj)
-		html_string = this.page_maker.displayPage()
+		id_tag = self.params["senator"]
+		senator_obj = self.db_source.getSenatorWithCommittees(id_tag)
+		self.page_maker.fillContent("senator", senator_obj)
+		html_string = self.page_maker.displayPage()
 		return html_string
 
 	def makeBillPage(self):
-		id_tag = this.params["bill"]
-		bill_obj = this.db_source.getBillWithVotes(id_tag)
-		this.page_maker.fillContent("bill", bill_obj)
-		html_string = this.page_maker.displayPage()
+		id_tag = self.params["bill"]
+		bill_obj = self.db_source.getBillWithVotes(id_tag)
+		self.page_maker.fillContent("bill", bill_obj)
+		html_string = self.page_maker.displayPage()
 		return html_string
 
 	def makeStatePage(self):
-		state_name = this.params["state"]
-		senator_list = this.db_source.getSenatorsInState(stateName)
-		this.page_maker.fillContent("state", senator_list)
-		html_string = this.page_maker.displayPage()
+		state_name = self.params["state"]
+		senator_list = self.db_source.getSenatorsInState(stateName)
+		self.page_maker.fillContent("state", senator_list)
+		html_string = self.page_maker.displayPage()
 		return html_string
 
 	def makeCommitteePage(self):
-		committee_id = this.params["committee"]
-		committee_obj = this.db_source.getCommitteeWithMembers(committee_id)
-		this.page_maker.fillContent("committee", committee_obj)
-		html_string = this.page_maker.displayPage()
+		committee_id = self.params["committee"]
+		committee_obj = self.db_source.getCommitteeWithMembers(committee_id)
+		self.page_maker.fillContent("committee", committee_obj)
+		html_string = self.page_maker.displayPage()
 		return html_string
 
 	def makeSessionPage(self):
-		session_id = this.params["session"]
-		senator_list = this.db_source.getSenatorsInSession(session_id)
-		this.page_maker.fillContent("session", senator_list)
-		html_string = this.page_maker.displayPage()
+		session_id = self.params["session"]
+		senator_list = self.db_source.getSenatorsInSession(session_id)
+		self.page_maker.fillContent("session", senator_list)
+		html_string = self.page_maker.displayPage()
 		return html_string
 
 	def makeHomePage(self):
-		html_string = this.page_maker.getHomepage()
+		html_string = self.page_maker.getHomepage()
+		return html_string
+
+	def makeErrorPage(self):
+		html_string = self.page_maker.getErrorPage()
 		return html_string		
 
 	#Takes a list of bills and a search criteria and returns a new list of bills

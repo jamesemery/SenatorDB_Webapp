@@ -8,6 +8,7 @@
  """
 
 import cgi
+from UserInputParser import UserInputParser
 
 def main():
 	params = getParameters()
@@ -28,6 +29,8 @@ def getParameters():
 		params['state'] = ''
 	if 'page_type' in form:
 		params['page_type'] = sanitizeInput(form['page_type'].value)
+	else:
+		params['page_type'] = 'error'
 	return params
 
 def sanitizeInput(yarn):
