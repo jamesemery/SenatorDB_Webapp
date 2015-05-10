@@ -5,12 +5,14 @@
 		<meta name="description" content="Search recent senate activity by senate, bill, and more!">
         <meta name="author" content="Joe Adkisson, Jamie Emery, and Michael Stoneman">
         
-        <title>[bill name] | SV</title>
+        <title>Bill Nye | SV</title>
 
         <!-- Bootstrap -->
         <link href="css/bootstrap.min.css" rel="stylesheet">
         <!-- Our changes to it -->
         <link rel="stylesheet" type="text/css" href="css/custom.css">
+        <!-- Table sorting -->
+        <link rel="stylesheet" href="css/sortable-theme-bootstrap.css">
 	</head>
 
 	<body>
@@ -18,6 +20,8 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
         <!-- Include all compiled plugins (below), or include individual files as needed -->
         <script src="js/bootstrap.min.js"></script>
+        <!-- Table sorting -->
+        <script src="js/sortable.min.js"></script>
 
 		<nav class="navbar navbar-fixed-top">
             <div class="container-fluid">
@@ -33,21 +37,21 @@
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Senators<span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu">
-                            <li><a href="#">(R-AK) Richard White</a></li>
-                            <li><a href="#">(D-WA) Laura Palmer</a></li>
-                            <li><a href="#">(S-VT) Bernie Sanders</a></li>
+                            <li><a href="DummySenatorPage.html">(R-AK) Richard White</a></li>
+                            <li><a href="DummySenatorPage.html">(D-WA) Laura Palmer</a></li>
+                            <li><a href="DummySenatorPage.html">(S-VT) Bernie Sanders</a></li>
                             <li class="divider"></li>
                             <!-- Links to Senators by State? -->
-                            <li><a href="#">Past Senators</a></li>
+                            <li><a href="DummySenatorPage.html">Past Senators</a></li>
                         </ul>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Bills<span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu">
-                            <li><a href="#">Bill Nye</a></li>
-                            <li><a href="#">Bill Gates</a></li>
-                            <li><a href="#">Bill Cosby</a></li>
+                            <li><a href="DummyBillPage.html">Bill Nye</a></li>
+                            <li><a href="DummyBillPage.html">Bill Gates</a></li>
+                            <li><a href="DummyBillPage.html">Bill Cosby</a></li>
                             <li class="divider"></li>
-                            <li><a href="#">More Bills</a></li>
+                            <li><a href="DummyBillPage.html">More Bills</a></li>
                         </ul>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Congresses<span class="caret"></span></a>
@@ -63,43 +67,42 @@
             </div>
         </nav>
 
-
         <!-- That's the navbar done with. Everything above this should be pretty
         standard to all pages, save for the title, and even that doesn't need to
         be custom if we don't want it to be. -->
-        <div class="container-fluid">
-            <div class="row" style="height:100px;"></div> <!-- padding -->
 
-            <!-- Section for the bill. -->
+        <div class="container-fluid">
+            <div class="row first-row"></div>
+
+            <!-- Section for the bill's info. -->
 
             <div class="row">
-                <div class="col-md-3"> </div> <!-- padding -->
-                <div class="infobox2 col-md-6" style="background: #f5f5f5;">
+                <div class="col-md-3"></div>
+                <div class="senatorbox col-md-6">
                     <h2>Bill Name</h2>
                     <p>Type: [type]</p>
                     <p>Session: [session]</p>
                     <p>Vote Date: yyyy-mm-dd</p>
+                    <p>67 yea | 31 nay | 2 abstain</p>
                 </div>
-                <div class="col-md-3"> </div> <!-- padding -->
+                <div class="col-md-3"></div>
             </div>
 
-            <div class="row" style="height:50px;"></div> <!-- padding -->
+            <div class="filler row"></div>
 
             <!-- Section for a table of votes -->
 
-            <div class="row"> <!-- Standardizes column heights. Might not
-                                             work with IE 9 or before. Problem? -->
-
-                <div class="col-md-2"> </div> <!-- padding -->
-                <div class="infobox col-md-8" style="background: #f5f5f5;">
-                    <h3>Voting Data</h3>
-                    <table class="table table-hover table-bordered table-fixed">
+            <div class="row">
+                <div class="col-md-2"></div>
+                <div class="billbox col-md-8">
+                    <h3>Voting Data <small>(Togglable)</small></h3>
+                    <table class="table table-hover table-bordered table-fixed sortable-theme-bootstrap" data-sortable>
                         <thead>
                             <tr>
                                 <th class="col-md-2">Vote</th>
                                 <th class="col-md-4">Senator</th>
-                                <th class="col-md-3">State</th>
                                 <th class="col-md-3">Party</th>
+                                <th class="col-md-3">State</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -118,15 +121,16 @@
                         </tbody>
                     </table>
                 </div>
-                <div class="col-md-2"> </div> <!-- padding -->
+                <div class="col-md-2"></div>
             </div>
 
-            <div class="row" style="height:50px;"></div>
+            <div class="filler row"></div>
         </div>
+
         <nav class="navbar" id="footer">
             <div class="container-fluid">
-                <div class="navbar-right" style="padding-right:50px;">
-                    <p>OUR DISCLAIMER THING. Our data is legit.</p>
+                <div class="navbar-right">
+                    <p>All data was downloaded from govtrack.us, and is freely available to the public.</p>
                 </div>
             </div>
         </nav>

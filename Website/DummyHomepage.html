@@ -5,7 +5,7 @@
 		<meta name="description" content="Search recent senate activity by senate, bill, and more!">
         <meta name="author" content="Joe Adkisson, Jamie Emery, and Michael Stoneman">
         
-        <title>Richard White | SV</title>
+        <title>SenatorVotes</title>
 
         <!-- Bootstrap -->
         <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -13,10 +13,10 @@
         <link rel="stylesheet" type="text/css" href="css/custom.css">
         <!-- Table sorting -->
         <link rel="stylesheet" href="css/sortable-theme-bootstrap.css">
-    </head>
+	</head>
 
-    <body>
-        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+	<body>
+		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
         <!-- Include all compiled plugins (below), or include individual files as needed -->
         <script src="js/bootstrap.min.js"></script>
@@ -29,9 +29,7 @@
                     <a class="navbar-brand" href="DummyHomepage.html">SenatorVotes</a>
                 </div>
                 <ol class="breadcrumb">
-                    <li><a href="DummyHomepage.html">Home</a></li>
-                    <li><a href="#">Senators</a></li>
-                    <li class="active">Richard White</li>
+                    <li class="active">Home</li>
                 </ol>
                 <ul class="nav navbar-nav navbar-right">
                     <li class="dropdown">
@@ -74,60 +72,32 @@
         <div class="container-fluid">
             <div class="row first-row"></div>
 
-            <!-- Section for the senator's info. -->
-
             <div class="row">
-                <div class="col-md-3"></div>
-                <div class="senatorbox col-md-6">
-                    <h2>Richard White</h2>
-                    <h4><a href="#">Republican</a> - <a href="#">Alaska</a></h4>
-                    <p>Born April 10<sup>th</sup>, 2015</p>
-                    <p>Served in the <a href="#">124<sup>th</sup></a> and <a href="#">123<sup>rd</sup></a> congresses.</p>
-                    <p>Currently in office.</p>
-                    <h5>Committees:</h5>
-                    <ul id="committees">
-                        <li><a href="#">Protect endangered oil companies</a></li>
-                        <li><a href="#">Tax Cuts For The Rich</a></li>
-                        <li><a href="#">Club Baby Seals</a></li>
-                    </ul>
+                <div class="col-md-1"></div>
+                <div class="center col-md-10" id="summarybox">
+                    <h1>SenatorVotes</h1>
+                    <h1 id="short"><small>Putting the government at your fingertips.</small></h1>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
                 </div>
-                <div class="col-md-3"></div>
+                <div class="col-md-1"></div>
             </div>
 
             <div class="filler row"></div>
 
-            <!-- Section for a table of votes -->
-
             <div class="row">
-                <div class="col-md-2"></div>
-                <div class="billbox col-md-8">
-                    <h3>Voting Data <small>(Togglable)</small></h3>
-                    <table class="table table-hover table-bordered table-fixed sortable-theme-bootstrap" data-sortable>
-                        <thead>
-                            <tr>
-                                <th class="col-md-2">Date</th>
-                                <th class="col-md-2">Number</th>
-                                <th class="col-md-6">Bill Name</th>
-                                <th class="col-md-2">Vote</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr><td>2015-03-14</td><td>H.R. 926</td><td>Bill to Ban Pi Puns in Dummy Webpages</td><td>Nay</td></tr>
-                            <tr><td>2014-12-23</td><td>H.R. sqrt(-1)</td><td>On the Outlawing of Christmas</td><td>Aye</td></tr>
-                            <tr><td>2001-10-25</td><td>H.R. 3162</td><td>Uniting and Strengthening America by Providing Appropriate Tools Required to Intercept and Obstruct Terrorism Act</td><td>Aye</td></tr>
-                            <tr><td>2015-03-14</td><td>H.R. 926</td><td>Bill to Ban Pi Puns in Dummy Webpages</td><td>Nay</td></tr>
-                            <tr><td>2014-12-23</td><td>H.R. sqrt(-1)</td><td>On the Outlawing of Christmas</td><td>Aye</td></tr>
-                            <tr><td>2001-10-25</td><td>H.R. 3162</td><td>USA PATRIOT Act</td><td>Aye</td></tr>
-                            <tr><td>2015-03-14</td><td>H.R. 926</td><td>Bill to Ban Pi Puns in Dummy Webpages</td><td>Nay</td></tr>
-                            <tr><td>2014-12-23</td><td>H.R. sqrt(-1)</td><td>On the Outlawing of Christmas</td><td>Aye</td></tr>
-                            <tr><td>2001-10-25</td><td>H.R. 3162</td><td>USA PATRIOT Act</td><td>Aye</td></tr>
-                            <tr><td>2015-03-14</td><td>H.R. 926</td><td>Bill to Ban Pi Puns in Dummy Webpages</td><td>Nay</td></tr>
-                            <tr><td>2014-12-23</td><td>H.R. sqrt(-1)</td><td>On the Outlawing of Christmas</td><td>Aye</td></tr>
-                            <tr><td>2001-10-25</td><td>H.R. 3162</td><td>USA PATRIOT Act</td><td>Aye</td></tr>
-                        </tbody>
-                    </table>
+                <div class="col-md-1"></div>
+                <div class="billbox col-md-4">
+                    <h2 class="center">Bills</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                    <div class="center"><a href="#" class="btn btn-primary" role="button">Find a Senator</a></div>
                 </div>
                 <div class="col-md-2"></div>
+                <div class="senatorbox col-md-4">
+                    <h2 class="center">Senators</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                    <div class="center"><a href="#" class="btn btn-danger" role="button">Find a Senator</a></div>
+                </div>
+                <div class="col-md-1"></div>
             </div>
 
             <div class="filler row"></div>
