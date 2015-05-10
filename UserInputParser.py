@@ -107,12 +107,3 @@ class UserInputParser:
 		self.page_maker.makeErrorPage()
 		html_string = self.page_maker.getPage()
 		return html_string		
-
-	#Takes a list of bills and a search criteria and returns a new list of bills
-	#(empty list if none meet the criteria) with everything that meets the
-	#criteria. (ex. takes a list of bills from the 114th congress and returns
-	#only the bills that “John Snow” voted on)
-	def billSearchCuller(self, bill_list, search_param):
-		#TODO this. I'm not quite sure how it works or when we're using it.
-		culled_array = []
-		return culled_array
