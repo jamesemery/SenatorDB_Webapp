@@ -9,6 +9,11 @@ from Bill import Bill
 from Senator import Senator
 from Committee import Committee
 
+print 'Content-type: text/html\r\n\r\n'
+print '<html><head></head><body>'
+import cgitb
+cgitb.enable()
+
 #Unit tests for DataSource.py. assumes certian values about the database that are specified at the top
 class TestDataSource(unittest.TestCase):
     
