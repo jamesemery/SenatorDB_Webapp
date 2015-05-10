@@ -31,7 +31,7 @@ class ObjectTests(unittest.TestCase):
 		#Python's typing it doesn't matter for testing purposes. We're just
 		#making them strings.
 		params = [100, 113, 2, "3/5/2012", "bill", "Question", 
-					["Rich White, Richard Whiter"],
+					["Rich White", "Richard Whiter"],
 					["John Brown"],
 					[],
 					["George Washington"]]
@@ -42,7 +42,7 @@ class ObjectTests(unittest.TestCase):
 		self.assertEqual(bill.getVoteDate(), "3/5/2012")
 		self.assertEqual(bill.getType(), "bill")
 		self.assertEqual(bill.getQuestion(), "Question")
-		self.assertEqual(bill.yea_votes, ["Rich White, Richard Whiter"])
+		self.assertEqual(bill.yea_votes, ["Rich White", "Richard Whiter"])
 		self.assertEqual(bill.nay_votes, ["John Brown"])
 		self.assertEqual(bill.abstaining, [])
 		self.assertEqual(bill.absent, ["George Washington"])
@@ -82,14 +82,26 @@ class ObjectTests(unittest.TestCase):
 
 	def testBillLinkGenerator(self):
 		htmlLink = "thisWillFail"
+		params = [100, 113, 2, "3/5/2012", "bill", "Question"]
+		bill = Bill(params)
+		self.assertEqual(bill.getBillLink(), htmlLink)
 
 	def testSenatorLinkGenerator(self):
 		htmlLink = "thisWillFail"
 
-	#def testBillVoteTally(self):
+	def testBillVoteTally(self):
 		#because Python doesn't care about typing, we're just going to pass in
 		#strings instead of Senator objects for testing purposes. The method
 		#should work the same either way.
+		params = [100, 113, 2, "3/5/2012", "bill", "Question", 
+					["Rich White", "Richard Whiter"],
+					["John Brown"],
+					[],
+					["George Washington"]]
+		bill = Bill(params)
+		expected = [["Rich White", "Richard Whiter", "John Brown", "George Washington"],
+					["Yea", "Yea", "Nay", "Absent"]]
+		self.assertEqual(bill.getVoteTally(), expected)
 
 
 
