@@ -12,7 +12,7 @@ from Committee import Committee
 #Unit tests for DataSource.py. assumes certian values about the database that are specified at the top
 class TestDataSource(unittest.TestCase):
     
-    db_source = DataSource()
+    global db_source = DataSource()
     #for testing purpouses I will rely on several specific datapoints hardcoded
     #into the test code, here are the databse entries for the particular objects
     #I will be testing so it is clear to see what I am emulating in code
