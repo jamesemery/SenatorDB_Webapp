@@ -7,10 +7,12 @@ import psycopg2
 
 class DataSource:
     #Constructor for the DataSource database interface class.
-    global USERNAME = 'emeryj'
-    global DB_NAME = 'emeryj'
+    global USERNAME
+    global DB_NAME
     global db_connection
-    
+    USERNAME = 'emeryj'
+    DB_NAME = 'emeryj'
+
 
     def __init__(self):
         try:
@@ -26,34 +28,96 @@ class DataSource:
         except:
             sys.exit()
 
-    #Returns a bill object corresponding to id of the bill it is given
-    def getBill(self, ident):
+    #Returns a bill object corresponding to id of the bill it is given withouth
+    #any vote information
+    def getBill(self, bill_id):
         try:
             cursor = db_connection.cursor()
-            cursor.execute('SELECT * FROM bills WHERE id = (%s);',
-                (ident, ))
-            bills[]
+            cursor.execute('SELECT id, session, roll, vote_date, type, question FROM bills WHERE id = (%s);',
+                (bill_id, ))
+            bills = []
             for row in cursor:
                 bills.append(Bill(row))
             if len(bills)==1:
                 return bills[0]
             else: return None 
         except:
+            return None
 
-    #Returns a senator object corresponding to id of the bill it is given
-    def getSenator(self, ident):
+
+
+    #Returns a bill object corresponding to id of the bill it is given as well
+    #as returning lists of senator objects corresponding to the voters on said
+    #bill
+    def getBillWithVotes(self, bill_id):
+        try:
+            cursor = db_connection.cursor()
+            cursor.execute('SELECT * FROM bills WHERE id = (%s);',
+                (bill_id, ))
+            bills = []
+            for row in cursor:
+                yea = []
+                nay = []
+                present = []
+                not_voting = []
+                for senator in row[6]:
+                    yea.append(getSenator(senator))
+                for senator in row[7]:
+                    nay.append(getSenator(senator))
+                for senator in row[8]:
+                    present.append(getSenator(senator))
+                for senator in row[9]:
+                    not_voting.append(getSenator(senator))
+
+                bil = row[:6] + [yea, nay, present, not_voting]
+                bills.append(Bill(bil))
+            if len(bills)==1:
+                return bills[0]
+            else: return None 
+        except:
+            return None
+
+
+    #Returns a Senator object corresponding to id of the bill it is given
+    def getSenator(self, senator_id):
         try:
             cursor = db_connection.cursor()
             cursor.execute('SELECT * FROM senators WHERE id = (%s);'
-                (ident,))
-            senators[]
+                (senator_id,))
+            senators = []
             for row in cursor:
                 senators.append(Senator(row))
             if len(senators)==1:
                 return senators[0]
             else: return None 
         except:
+            return None
 
+    #Returns a Senator object corresponding to the Senator id it was passed
+    #except with a list of committee objects correspoinding to the committees
+    #that the senator has been part of
+    def getSenatorWithCommittees(self, senator_id):
+        try:
+            cursor = db_connection.cursor()
+            cursor.execute('SELECT * FROM senators WHERE id = (%s);'
+                (senator_id,))
+            rows = []
+            for row in cursor:
+                rows.append(row)
+            
+            #if only one senator was found, it searches the committee_membership_pair table to find all the committees the senator is a part of and builds a committee object
+            if len(row)==1:
+                cursor.execute('''SELECT * FROM committee_membership_pair 
+                    WHERE senator = (%s);''',
+                    (senator_id,))
+                committees = []
+                for pair in cursor:
+                    committees.append([getCommittee(pair[0]), pair[2]])
+                sen_row = row.append(committees)
+                return Senator(sen_row)
+            else: return None 
+        except:
+            return None
 
     #Returns a list of the id numbers of all senators in the senate vote
     #database.
@@ -66,6 +130,7 @@ class DataSource:
                 senators.append(Senator(row))
             return senators
         except:
+            return None  
 
 
     #Returns a list of the id numbers of all bills in the senate vote database.
@@ -78,9 +143,10 @@ class DataSource:
                 bills.append(Bill(row))
             return bills
         except:
+            return None
 
-    #Returns a list of the id number for every senator in the specified congress
-    #(for example, 114 would return all current senators)
+    #Returns a list of the id number for every senator in the specified 
+    #congress (for example, 114 would return all current senators)
     def getSenatorsInCongress(self, congress):
         try:
             cursor = db_connection.cursor()
@@ -91,6 +157,7 @@ class DataSource:
                 senators.append(getSenator(row[0]))
             return senators
         except:
+            return None
 
     #Returns a tuple list of containing the last number (or all votes in the
     #database number =0) chronological votes that the senator has participated
@@ -136,26 +203,8 @@ class DataSource:
                     if (number != 0)&(len(bills_voted) >= number):
                         break
             return bills_voted
-
-
-    #Returns a tuple of committees (historical and current) that the senator
-    #has been a member of where the first value corresponds to the class of
-    #the committee and the second value is a string that corresponds to what
-    #type of member the senator is
-    def getCommitteesBySenator(self,senator_id):
-        try:
-            cursor = db_connection.cursor()
-            cursor.execute('''SELECT number,senators 
-                FROM sessions 
-                ORDER BY number DESC;''')
-            
-            #Narrowing the search by locating what congresses to search first
-            member_congresses = []
-            for row in cursor:
-                list_senators = row[1]
-                if senator_id in list_senators:
-                    member_congresses.append(row[0])
-#####ASK ABOUT STRUCTURE########
+        except: 
+            return None
             
 
     #Returns a list of the id numbers for the last number bills in congress in
@@ -172,11 +221,8 @@ class DataSource:
                 if (number != 0)&(len(bills) >= number): break
             return bills
         except:
+            return None
 
-    #Returns a two dimensional list of strings that coresponds to the to a
-    #Senator_ID and their vote on the specified bill (Tentatively: Yea, Nay,
-    #Abstain, Absent).
-    def getVotesForBill(self, bill_id):
 
 
     #Returns a list that corresponds to the id number for each senator in a
@@ -191,27 +237,48 @@ class DataSource:
                 senators.append(Senator(row))
             return senators
         except:
+            return None
 
+    
     #Returns a Committee object corresponding to the ID number it gets with a
     #populated list of senator objects corresponding to its members
     def getCommittee(self, committee_id):
         try:
             cursor = db_connection.cursor()
+            cursor.execute('''SELECT id, name, super_committee, session 
+                FROM committees WHERE id = (%s);''' 
+                (committee_id,))
+            committees = []
+            for row in cursor:
+                committees.append(Committee(row))
+            if len(committees) == 1: return committees[0]
+            else: return None
+        except:
+            return None
+
+
+    #Returns a Committee object corresponding to the ID number it gets with a
+    #populated list of senator objects corresponding to its members
+    def getCommitteeWithMembers(self, committee_id):
+        try:
+            cursor = db_connection.cursor()
             cursor.execute('SELECT * FROM committees WHERE id = (%s);' 
                 (committee_id,))
-            committee = []
+            committees = []
             for row in cursor:
+                #grabbing the senators in the nested array stored in the
+                #database and gets a senator object out of them
                 members = []
                 for member in row[4]:
                     senator = getSenator(int(member[0]))
                     members.append([senator,member[1]])
                 args = [row[0], row[1], row[2], row[3], members]
-                committees.append(Committee())
+                committees.append(Committee(args))
             if len(committees) == 1: return committees[0]
             else: return None
         except:
+            return None
 
-#####JOE: make Committee class  ########
 
     #Returns a list of committee objects correspoinding to the committees in a
     #given year
@@ -225,4 +292,5 @@ class DataSource:
                 committees.append(Committee(row))
             return committees
         except:
+            return None
 
