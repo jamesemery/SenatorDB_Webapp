@@ -21,6 +21,7 @@ class DataSource:
         try:
             f = open(os.path.join('/cs257', USERNAME))
             PASSWORD = f.read().strip()
+            print PASSWORD
             f.close()
         except:
             print "failed to connect to the database directory"
