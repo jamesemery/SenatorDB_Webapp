@@ -21,41 +21,41 @@ class PageConstructor:
 	#Gets html from homepageTemplate.html, fills in a list of the most recent
 	#senatorial activity, then appends the now-complete html for the homepage
 	#to the page variable. 
-	def getHomepage(self):
+	def makeHomepage(self):
 		#do stuff
 
 	#Gets html from billPageTemplate.html, fills in the info of the bill passed
 	#to it, and appends to the page variable. 
-	def getBillPage(self, bill):
+	def makeBillPage(self, bill):
 		#do stuff
 
 	#Gets html from committeeTemplate.html, fills in info, and appends to the 
 	#page variable.
-	def getCommitteePage(self, committee):
+	def makeCommitteePage(self, committee):
 		#do stuff
 
 	#Gets html from senatorPageTemplate.html, fills in the senator’s info, and
 	#appends to the page variable.
-	def getSenatorPage(self, senator):
+	def makeSenatorPage(self, senator):
 		#do stuff
 
 	#Gets html from statePageTemplate.html, fills in the state name and senator
 	#list, and appends to the page variable.
-	def getStatePage(self, state_name, senator_list):
+	def makeStatePage(self, state_name, senator_list):
 		#do stuff
 
 	#Gets html from allStatesPage.html (literally a list of states) and appends
 	#it to the page variable. 
-	def getAllStatesPage(self): 
+	def makeAllStatesPage(self): 
 		#do stuff
 
 	#Gets html from congressPage.html and adds into it a list of all the
 	#senators from the session and the last few bills from the session 
-	def getSessionPage(self, session_id,senator_list,bill_list):
+	def makeSessionPage(self, session_id,senator_list,bill_list):
 
 	#Gets a general-purpose error page.
-	def getErrorPage(self):
+	def makeErrorPage(self):
 
 	#Returns the finished page.
-	def displayPage(self):
+	def getPage(self):
 		return self.page

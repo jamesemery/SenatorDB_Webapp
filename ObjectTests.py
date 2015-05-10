@@ -130,6 +130,8 @@ class ObjectTests(unittest.TestCase):
 		senator = Senator(params)
 		self.assertEqual(senator.getSenatorLink(), htmlLink)
 
+
+
 	def testBillVoteTally(self):
 		#because Python doesn't care about typing, we're just going to pass in
 		#strings instead of Senator objects for testing purposes. The method
