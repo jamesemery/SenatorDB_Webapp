@@ -15,8 +15,13 @@ class Bill:
 		if len(params)!=6:
 			self.yea_votes = params[6]
 			self.nay_votes = params[7]
-			self.present = params[8]
-			self.not_voting = params[9]
+			self.abstaining = params[8]
+			self.absent = params[9]
+		else:
+			self.yea_votes = []
+			self.nay_votes = []
+			self.abstaining = []
+			self.absent = []
 
 	#Generates a link to the bill’s page with the properly formatted HTML text
 	#and returns it as a string.
@@ -39,8 +44,28 @@ class Bill:
 	def getQuestion(self):
 		return self.question
 
-	#Returns the vote tally - a two-dimensional list of the votes; vote_tally[0] is a list of
-	#senators, vote_tally[1] is a list of strings representing votes:
-	#"Yea", "Nay", "Absent", or "Abstain"
+	#Returns the vote tally - a two-dimensional list of the votes; vote_tally[0]
+	#is a list of senators, vote_tally[1] is a list of strings representing
+	#votes: "Yea", "Nay", "Abstaining", or "Absent". For ease of creation, the
+	#list is sorted by vote, in Y/N/Absent/Abstaining order.
 	def getVoteTally(self):
+		senator_list = []
+		vote_list = []
+		
+		for senator in self.yea_votes:
+			senator_list.append(senator)
+			vote_list.append("Yea")
+		for senator in self.nay_votes:
+			senator_list.append(senator)
+			vote_list.append("Nay")
+		for senator in self.abstaining:
+			senator_list.append(senator)
+			vote_list.append("Abstaining")
+		for senator in self.absent:
+			senator_list.append(senator)
+			vote_list.append("Absent")
+
+		vote_tally = [senator_list, vote_list]
+		return vote_tally
+
 		#TODO this. I'm not sure the exact format of the vote data.
