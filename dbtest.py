@@ -30,7 +30,7 @@ print 'Hello!<br>'
 # Step 1: Read your password from the secure file.
 print 'Reading your password...'
 try:
-    print os.path.join('/cs257', USERNAME)
+    print os.path.dirname(os.path.realpath('.'))
     f = open(os.path.join('/cs257', USERNAME))
     PASSWORD = f.read().strip()
     f.close()
