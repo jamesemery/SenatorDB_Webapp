@@ -145,13 +145,14 @@ class DataSource:
         except:
             return None
 
+
     #Returns a list of the id number for every senator in the specified 
     #congress (for example, 114 would return all current senators)
-    def getSenatorsInCongress(self, congress):
+    def getSenatorsInSession(self, session):
         try:
             cursor = db_connection.cursor()
             cursor.execute('''SELECT senators FROM sessions 
-                WHERE number = (%s);''',  (congress, ))
+                WHERE number = (%s);''',  (session, ))
             senators = []
             for row in cursor:
                 senators.append(getSenator(row[0]))

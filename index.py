@@ -1,18 +1,14 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-"""A simplistic webapp that enters in data from a form; we should have both a 
- drop-down menu, to (in our final app) select states, and a text input field,
- which we'll use to enter in names of senators and/or bills.
-
+"""The basic frontend of our webapp; takes in cgi parameters, sanitizes them,
+	and passes them off to the rest of the app.
  Joe Adkisson
  Jamie Emery
  Michael Stoneman
-
- Adapted from Jadrian Miles' webapp.py, which in turn was adapted from Jeff
- Ondich's earlier versions.
  """
 
 import cgi
+from UserInputParser import UserInputParser
 
 def main():
 	params = getParameters()
@@ -33,6 +29,8 @@ def getParameters():
 		params['state'] = ''
 	if 'page_type' in form:
 		params['page_type'] = sanitizeInput(form['page_type'].value)
+	else:
+		params['page_type'] = 'error'
 	return params
 
 def sanitizeInput(yarn):
