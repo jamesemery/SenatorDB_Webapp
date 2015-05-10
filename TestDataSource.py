@@ -44,12 +44,12 @@ class TestDataSource(unittest.TestCase):
     ## testing that GetBill does indeed return the expectd bill object
     def testGetBill(self):
         actual = db_source.getBill(100)
-        assertEquals(test_billnv.getId(), actual.getId())
-        assertEquals(test_billnv.getSession(), actual.getSession())
-        assertEquals(test_billnv.getRoll(), actual.getRoll())
-        assertEquals(test_billnv.getVoteDate(), actual.getVoteDate())
-        assertEquals(test_billnv.getType(), actual.getType())
-        assertEquals(test_billnv.getQuestion(), actual.getQuestion())
+        self.assertEquals(test_billnv.getId(), actual.getId())
+        self.assertEquals(test_billnv.getSession(), actual.getSession())
+        self.assertEquals(test_billnv.getRoll(), actual.getRoll())
+        self.assertEquals(test_billnv.getVoteDate(), actual.getVoteDate())
+        self.assertEquals(test_billnv.getType(), actual.getType())
+        self.assertEquals(test_billnv.getQuestion(), actual.getQuestion())
 
 
 
