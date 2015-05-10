@@ -17,8 +17,7 @@ class DataSource:
 
     def __init__(self):
         USERNAME = 'emeryj'
-    DB_NAME = 'emeryj'
-
+        DB_NAME = 'emeryj'
         try:
             f = open(os.path.join('/cs257', USERNAME))
             PASSWORD = f.read().strip()
