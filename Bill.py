@@ -25,7 +25,7 @@ class Bill:
 
 	#Generates a link to the bill’s page with the properly formatted HTML text
 	#and returns it as a string.
-	def generateBillLink(self):
+	def getBillLink(self):
 		HtmlString = ""
 		return HtmlString
 
