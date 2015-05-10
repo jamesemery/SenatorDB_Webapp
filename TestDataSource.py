@@ -35,7 +35,7 @@ class TestDataSource(unittest.TestCase):
 
 
     short_bill_list = []
-    short_bill_list = [100, 109, 188, datetime.date('2005-07-14 18:53:00'), 'amendment', 'On the Amendment S.Amdt. 1222 to H.R. 2360 (Department of Homeland Security Appropriations Act, 2006)']
+    short_bill_list = [100, 109, 188, datetime.date(2005, 7, 14), 'amendment', 'On the Amendment S.Amdt. 1222 to H.R. 2360 (Department of Homeland Security Appropriations Act, 2006)']
     test_billnv = Bill(short_bill_list)
 
     #note, this is not entirely accurate as what db_source really passes to the
