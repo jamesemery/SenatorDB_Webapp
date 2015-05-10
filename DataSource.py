@@ -18,16 +18,13 @@ class DataSource:
     def __init__(self):
         USERNAME = 'emeryj'
         DB_NAME = 'emeryj'
+        PASSWORD  = 'recycle853dave'
         try:
-            print os.path.dirname(os.path.realpath('.'))
             f = open(os.path.join('/cs257', USERNAME))
             PASSWORD = f.read().strip()
-            print PASSWORD
             f.close()
         except:
             print "failed to connect to the database directory"
-            print 'Your database password is %s.<br>' % PASSWORD
-            print 'Your database username is %s.<br>' % USERNAME
         try:
             db_connection = psycopg2.connect(user=USERNAME,
                                              database=DB_NAME,
