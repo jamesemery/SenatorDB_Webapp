@@ -4,6 +4,7 @@
 import os.path
 import sys
 import psycopg2
+import cgitb
 
 class DataSource:
     #Constructor for the DataSource database interface class.
