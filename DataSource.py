@@ -11,6 +11,7 @@ class DataSource:
     #Constructor for the DataSource database interface class.
     global USERNAME
     global DB_NAME
+    global PASSWORD
     global db_connection
     USERNAME = 'emeryj'
     DB_NAME = 'emeryj'
