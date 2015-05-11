@@ -195,9 +195,8 @@ class DataSource:
             list_senators = row[1]
             for ident in list_senators:
                 if ident == int(senator_id):
-                    member_congresses.append(114)
+                    member_congresses.append(row[0])
         if len(member_congresses) == 0: 
-            print "asdfasd "
             return None
 ##TODO FIGURE OUT ISSUE HERER
         #loops through the bills in the congress, then loops through the 
@@ -219,7 +218,7 @@ class DataSource:
                 elif senator_id in row[4]: 
                     bills_voted.append([row[0],"not_voting"])
                 
-                if (number != 0)&(len(bills_voted) >= number):
+                if (number != 0)&(len(bills_voted) <= number):
                     break
         return bills_voted
         #except: 
