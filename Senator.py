@@ -32,7 +32,7 @@ class Senator:
 		return htmlLink
 
 	def getSenatorLink(self):
-		htmlLink = "<a href = 'http://thacker.mathcs.carleton.edu/cs257/emeryj/index.py?page_type=senator&senator='" + self.getId() + ">" + self.getName() + "</a>"
+		htmlLink = "<a href = 'http://thacker.mathcs.carleton.edu/cs257/emeryj/index.py?page_type=senator&senator='" + str(self.getId()) + ">" + self.getName() + "</a>"
 		return htmlLink
 
 	def getFirst(self):
