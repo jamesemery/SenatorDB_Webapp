@@ -51,7 +51,7 @@ class PageConstructor:
 
 		#Senator Dropdown Menu via replacement
 		senators_by_state_html = ""
-
+		i = 0
 		while i < len(STATE_LIST):
 			senators_by_state_html += ('<li><a href = "http://thacker.mathcs.' + 'carleton.edu/cs257/emeryj/index.py?page_type=state&state=' 
 				+ STATE_ABBREVIATION_LIST[i] + '">'
@@ -95,7 +95,7 @@ class PageConstructor:
 		billFile = open("Website/BillPageTemplate.html", "r")
 		billString = billFile.read()
 
-		votes = len(bill.getYea_Votes()) + " yea | " len(bill.getNay_Votes()) + " nay | " len(bill.getAbstaining()) + " abstain | " len(bill.getAbsent()) + " absent"
+		votes = len(bill.getYea_Votes()) + " yea | " + len(bill.getNay_Votes()) + " nay | " + len(bill.getAbstaining()) + " abstain | " + len(bill.getAbsent()) + " absent"
 
 		bill_table = ""
 		for b in bill.getYea_Votes():
