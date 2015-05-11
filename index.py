@@ -17,10 +17,7 @@ def main():
 	params = getParameters()
 	backend = UserInputParser(params)
 	htmlPage = backend.generateHtmlPageOutput()
-	print 'Content-type: text/html\r\n\r\n'
-	print '<html><head></head><body>'
-	print "what"
-	#print htmlPage
+	print htmlPage
 
 def getParameters():
 	params = {}
