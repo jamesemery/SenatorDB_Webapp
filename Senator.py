@@ -24,7 +24,7 @@ class Senator:
 	#Generates a link to the senator’s page with the properly formatted text and
 	#returns it as a string(e.g. (R-AK) Richard White ).
 	def getSenatorLink(self):
-		htmlLink = ""
+		htmlLink = "<a href = 'http://thacker.mathcs.carleton.edu/cs257/emeryj/index.py?page_type=senator&senator'" + self.getId() + ">" + self.getName() + "</a>"
 		return htmlLink
 
 	def getId(self):
