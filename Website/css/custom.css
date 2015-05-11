@@ -17,6 +17,12 @@
   padding-right:10px;
 }
 
+.dropdown-menu {
+  max-height: 400px;
+  overflow: hidden;
+  overflow-y: auto;
+}
+
 nav a,
 th {
 	color: #0052a5;

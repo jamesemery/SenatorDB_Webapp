@@ -197,7 +197,6 @@ class DataSource:
                 member_congresses.append(row[0])
         
         if len(member_congresses) == 0: 
-            print len(member_congresses)
             return None
 
         #loops through the bills in the congress, then loops through the 
