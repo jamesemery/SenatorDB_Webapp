@@ -157,7 +157,7 @@ class PageConstructor:
 			bill_table += "</td><td>" + bill[1] + "</td></tr>"
 
 		fill_tags = {"SenatorName": senator.getName(), "SenatorParty": senator.getParty(), "SenatorStateLink": senator.getStateLink(), "Birthday": senator.getBirthday(), "Currently": senator.isCurrent(), "CommitteeList": committee_list, "BillTable": bill_table}
-		content_string = billString.format(**fill_tags)
+		content_string = senatorString.format(**fill_tags)
 		self.replacements["results"] = content_string
 
 
