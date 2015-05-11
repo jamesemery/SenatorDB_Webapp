@@ -75,6 +75,7 @@ class TestDataSource(unittest.TestCase):
         nay = []
         present = []
         not_voting = []
+        print actual.getYeaVotes():
         for senator in actual.getYea_Votes():
         	yea.append(senator.getId())
         for senator in actual.getNay_Votes():
