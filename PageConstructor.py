@@ -202,7 +202,7 @@ class PageConstructor:
 
 		table_string = ""
 		for s in senator_list:
-			table_string += "<tr><td>" + s.isCurrent()
+			table_string += "<tr><td>" + str(s.isCurrent())
 			table_string += "</td><td>" + s.getSenatorLink()
 			table_string += "</td><td>" + s.getParty() + "</td></tr>"
 
