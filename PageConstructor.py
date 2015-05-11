@@ -173,7 +173,18 @@ class PageConstructor:
 
 	def makeSenatorIndexPage(self, senator_list):
 		self.readTemplate()
-		#do stuff
+		senatorIndexFile = open("Website/SenatorIndexPageTemplate.html", "r")
+		senatorIndexString = senatorIndexFile.read()
+
+		table_string = ""
+		for senator in senator_list:
+			table_string += "<tr><td>" + senator.getSenatorLink()
+			table_string += "</td><td>" + senator.getParty()
+			table_string += "</td><td>" + senator.getStateLink() + "</td></tr>"
+
+		fill_tags = {"SenatorTable": table_string}
+		content_string = senatorIndexString.format(**fill_tags)
+		self.replacements[results] = content_string
 
 	#Makes a page with a big list of all bills ever.
 	#Things to pass in: {BillTableRows}
@@ -189,7 +200,7 @@ class PageConstructor:
 			table_string += "</td><td>" + bill.getBillLink() + "</td></tr>"
 
 		fill_tags = {"BillData": table_string}
-		content_string = stateString.format(**fill_tags)
+		content_string = billIndexString.format(**fill_tags)
 		self.replacements[results] = content_string
 
 	#Gets html from statePageTemplate.html, fills in the state name and senator
