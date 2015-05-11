@@ -131,8 +131,8 @@ class ObjectTests(unittest.TestCase):
 		self.assertEqual(senator.getSenatorLink(), htmlLink)
 
 
-
-	def testBillVoteTally(self):
+	#Old method.
+	#def testBillVoteTally(self):
 		#because Python doesn't care about typing, we're just going to pass in
 		#strings instead of Senator objects for testing purposes. The method
 		#should work the same either way.
