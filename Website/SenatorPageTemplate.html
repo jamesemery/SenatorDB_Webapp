@@ -1,0 +1,53 @@
+        <div class="container-fluid">
+            <div class="row row-border"></div>
+
+            <!-- Section for the senator's info. -->
+
+            <div class="row">
+                <div class="col-xs-3"></div>
+                <div class="senatorbox col-xs-6">
+                    <!--<h2 class="center">Richard White</h2>
+                    <h4 class="center"><a href="#">Republican</a> - <a href="#">Alaska</a></h4>
+                    <p>Born April 10<sup>th</sup>, 2015</p>
+                    <p>Served in the <a href="#">124<sup>th</sup></a> and <a href="#">123<sup>rd</sup></a> congresses.</p>
+                    <p>Currently in office.</p>
+                    <h5>Committees:</h5>
+                    <ul id="committees">
+                        <li><a href="#">Protect endangered oil companies</a></li>
+                        <li><a href="#">Tax Cuts For The Rich</a></li>
+                        <li><a href="#">Club Baby Seals</a></li>
+                    </ul>-->
+                    {SenatorData}
+                </div>
+                <div class="col-xs-3"></div>
+            </div>
+
+            <div class="filler row"></div>
+
+            <!-- Section for a table of votes -->
+
+            <div class="row">
+                <div class="col-xs-2"></div>
+                <div class="billbox col-xs-8">
+                    <h3>Voting Data <small>(Togglable)</small></h3>
+                    <table class="table table-hover table-bordered table-fixed sortable-theme-bootstrap" data-sortable>
+                        <thead>
+                            <tr>
+                                <th class="col-xs-2">Date</th>
+                                <th class="col-xs-2">Number</th>
+                                <th class="col-xs-6">Bill Name</th>
+                                <th class="col-xs-2">Vote</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        <!--Example entry:
+                        <tr><td>2015-03-14</td><td>H.R. 926</td><td><a href="#">Bill to Ban Pi Puns in Dummy Webpages</a></td><td>Nay</td></tr>-->
+                        {BillTable}
+                        </tbody>
+                    </table>
+                </div>
+                <div class="col-xs-2"></div>
+            </div>
+
+            <div class="row row-border"></div>
+        </div>

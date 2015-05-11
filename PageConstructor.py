@@ -83,7 +83,7 @@ class PageConstructor:
 
 	#Gets html from senatorPageTemplate.html, fills in the senator’s info, and
 	#appends to the page variable.
-	#Things to pass in: {SenatorData} and 
+	#Things to pass in: {SenatorData} and {BillTable}
 	def makeSenatorPage(self, senator):
 		self.readTemplate()
 		self.replacements["results"] = ""
