@@ -131,8 +131,8 @@ class PageConstructor:
 			committee_table += "</td><td>" + senator.getSenatorLink()
 			committee_table += "</td><td>" + senator.getParty()
 			committee_table += "</td><td>" + senator.getStateLink() + "</td></tr>"
-
-		fill_tags = {"Supercommittee": committee.getSuperCommitteeLink(), "SenatorTable": committee_table}
+		#TODO make the supercommittee link disappear if it's not a subcommittee
+		fill_tags = {"CommitteeName": committee.getName(), "Supercommittee": committee.getSuperCommitteeLink(), "SenatorTable": committee_table}
 		content_string = committeeString.format(**fill_tags)
 		self.replacements["results"] = content_string
 
