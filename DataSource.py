@@ -209,16 +209,20 @@ class DataSource:
                 ORDER BY vote_date DESC;''',
                 (session,))
             for row in cursor:
-                if int(senator_id) in row[1]: 
-                    bills_voted.append(self.getBill([row[0]),"yea"])
-                elif int(senator_id) in row[2]: 
-                    bills_voted.append([self.getBill([row[0]),"nay"])
-                elif int(senator_id) in row[3]: 
-                    bills_voted.append([self.getBill([row[0]),"present"])
-                elif int(senator_id) in row[4]: 
-                    bills_voted.append([self.getBill([row[0]),"not_voting"])
-                if (number != 0)&(len(bills_voted) <= number):
-                    break
+                for ident in row[1]:
+                    if ident == int(senator_id):
+                        bills_voted.append(self.getBill([row[0]),"yea"])
+                for ident in row[2]:
+                    if ident == int(senator_id):
+                        bills_voted.append(self.getBill([row[0]),"nay"])
+                for ident in row[3]:
+                    if ident == int(senator_id):
+                        bills_voted.append(self.getBill([row[0]),"present"])
+                for ident in row[4]:
+                    if ident == int(senator_id):
+                        bills_voted.append(self.getBill([row[0]),"not_voting"])
+                #if (number != 0)&(len(bills_voted) <= number):
+                #    break
         return bills_voted
         #except: 
         #    print "failed to retieve item from the database"
