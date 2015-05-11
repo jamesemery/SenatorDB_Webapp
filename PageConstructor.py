@@ -124,10 +124,10 @@ class PageConstructor:
 		committeeString = committeeFile.read()
 
 		commitee_table = ""
-		for s in commitee.getSenators():
-			commitee_table += "<tr><td>" + s.getSenatorLink()
-			commitee_table += "</td><td>" + s.getParty()
-			commitee_table += "</td><td>" + s.getStateLink() + "</td></tr>"
+		for s in committee.getSenators():
+			committee_table += "<tr><td>" + s.getSenatorLink()
+			committee_table += "</td><td>" + s.getParty()
+			committee_table += "</td><td>" + s.getStateLink() + "</td></tr>"
 
 		fill_tags = {"Supercommittee": committee.getSuperCommittee().getCommitteeLink(), "SenatorTable": committee_table}
 		content_string = committeeString.format(**fill_tags)
