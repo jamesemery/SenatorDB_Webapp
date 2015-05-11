@@ -137,7 +137,7 @@ class PageConstructor:
 
 		fill_tags = {"Supercommittee": committee.getSuperCommittee().getCommitteeLink(), "SenatorTable": committee_table}
 		content_string = committeeString.format(**fill_tags)
-		self.replacements[results] = content_string
+		self.replacements["results"] = content_string
 
 	#Gets html from senatorPageTemplate.html, fills in the senator’s info, and
 	#appends to the page variable.
@@ -158,7 +158,7 @@ class PageConstructor:
 
 		fill_tags = {"SenatorName": senator.getName(), "SenatorParty": senator.getParty(), "SenatorStateLink": senator.getStateLink(), "Birthday": senator.getBirthday(), "Currently": senator.isCurrent(), "CommitteeList": committee_list, "BillTable": bill_table}
 		content_string = billString.format(**fill_tags)
-		self.replacements[results] = content_string
+		self.replacements["results"] = content_string
 
 
 	def makeSenatorIndexPage(self, senator_list):
@@ -174,7 +174,7 @@ class PageConstructor:
 
 		fill_tags = {"SenatorTable": table_string}
 		content_string = senatorIndexString.format(**fill_tags)
-		self.replacements[results] = content_string
+		self.replacements["results"] = content_string
 
 	#Makes a page with a big list of all bills ever.
 	#Things to pass in: {BillTableRows}
@@ -191,7 +191,7 @@ class PageConstructor:
 
 		fill_tags = {"BillData": table_string}
 		content_string = billIndexString.format(**fill_tags)
-		self.replacements[results] = content_string
+		self.replacements["results"] = content_string
 
 	#Gets html from statePageTemplate.html, fills in the state name and senator
 	#list, and appends to the page variable.
@@ -208,7 +208,7 @@ class PageConstructor:
 
 		fill_tags = {"StateName": state_name, "SenatorTable": table_string}
 		content_string = stateString.format(**fill_tags)
-		self.replacements[results] = content_string
+		self.replacements["results"] = content_string
 
 	#Gets html from congressPage.html and adds into it a list of all the
 	#senators from the session and the last few bills from the session 
@@ -231,7 +231,7 @@ class PageConstructor:
 
 		fill_tags = {"sessionID": session_id, "SenatorTable": s_table_string, "BillTable": b_table_string}
 		content_string = sessionString.format(**fill_tags)
-		self.replacements[results] = content_string
+		self.replacements["results"] = content_string
 
 	#Gets a general-purpose error page.
 	def makeErrorPage(self):
