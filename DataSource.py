@@ -117,7 +117,7 @@ class DataSource:
             rows.append(row)
         
         #if only one senator was found, it searches the committee_membership_pair table to find all the committees the senator is a part of and builds a committee object
-        if len(row)==1:
+        if len(rows)==1:
             cursor.execute('''SELECT * FROM committee_membership_pair 
                 WHERE senator = (%s);''',
                 (senator_id,))
