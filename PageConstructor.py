@@ -26,11 +26,11 @@ class PageConstructor:
 		'Tennessee', 'Texas', 'Utah', 'Vermont', 'Virginia', 'Washington',
 		'West Virginia', 'Wisconsin', 'Wyoming']
 
-	STATE_ABBREVIATION_LIST = ['AK', 'AL', 'AR', 'AZ', 'CA', 'CO', 'CT',
-		, 'DE', 'FL', 'GA', 'HI', 'IA', 'ID', 'IL', 'IN', 'KS', 'KY', 'LA', 'MA'
-		, 'MD', 'ME', 'MI', 'MN', 'MO', 'MS', 'MT', 'NC', 'ND', 'NE', 'NH', 'NJ'
-		, 'NM', 'NV', 'NY', 'OH', 'OK', 'OR', 'PA', 'RI', 'SC', 'SD', 'TN', 'TX'
-		, 'UT', 'VA', 'VT', 'WA', 'WI', 'WV', 'WY']
+	STATE_ABBREVIATION_LIST = ['AL', 'AK', 'AZ', 'AR', 'CA', 'CO', 'CT',
+		, 'DE', 'FL', 'GA', 'HI', 'ID', 'IL', 'IN', 'IA', 'KS', 'KY', 'LA', 'ME'
+		, 'MD', 'MA', 'MI', 'MN', 'MS', 'MO', 'MT', 'NE', 'NV', 'NH', 'NJ', 'NM'
+		, 'NY', 'NC', 'ND', 'OH', 'OK', 'OR', 'PA', 'RI', 'SC', 'SD', 'TN', 'TX'
+		, 'UT', 'VT', 'VA', 'WA', 'WV', 'WI', 'WY']
 
 	#Constructor that builds a PageConstructor object and an empty string for
 	#the page.
