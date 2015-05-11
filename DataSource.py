@@ -77,7 +77,8 @@ class DataSource:
             bil = list(row)[:6] + list([yea, nay, present, not_voting])
             bills.append(Bill(bil))
         print str(bills) + str(len(bills))
-        if int(len(bills))==1:
+        if len(bills)==1:
+            print 'foo'
             return bills[0]
         else: return None 
         #except:
@@ -96,7 +97,9 @@ class DataSource:
             senators.append(Senator(row))
         if len(senators)==1:
             return senators[0]
-        else: return None 
+        else: 
+            print senator_id
+            return None 
         #except:
         #    print "failed to retieve item from the database"
         #   return None
