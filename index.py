@@ -19,8 +19,7 @@ def main():
 def getParameters():
 	params = {}
 	form = cgi.FieldStorage()
-	param_list = ['senator', 'bill', 'state', 'session', 'committee',
-			'bill_index', 'error']
+	param_list = ['senator', 'bill', 'state', 'session', 'committee']
 	for entry in param_list:
 		if entry in form:
 			params[entry] = sanitizeInput(form[entry].value)

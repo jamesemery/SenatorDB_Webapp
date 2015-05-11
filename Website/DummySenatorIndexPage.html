@@ -37,29 +37,32 @@
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav navbar-right">
                         <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Senators by State<span class="caret"></span></a>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Senators<span class="caret"></span></a>
                             <ul class="dropdown-menu" role="menu">
-                                {SenatorDropdown}
+                                <li><a href="DummySenatorPage.html">(R-AK) Richard White</a></li>
+                                <li><a href="DummySenatorPage.html">(D-WA) Laura Palmer</a></li>
+                                <li><a href="DummySenatorPage.html">(S-VT) Bernie Sanders</a></li>
                                 <li class="divider"></li>
                                 <!-- Links to Senators by State? -->
                                 <li><a href="DummySenatorPage.html">Past Senators</a></li>
-                                <!--TODO make the above link point to a real place-->
                             </ul>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Bills<span class="caret"></span></a>
                             <ul class="dropdown-menu" role="menu">
-                                {BillDropdown}
+                                <li><a href="DummyBillPage.html">Bill Nye</a></li>
+                                <li><a href="DummyBillPage.html">Bill Gates</a></li>
+                                <li><a href="DummyBillPage.html">Bill Cosby</a></li>
                                 <li class="divider"></li>
                                 <li><a href="DummyBillPage.html">More Bills</a></li>
-                                <!--TODO make the above link point somewhere real -->
                             </ul>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Congresses<span class="caret"></span></a>
                             <ul class="dropdown-menu" role="menu">
-                                {CommitteeDropdown}
+                                <li><a href="#">(2015-2016) 124<sup>th</sup></a></li>
+                                <li><a href="#">(2013-2014) 123<sup>rd</sup></a></li>
+                                <li><a href="#">(2011-2012) 122<sup>nd</sup></a></li>
                                 <li class="divider"></li>
-                                <li><a href="#">Past Committees</a></li>
-                                <!-- TODO make the above link point somewhere real -->
+                                <li><a href="#">Past Congresses</a></li>
                             </ul>
                         </li>
                     </ul>
@@ -70,8 +73,63 @@
         <!-- That's the navbar done with. Everything above this should be pretty
         standard to all pages, save for the title, and even that doesn't need to
         be custom if we don't want it to be. -->
-        
-        {results}
+
+        <div class="container-fluid">
+            <div class="row row-border"></div>
+
+            <div class="row">
+                <div class="col-xs-3"></div>
+                <div class="center col-xs-6" id="summarybox">
+                    <h2>Senator Index</h2>
+                    <h2 id="short"><small>(Contains all bills in our database.)</small></h2>
+                </div>
+                <div class="col-xs-3"></div>
+            </div>
+
+            <div class="filler row"></div>
+
+            <!-- Section for two tables: senators and bills -->
+
+            <div class="row">
+                <div class="col-xs-1"></div>
+                <div class="senatorbox col-xs-10">
+                    <h3>Senators <small>(Togglable)</small></h3>
+                    <table class="table table-hover table-bordered table-fixed sortable-theme-bootstrap" data-sortable>
+                        <thead>
+                            <tr>
+                                <th class="col-xs-3">Session</th>
+                                <th class="col-xs-3">Senator</th>
+                                <th class="col-xs-3">Party</th>
+                                <th class="col-xs-3">State</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><a href="#">114<sup>th</sup></td>
+                                <td><a href="#">Richard White</a></td>
+                                <td>Republican</td>
+                                <td><a href="#">Alaska</a></td>
+                            </tr>
+                            <tr>
+                                <td><a href="#">112<sup>th</sup></td>
+                                <td><a href="#">Mikhail Gorbachev</a></td>
+                                <td>Democrat</td>
+                                <td><a href="#">Russia</a></td>
+                            </tr>
+                            <tr>
+                                <td><a href="#">111<sup>th</sup></td>
+                                <td><a href="#">Odin Gibson</a></td>
+                                <td>Republican</td>
+                                <td><a href="#">New Hampshire</a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="col-xs-1"></div>
+            </div>
+
+            <div class="row row-border"></div>
+        </div>
 
         <nav class="navbar navbar-fixed-bottom" id="footer">
             <div class="container-fluid">
