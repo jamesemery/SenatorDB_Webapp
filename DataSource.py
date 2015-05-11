@@ -6,7 +6,6 @@ import sys
 import psycopg2
 import cgitb
 import datetime
-from DataSource import DataSource
 from Bill import Bill
 from Senator import Senator
 from Committee import Committee
