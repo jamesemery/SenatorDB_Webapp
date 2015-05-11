@@ -105,6 +105,7 @@ class PageConstructor:
 		self.readTemplate()
 
 	#Makes a page with a big list of all bills ever.
+	#Things to pass in: {BillTableRows}
 	def makeBillIndexPage(self, bill_list):
 		self.readTemplate()
 
