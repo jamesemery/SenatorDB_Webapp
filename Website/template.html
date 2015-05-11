@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="description" content="Search recent senate activity by senate, bill, and more!">
+        <meta name="author" content="Joe Adkisson, Jamie Emery, and Michael Stoneman">
+        
+        <title>SenatorVotes</title>
+
+        <!-- Bootstrap -->
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <!-- Our changes to it -->
+        <link rel="stylesheet" type="text/css" href="css/custom.css">
+        <!-- Table sorting -->
+        <link rel="stylesheet" href="css/sortable-theme-bootstrap.css">
+    </head>
+
+    <body>
+        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+        <!-- Include all compiled plugins (below), or include individual files as needed -->
+        <script src="js/bootstrap.min.js"></script>
+        <!-- Table sorting -->
+        <script src="js/sortable.min.js"></script>
+
+		<nav class="navbar navbar-fixed-top">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="DummyHomepage.html">SenatorVotes</a>
+                </div>
+                <ol class="breadcrumb">
+                    <li><a href="Homepage.html">Home</a></li>
+                    {breadcrumbs} <!--TODO fill this in -->
+                </ol>
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Senators by State<span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                            {SenatorDropdown}<!--TODO FILL THIS IN -->
+                            <li class="divider"></li>
+                            <!-- Links to Senators by State? -->
+                            <li><a href="DummySenatorPage.html">Past Senators</a></li>
+                            <!--TODO make the above link point to a real place-->
+                        </ul>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Bills<span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                            {BillDropDown}<!--TODO fill this in -->
+                            <li class="divider"></li>
+                            <li><a href="DummyBillPage.html">More Bills</a></li>
+                            <!--TODO make the above link point somewhere real -->
+                        </ul>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Congresses<span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                            {CongressDropDown} <!--TODO fill this in-->
+                            <li class="divider"></li>
+                            <li><a href="#">Past Congresses</a></li>
+                            <!-- TODO make the above link point somewhere real -->
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <!-- That's the navbar done with. Everything above this should be pretty
+        standard to all pages, save for the title, and even that doesn't need to
+        be custom if we don't want it to be. -->
+
+        {results}
+
+        <nav class="navbar" id="footer">
+            <div class="container-fluid">
+                <div class="navbar-right">
+                    <p>All data was downloaded from govtrack.us, and is freely available to the public.</p>
+                </div>
+            </div>
+        </nav>
+	</body>
+</html>

@@ -3,20 +3,23 @@
 
 class PageConstructor:
 
-	#Constructor that builds a PageConstructor object and calls fillHeader(self)
-	#to add the common interface parts to page
+	#Constructor that builds a PageConstructor object and an empty string for
+	#the page.
 	def __init__(self):
 		self.page = ""
-		self.fillHeader()
+		
 
 	#Method that reads headerTemplate.html and makes changes to it based on
 	#page_type (for example graying out the current page link) then adds it to
 	#the beginning of page
-	def fillHeader(self):
+	def readTemplate(self, page_type):
 		headerFile = open("headerTemplate.html", r)
 		headerString = headerFile.read()
 		self.page += headerString
 		#doesn't return anything, just makes changes to the page field.
+
+	#TODO
+	#MAKE SURE ALL MAKEPAGE FUNCTIONS CALL FILLHEADER AND GIVE THEIR TYPE
 
 	#Gets html from homepageTemplate.html, fills in a list of the most recent
 	#senatorial activity, then appends the now-complete html for the homepage
