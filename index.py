@@ -12,19 +12,12 @@ cgitb.enable()
 
 import cgi
 from UserInputParser import UserInputParser
-print 'Content-type: text/html\r\n\r\n'
-print '<html><head></head><body>'
 
 def main():
-	print "1"
 	params = getParameters()
-	print "1"
 	backend = UserInputParser(params)
-	print "1"
 	htmlPage = backend.generateHtmlPageOutput()
-	print "1"
 	print htmlPage
-	print '</body></html>'
 
 def getParameters():
 	params = {}
