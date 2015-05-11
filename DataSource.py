@@ -197,7 +197,7 @@ class DataSource:
                 if ident == int(senator_id):
                     member_congresses.append(row[0])
         if len(member_congresses) == 0: 
-            return None
+            return []
 ##TODO FIGURE OUT ISSUE HERER
         #loops through the bills in the congress, then loops through the 
         #votes in the congress looking for places where the particular 
@@ -209,15 +209,14 @@ class DataSource:
                 ORDER BY vote_date DESC;''',
                 (session,))
             for row in cursor:
-                if senator_id in row[1]: 
-                    bills_voted.append([row[0],"yea"])
-                elif senator_id in row[2]: 
-                    bills_voted.append([row[0],"nay"])
-                elif senator_id in row[3]: 
-                    bills_voted.append([row[0],"present"])
-                elif senator_id in row[4]: 
-                    bills_voted.append([row[0],"not_voting"])
-                
+                if int(senator_id) in row[1]: 
+                    bills_voted.append(self.getBill([row[0]),"yea"])
+                elif int(senator_id) in row[2]: 
+                    bills_voted.append([self.getBill([row[0]),"nay"])
+                elif int(senator_id) in row[3]: 
+                    bills_voted.append([self.getBill([row[0]),"present"])
+                elif int(senator_id) in row[4]: 
+                    bills_voted.append([self.getBill([row[0]),"not_voting"])
                 if (number != 0)&(len(bills_voted) <= number):
                     break
         return bills_voted
