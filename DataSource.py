@@ -80,6 +80,7 @@ class DataSource:
                 return bills[0]
             else: return None 
         except:
+            print "failed to retieve item from the database"
             return None
 
 
@@ -96,6 +97,7 @@ class DataSource:
                 return senators[0]
             else: return None 
         except:
+            print "failed to retieve item from the database"
             return None
 
     #Returns a Senator object corresponding to the Senator id it was passed
@@ -122,6 +124,7 @@ class DataSource:
                 return Senator(sen_row)
             else: return None 
         except:
+            print "failed to retieve item from the database"
             return None
 
     #Returns a list of the id numbers of all senators in the senate vote
@@ -135,6 +138,7 @@ class DataSource:
                 senators.append(Senator(row))
             return senators
         except:
+            print "failed to retieve item from the database"
             return None  
 
 
@@ -148,6 +152,7 @@ class DataSource:
                 bills.append(Bill(row))
             return bills
         except:
+            print "failed to retieve item from the database"
             return None
 
 
@@ -162,6 +167,7 @@ class DataSource:
                 senators.append(getSenator(row[0]))
             return senators
         except:
+            print "failed to retieve item from the database"
             return None
 
     #Returns a double list of containing the last number (or all votes in the
@@ -209,6 +215,7 @@ class DataSource:
                         break
             return bills_voted
         except: 
+            print "failed to retieve item from the database"
             return None
             
 
@@ -226,6 +233,7 @@ class DataSource:
                 if (number != 0)&(len(bills) >= number): break
             return bills
         except:
+            print "failed to retieve item from the database"
             return None
 
 
@@ -242,6 +250,7 @@ class DataSource:
                 senators.append(Senator(row))
             return senators
         except:
+            print "failed to retieve item from the database"
             return None
 
     
@@ -259,6 +268,7 @@ class DataSource:
             if len(committees) == 1: return committees[0]
             else: return None
         except:
+            print "failed to retieve item from the database"
             return None
 
 
@@ -282,6 +292,7 @@ class DataSource:
             if len(committees) == 1: return committees[0]
             else: return None
         except:
+            print "failed to retieve item from the database"
             return None
 
 
@@ -297,5 +308,6 @@ class DataSource:
                 committees.append(Committee(row))
             return committees
         except:
+            print "failed to retieve item from the database"
             return None
 
