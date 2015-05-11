@@ -123,7 +123,7 @@ class DataSource:
                 (senator_id,))
             committees = []
             for pair in cursor:
-                committees.append([self.getCommittee(int(pair[0])), pair[2]])
+                committees.append([self.getCommittee(pair[0]), pair[2]])
             sen_row = row.append(committees)
             return Senator(sen_row)
         else: return None 
@@ -264,7 +264,7 @@ class DataSource:
         #try:
         cursor = db_connection.cursor()
         cursor.execute('''SELECT id, name, super_committee, session 
-            FROM committees WHERE id = (%s);''' 
+            FROM committees WHERE id = (%s);''', 
             (committee_id,))
         committees = []
         for row in cursor:
