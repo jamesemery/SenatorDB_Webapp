@@ -66,13 +66,13 @@ class DataSource:
             present = []
             not_voting = []
             for senator in row[6]:
-                yea.append(getSenator(senator))
+                yea.append(self.getSenator(senator))
             for senator in row[7]:
-                nay.append(getSenator(senator))
+                nay.append(self.getSenator(senator))
             for senator in row[8]:
-                present.append(getSenator(senator))
+                present.append(self.getSenator(senator))
             for senator in row[9]:
-                not_voting.append(getSenator(senator))
+                not_voting.append(self.getSenator(senator))
 
             bil = row[:6] + [yea, nay, present, not_voting]
             print bil
@@ -120,7 +120,7 @@ class DataSource:
                 (senator_id,))
             committees = []
             for pair in cursor:
-                committees.append([getCommittee(pair[0]), pair[2]])
+                committees.append([self.getCommittee(pair[0]), pair[2]])
             sen_row = row.append(committees)
             return Senator(sen_row)
         else: return None 
@@ -165,7 +165,7 @@ class DataSource:
             WHERE number = (%s);''',  (session, ))
         senators = []
         for row in cursor:
-            senators.append(getSenator(row[0]))
+            senators.append(self.getSenator(row[0]))
         return senators
         #except:
         #    print "failed to retieve item from the database"
@@ -230,7 +230,7 @@ class DataSource:
             (congress,))
         bills = []
         for row in cursor:
-            bills.append(getBill(row[0]))
+            bills.append(self.getBill(row[0]))
             if (number != 0)&(len(bills) >= number): break
         return bills
         #except:
@@ -286,7 +286,7 @@ class DataSource:
             #database and gets a senator object out of them
             members = []
             for member in row[4]:
-                senator = getSenator(int(member[0]))
+                senator = self.getSenator(int(member[0]))
                 members.append([senator,member[1]])
             args = [row[0], row[1], row[2], row[3], members]
             committees.append(Committee(args))
