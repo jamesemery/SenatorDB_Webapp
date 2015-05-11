@@ -76,7 +76,7 @@ class TestDataSource(unittest.TestCase):
         	yea.append(senator.getId())
         for senator in actual.getNay_Votes():
         	nay.append(senator.getId())
-        for senator in actual.getAbstaning():
+        for senator in actual.getAbstaining():
         	present.append(senator.getId())
         for senator in actual.getAbsent():
         	not_voting.append(senator.getId())
