@@ -97,7 +97,9 @@ class DataSource:
             senators.append(Senator(row))
         if len(senators)==1:
             return senators[0]
-        else: return None 
+        else: 
+            print senator_id
+            return None 
         #except:
         #    print "failed to retieve item from the database"
         #   return None
