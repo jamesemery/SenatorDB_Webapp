@@ -149,7 +149,7 @@ class PageConstructor:
 
 
 		#TODO get the committes working
-		subreplacements["ComitteeList"] = " "
+		subreplacements["CommitteeMemberList"] = " "
 		subreplacements["BillTable"] = " "
 
 		subreplacements["SenatorName"] = senator.getName()
