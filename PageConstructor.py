@@ -84,8 +84,9 @@ class PageConstructor:
 	#not bothering to read from the template.
 	def makeHomepage(self):
 		self.readTemplate()
-		pageFile = open("Website/BillPageTemplate.html", "r")
+		pageFile = open("Website/HomepageTemplate.html", "r")
 		pageString = pageFile.read()
+		self.replacements["results"] = pageString
 		self.page += pageString
 
 
