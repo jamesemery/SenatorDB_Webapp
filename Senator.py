@@ -48,9 +48,6 @@ class Senator:
 	def getState(self):
 		return self.state
 
-	def getCongressesServed(self):
-		return self.congresses_served
-
 	def isCurrent(self):
 		return self.current
 
