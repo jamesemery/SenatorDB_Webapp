@@ -86,7 +86,7 @@ class PageConstructor:
 		self.readTemplate()
 		pageFile = open("Website/HomepageTemplate.html", "r")
 		pageString = pageFile.read()
-		self.replacements["results"] = ""
+		self.replacements["results"] = pageString
 		self.page += pageString
 
 
