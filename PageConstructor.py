@@ -13,6 +13,8 @@ from Committee import Committee
 
 
 class PageConstructor:
+	global STATE_LIST
+	global STATE_ABBREVIATION_LIST
 	STATE_LIST = ['Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California',
 		'Colorado', 'Connecticut', 'Delaware', 'Florida', 'Georgia', 'Hawaii',
 		'Idaho', 'Illinois', 'Indiana', 'Iowa', 'Kansas', 'Kentucky',
