@@ -90,7 +90,7 @@ class TestDataSource(unittest.TestCase):
 
 
 
-    def testGetSenator:
+    def testGetSenator(self):
     	(412390, 'Coons', 'Chris', datetime.date(2063, 9, 9), 'M', 'DE', 'Democrat', 'Chris Coons', True)
     	actual = db_source.getSenator(412390)
     	self.AssertEquals(test_senator.getId(), actual.getId())
@@ -103,7 +103,7 @@ class TestDataSource(unittest.TestCase):
     	self.AssertEquals(test_senator.isCurrent(), actual.isCurrent())
 
 
-    def testGetSenatorWithCommittees:
+    def testGetSenatorWithCommittees(self):
     	#TODO
 
 
