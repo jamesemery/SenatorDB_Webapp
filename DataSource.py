@@ -184,9 +184,9 @@ class DataSource:
     def getVotesBySenator(self, senator_id, number):
         #try:
         cursor = db_connection.cursor()
-        cursor.execute('''SELECT number,senators 
-            FROM sessions 
-            ORDER BY number DESC;''')
+        #cursor.execute('''SELECT number,senators 
+        #    FROM sessions 
+        #    ORDER BY number DESC;''')
         
         #determines what congress the senator belongs and stores the ID of
         #the congress in a list
