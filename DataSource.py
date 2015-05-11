@@ -184,41 +184,42 @@ class DataSource:
     def getVotesBySenator(self, senator_id, number):
         #try:
         cursor = db_connection.cursor()
-        #cursor.execute('''SELECT number,senators 
-        #    FROM sessions 
-        #    ORDER BY number DESC;''')
+        cursor.execute('''SELECT number,senators 
+            FROM sessions 
+            ORDER BY number DESC;''')
         
         #determines what congress the senator belongs and stores the ID of
         #the congress in a list
-        #member_congresses = []
-        #for row in cursor:
-        #    list_senators = row[1]
-        #    if senator_id in list_senators:
-        #        member_congresses.append(row[0])
-       # 
-        #if len(member_congresses) == 0: 
-         #   return None
+        member_congresses = []
+        for row in cursor:
+            list_senators = row[1]
+            if senator_id in list_senators:
+                member_congresses.append(row[0])
+        
+        if len(member_congresses) == 0: 
+            return None
 ##TODO FIGURE OUT ISSUE HERER
         #loops through the bills in the congress, then loops through the 
         #votes in the congress looking for places where the particular 
         #senator appears on the voting roll 
         bills_voted = []
-        #for session in member_congresses:
-        cursor.execute('''SELECT id, yea_votes, nay_votes, present, not_voting FROM bills  
-            ORDER BY vote_date DESC;''')
-#TODO RETURN TO ITS REAL STATE
-        for row in cursor:
-            if senator_id in row[1]: 
-                bills_voted.append([row[0],"yea"])
-            elif senator_id in row[2]: 
-                bills_voted.append([row[0],"nay"])
-            elif senator_id in row[3]: 
-                bills_voted.append([row[0],"present"])
-            elif senator_id in row[4]: 
-                bills_voted.append([row[0],"not_voting"])
-            
-            if (number != 0)&(len(bills_voted) >= number):
-                break
+        for session in member_congresses:
+            cursor.execute('''SELECT id, yea_votes, nay_votes, present, not_voting FROM bills  
+                where session = (%s)
+                ORDER BY vote_date DESC;''',
+                (session,))
+            for row in cursor:
+                if senator_id in row[1]: 
+                    bills_voted.append([row[0],"yea"])
+                elif senator_id in row[2]: 
+                    bills_voted.append([row[0],"nay"])
+                elif senator_id in row[3]: 
+                    bills_voted.append([row[0],"present"])
+                elif senator_id in row[4]: 
+                    bills_voted.append([row[0],"not_voting"])
+                
+                if (number != 0)&(len(bills_voted) >= number):
+                    break
         return bills_voted
         #except: 
         #    print "failed to retieve item from the database"
