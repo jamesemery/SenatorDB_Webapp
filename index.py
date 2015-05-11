@@ -9,6 +9,8 @@
 
 print 'Content-type: text/html\r\n\r\n'
 print '<html><head></head><body>'
+import cgitb
+cgitb.enable()
 
 import cgi
 from UserInputParser import UserInputParser
