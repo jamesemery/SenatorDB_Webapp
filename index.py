@@ -23,6 +23,7 @@ def main():
 	htmlPage = backend.generateHtmlPageOutput()
 	print "Super 3 \n"
 	print htmlPage
+	print '</body></html>'
 
 def getParameters():
 	params = {}
