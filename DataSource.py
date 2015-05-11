@@ -205,7 +205,7 @@ class DataSource:
         bills_voted = []
         #for session in member_congresses:
         cursor.execute('''SELECT id, yea_votes, nay_votes, present, not_voting FROM bills  
-            ORDER BY date DESC;'''
+            ORDER BY date DESC;''')
 #TODO RETURN TO ITS REAL STATE
         for row in cursor:
             if senator_id in row[1]: 
