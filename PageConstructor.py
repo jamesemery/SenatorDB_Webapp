@@ -67,8 +67,8 @@ class PageConstructor:
 		committee_list = self.dbSource.getCommitteeBySession(114)
 		self.replacements["CommitteeDropdown"] = ""
 		for entry in committee_list:
-			self.replacements["CommitteeDropdown"] += '<li>' +
-				entry.getCommitteeLink() + </li>
+			self.replacements["CommitteeDropdown"] += ('<li>' +
+				entry.getCommitteeLink() + </li>)
 		#doesn't return anything, just makes changes to the page field.
 
 	#TODO
