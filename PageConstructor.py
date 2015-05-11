@@ -87,7 +87,7 @@ class PageConstructor:
 		pageFile = open("Website/HomepageTemplate.html", "r")
 		pageString = pageFile.read()
 		self.replacements["results"] = pageString
-		self.page += pageString
+		#self.page += pageString
 
 
 
@@ -148,6 +148,10 @@ class PageConstructor:
 		senatorString = senatorFile.read()
 
 		committee_list = ""
+		committees = senator.getCommittees()
+		for pair in committees:
+			membership_string = "<li>" + pair[1] + " of the " + pair[0].getCommitteeLink() + "</li>"
+			committee_list += membership_string
 
 		bill_table = ""
 		for bill in vote_pair:
