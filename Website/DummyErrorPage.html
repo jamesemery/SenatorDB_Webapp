@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="UTF-8">
-		<meta name="description" content="Search recent senate activity by senate, bill, and more!">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="description" content="Search recent senate activity by senate, bill, and more!">
         <meta name="author" content="Joe Adkisson, Jamie Emery, and Michael Stoneman">
         
         <title>SenatorVotes</title>
@@ -23,7 +23,7 @@
         <!-- Table sorting -->
         <script src="js/sortable.min.js"></script>
 
-		<nav class="navbar navbar-fixed-top navbar-default">
+        <nav class="navbar navbar-fixed-top navbar-default">
             <div class="container-fluid">
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -77,83 +77,18 @@
         <div class="container-fluid">
             <div class="row row-border"></div>
 
+            <!-- Committee info -->
+
             <div class="row">
                 <div class="col-xs-3"></div>
                 <div class="center col-xs-6" id="summarybox">
-                    <h2>114<sup>th</sup> Session</h2>
-                    <h2 id="short"><small>January 3<sup>rd</sup>, 2015 - January 3<sup>rd</sup>, 2017</small></h2>
+                    <h1 id="error">404</h1>
+                    <h4>The page you were looking for was not found.</h4>
+                    <br>
+                    <div class="center"><a href="#" class="btn btn-primary" role="button">Return Home</a></div>
                 </div>
                 <div class="col-xs-3"></div>
             </div>
-
-            <div class="filler row"></div>
-
-            <!-- Section for two tables: senators and bills -->
-
-            <div class="row">
-                <div class="col-xs-1"></div>
-                <div class="senatorbox col-xs-4">
-                    <h3 class="center">Senators <small>(Togglable)</small></h3>
-                    <table class="table table-hover table-bordered table-fixed sortable-theme-bootstrap" data-sortable>
-                        <thead>
-                            <tr>
-                                <th class="col-xs-6">Senator</th>
-                                <th class="col-xs-3">Party</th>
-                                <th class="col-xs-3">State</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td><a href="#">Richard White</a></td>
-                                <td>Republican</td>
-                                <td><a href="#">Alaska</a></td>
-                            </tr>
-                            <tr>
-                                <td><a href="#">Odin Gibson</a></td>
-                                <td>Republican</td>
-                                <td><a href="#">New Hampshire</a></td>
-                            </tr>
-                            <tr>
-                                <td><a href="#">Laura Palmer</a></td>
-                                <td>Democrat</td>
-                                <td><a href="#">Washington</a></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-                <div class="col-xs-2"></div>
-                <div class="billbox col-xs-4">
-                    <h3 class="center">Bills <small>(Togglable)</small></h3>
-                    <table class="table table-hover table-bordered table-fixed sortable-theme-bootstrap" data-sortable>
-                        <thead>
-                            <tr>
-                                <th class="col-xs-3">Date</th>
-                                <th class="col-xs-3">#</th>
-                                <th class="col-xs-6">Bill</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>2001-10-25</td>
-                                <td>H.R. 3162</td>
-                                <td>USA PATRIOT Act</td>
-                            </tr>
-                            <tr>
-                                <td>2001-10-25</td>
-                                <td>H.R. 3162</td>
-                                <td>USA PATRIOT Act</td>
-                            </tr>
-                            <tr>
-                                <td>2001-10-25</td>
-                                <td>H.R. 3162</td>
-                                <td>USA PATRIOT Act</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-                <div class="col-xs-1"></div>
-            </div>
-
             <div class="row row-border"></div>
         </div>
 

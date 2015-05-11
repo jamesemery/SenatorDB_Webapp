@@ -41,7 +41,7 @@ th {
   text-align: center;
 }
 
-.first-row {
+.row-border {
   height: 100px;
 }
 
@@ -77,6 +77,10 @@ th {
 #committees {
   list-style:none;
   text-indent:-25px;
+}
+
+#error {
+  font-size: 1000%;
 }
 
 #short {
