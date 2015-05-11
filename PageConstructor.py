@@ -123,7 +123,7 @@ class PageConstructor:
 		committeeFile = open("Website/CommitteePageTemplate.html", "r")
 		committeeString = committeeFile.read()
 
-		commitee_table = ""
+		committee_table = ""
 		for s in committee.getSenators():
 			committee_table += "<tr><td>" + s.getSenatorLink()
 			committee_table += "</td><td>" + s.getParty()
