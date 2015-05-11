@@ -36,7 +36,7 @@ class DataSource:
     #any vote information
     def getBill(self, bill_id):
         try:
-            print 'foo'
+            print db_connection
             cursor = db_connection.cursor()
             print 'foo'
             print cursor.mogrify('SELECT id, session, roll, vote_date, type, question FROM bills WHERE id = (%s);',
