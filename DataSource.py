@@ -91,7 +91,6 @@ class DataSource:
         cursor = db_connection.cursor()
         cursor.execute('SELECT * FROM senators WHERE id = (%s);',
             (senator_id,))
-        print 'foo'
         senators = []
         for row in cursor:
             senators.append(Senator(row))
