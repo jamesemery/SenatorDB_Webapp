@@ -18,11 +18,8 @@ def main():
 	backend = UserInputParser(params)
 	htmlPage = backend.generateHtmlPageOutput()
 	print 'Content-type: text/html\r\n\r\n'
-	print '<html><head></head><body>'
-	print "<!--"
 	print htmlPage
-	print "-->"
-	print '</body></html>'
+
 
 def getParameters():
 	params = {}
