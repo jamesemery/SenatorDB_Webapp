@@ -24,38 +24,39 @@ class PageConstructor:
 	#the page.
 	def __init__(self):
 		self.page = ""
-		
+		self.replacements = {} #the various inserts that will be created
+		self.dbSource = DataSource() #we'll need a bit of data from the database
 
 	#Method that reads headerTemplate.html and makes changes to it based on
 	#page_type (for example filling in breadcrumbs) then adds it to
 	#the beginning of page.
 	def readTemplate(self, page_type):
-		replacements = {}
 
 		templateFile = open("template.html", r)
 		templateString = templateFile.read()
-		
-		#Senator Dropdown Menu
+		self.page += templateString
+
+		#Senator Dropdown Menu via replacement
 		senators_by_state_html = ""
 		for state in STATE_LIST:
 			#TODO make the links work correctly.
 			senators_by_state_html += ('<li><a href = "link to the state">'
 				+ state + '</a></li>')
-		replacements["SenatorDropDown"] = senators_by_state_html
+		self.replacements["SenatorDropdown"] = senators_by_state_html
 
-		#Bill Dropdown Menu
-		dbSource = DataSource()
-		bill_list = dbSource.getBillList()
-		replacements["BillDropdown"] = ""
-		for bill in bill_list:
-			replacements["BillDropdown"] += '<li>' + bill.getBillLink() + '</li>'
+		#Bill Dropdown Menu via replacement
+		bill_list = self.dbSource.getBillList()
+		self.replacements["BillDropdown"] = ""
+		for i in range(20):
+			self.replacements["BillDropdown"] += '<li>' +
+				bill_list[i].getBillLink() + '</li>'
 
-		#Congress Dropdown Menu
-		
-		#<li><a href="#">(2015-2016) 124<sup>th</sup></a></li>
-
-
-		self.page += templateString
+		#Committee Dropdown Menu via replacement
+		committee_list = self.dbSource.getCommitteeBySession(114)
+		self.replacements["CommitteeDropdown"] = ""
+		for entry in committee_list:
+			self.replacements["CommitteeDropdown"] += '<li' +
+				entry.getCommitteeLink() + </li>
 		#doesn't return anything, just makes changes to the page field.
 
 	#TODO
@@ -108,4 +109,5 @@ class PageConstructor:
 
 	#Returns the finished page.
 	def getPage(self):
+		#TODO insert the various replacements.
 		return self.page
