@@ -196,7 +196,9 @@ class DataSource:
             if senator_id in list_senators:
                 member_congresses.append(row[0])
         
-        if len(member_congresses) == 0: return None
+        if len(member_congresses) == 0: 
+            print len(member_congresses)
+            return None
 
         #loops through the bills in the congress, then loops through the 
         #votes in the congress looking for places where the particular 
