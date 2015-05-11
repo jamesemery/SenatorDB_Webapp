@@ -76,7 +76,7 @@ class DataSource:
 
             bil = list(row)[:6] + list([yea, nay, present, not_voting])
             bills.append(Bill(bil))
-        print bills
+        print str(bills) + str(len(bills))
         if len(bills)==1:
             return bills[0]
         else: return None 
