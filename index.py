@@ -31,7 +31,7 @@ def getParameters():
 
 	#Page_type gets special treatment b/c we want to default to the homepage/
 	if 'page_type' in form:
-		params['page_type'] = sanitizeInput(form['page_type'])
+		params['page_type'] = sanitizeInput(form['page_type'].value)
 	else:
 		params['page_type'] = 'home'
 
