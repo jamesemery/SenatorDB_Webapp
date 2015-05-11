@@ -83,10 +83,10 @@ class TestDataSource(unittest.TestCase):
         	present.append(senator.getId())
         for senator in actual.getAbsent():
         	not_voting.append(senator.getId())
-        self.assertItemsEqual(tuple(test_billwv.getYea_Votes()),tuple(yea))
-        self.assertItemsEqual(tuple(test_billwv.getNay_Votes()),tuple(nay))
-        self.assertItemsEqual(tuple(test_billwv.getAbstaining()),tuple(present))
-        self.assertItemsEqual(tuple(test_billwv.getAbsent()),tuple(not_voting))
+        self.assertEqual(tuple(test_billwv.getYea_Votes()),tuple(yea))
+        self.assertEqual(tuple(test_billwv.getNay_Votes()),tuple(nay))
+        self.assertEqual(tuple(test_billwv.getAbstaining()),tuple(present))
+        self.assertEqual(tuple(test_billwv.getAbsent()),tuple(not_voting))
 
 
 
@@ -103,7 +103,7 @@ class TestDataSource(unittest.TestCase):
 
 
     def testGetSenatorWithCommittees(self):
-    	f.assertEquals(false)
+    	self.assertEquals(false)
     	#TODO adsf asd fa 
 
 
