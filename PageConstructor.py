@@ -127,6 +127,7 @@ class PageConstructor:
 		committee_table = ""
 		for s in committee.getSenators():
 			senator = s[0]
+			committee_table += "<tr><td>" + s[1]
 			committee_table += "<tr><td>" + senator.getSenatorLink()
 			committee_table += "</td><td>" + senator.getParty()
 			committee_table += "</td><td>" + senator.getStateLink() + "</td></tr>"
