@@ -264,7 +264,7 @@ class DataSource:
         #try:
         cursor = db_connection.cursor()
         cursor.execute('''SELECT id, name, super_committee, session 
-            FROM committees WHERE id = (%s);''' 
+            FROM committees WHERE id = (%s);''', 
             (committee_id,))
         committees = []
         for row in cursor:
