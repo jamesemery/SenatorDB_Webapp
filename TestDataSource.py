@@ -59,6 +59,33 @@ class TestDataSource(unittest.TestCase):
         self.assertEquals(test_billnv.getType(), actual.getType())
         self.assertEquals(test_billnv.getQuestion(), actual.getQuestion())
 
+    # testing that GetBillWithVotes works properly, makes the assumption that a senator object that gets built and passed works properly and that a matching id is all that's necessary
+    def testGetBillWithVotes(self):
+    	actual = db_source.getBill(100)
+        self.assertEquals(test_billwv.getId(), actual.getId())
+        self.assertEquals(test_billwv.getSession(), actual.getSession())
+        self.assertEquals(test_billwv.getRoll(), actual.getRoll())
+        self.assertEquals(test_billwv.getVoteDate(), actual.getVoteDate())
+        self.assertEquals(test_billwv.getType(), actual.getType())
+        self.assertEquals(test_billwv.getQuestion(), actual.getQuestion())
+        yea = []
+        nay = []
+        present = []
+        not_voting = []
+        for senator in actual.getYea_Votes:
+        	yea.append(senator.getId())
+        for senator in actual.getNay_Votes:
+        	nay.append(senator.getId())
+        for senator in actual.getAbstaning:
+        	present.append(senator.getId())
+        for senator in actual.getAbsent:
+        	not_voting.append(senator.getId())
+        self.assertItemsEqual(test_billwv.getYea_Votes(),yea)
+        self.assertItemsEqual(test_billwv.getNay_Votes(),nay)
+        self.assertItemsEqual(test_billwv.getAbstaning(),present)
+        self.assertItemsEqual(test_billwv.getAbsent(),not_voting)
+
+
 
 
 if __name__ == '__main__':
