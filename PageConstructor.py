@@ -112,7 +112,7 @@ class PageConstructor:
 			bill_table += "</td><td>" + s.getParty()
 			bill_table += "</td><td>" + s.getStateLink() + "</td></tr>"
 
-		fill_tags = {"BillName": bill.getQuestion(), "BillType": bill.getType(), "BillSession": bill.getSession(), "BillDate": bill.getVoteDate(), "BillVotes": votes, "SenatorTable": bill_table}
+		fill_tags = {"BillName": bill.getQuestion(), "BillType": bill.getType(), "BillSession": bill.getSession(), "BillDate": bill.getVoteDate().strftime(%B %d, %Y), "BillVotes": votes, "SenatorTable": bill_table}
 		content_string = billString.format(**fill_tags)
 		self.replacements["results"] = content_string
 
@@ -150,7 +150,7 @@ class PageConstructor:
 
 		bill_table = ""
 		for bill in vote_pair:
-			bill_table += "<tr><td>" + bill[0].getVoteDate()
+			bill_table += "<tr><td>" + bill[0].getVoteDate().strftime(%B %d, %Y)
 			bill_table += "</td><td>" + bill[0].getRoll()
 			bill_table += "</td><td>" + bill[0].getBillLink()
 			bill_table += "</td><td>" + bill[1] + "</td></tr>"
@@ -184,7 +184,7 @@ class PageConstructor:
 
 		table_string = ""
 		for bill in bill_list:
-			table_string += "<tr><td>" + bill.getVoteDate()
+			table_string += "<tr><td>" + bill.getVoteDate().strftime(%B %d, %Y)
 			table_string += "</td><td>" + bill.getRoll()
 			table_string += "</td><td>" + bill.getBillLink() + "</td></tr>"
 
@@ -224,7 +224,7 @@ class PageConstructor:
 
 		b_table_string = ""
 		for b in bill_list:
-			b_table_string += "<tr><td>" + b.getVoteDate()
+			b_table_string += "<tr><td>" + b.getVoteDate().strftime(%B %d, %Y)
 			b_table_string += "</td><td>" + b.getRoll()
 			b_table_string += "</td><td>" + b.getBillLink() + "</td></tr>"
 

@@ -47,7 +47,7 @@ class UserInputParser:
 		elif self.page_type == "bill_index":
 			html_string += self.makeBillIndexPage()
 		elif self.page_type == "senator_index":
-			html_string += self.makeSenatorIndex()
+			html_string += self.makeSenatorIndexPage()
 		elif self.page_type == "home":
 			html_string += self.makeHomePage()
 		else:
