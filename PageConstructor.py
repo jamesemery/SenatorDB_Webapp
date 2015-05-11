@@ -127,5 +127,5 @@ class PageConstructor:
 
 	#Returns the finished page.
 	def getPage(self):
-		#TODO insert the various replacements.
+		self.page = self.page.format(**replacements)
 		return self.page
