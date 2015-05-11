@@ -67,7 +67,7 @@ except:
 # Step 4: Read the rows of the output and act
 # on them.
 try:
-    cursor.execute('SELECT * FROM bills;')
+    cursor.execute('SELECT * FROM senator;')
     print '<pre>'
     for row in cursor:
         print row[1]

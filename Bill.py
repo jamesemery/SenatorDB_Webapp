@@ -54,7 +54,7 @@ class Bill:
 		return self.nay_votes
 
 	def getAbstaining(self):
-		return self.abstaning
+		return self.abstaining
 
 	def getAbsent(self):
 		return self.absent
