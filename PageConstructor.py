@@ -87,6 +87,10 @@ class PageConstructor:
 		self.readTemplate()
 		#do stuff
 
+	def makeSenatorIndexPage(self, senator_list):
+		self.readTemplate()
+		#do stuff
+
 	#Gets html from statePageTemplate.html, fills in the state name and senator
 	#list, and appends to the page variable.
 	def makeStatePage(self, state_name, senator_list):
@@ -99,7 +103,7 @@ class PageConstructor:
 		self.readTemplate()
 
 	#Makes a page with a big list of all bills ever.
-	def makeBillIndexPage(self):
+	def makeBillIndexPage(self, bill_list):
 		self.readTemplate()
 
 	#Gets a general-purpose error page.

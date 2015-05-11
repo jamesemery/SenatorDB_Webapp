@@ -44,6 +44,8 @@ class UserInputParser:
 			html_string += self.makeSessionPage()
 		elif self.page_type == "bill_index":
 			html_string += self.makeBillIndexPage()
+		elif self.page_type == "senator_index":
+			html_string += self.makeSenatorIndex()
 		elif self.page_type == "home":
 			html_string += self.makeHomePage()
 		else:
@@ -69,6 +71,12 @@ class UserInputParser:
 		html_string = self.page_maker.getPage()
 		return html_string
 
+	def makeSenatorIndexPage(self):
+		senator_list = self.db_source.getSenatorList()
+		self.page_maker.makeSenatorIndexPage(senator_list)
+		html_string = self.page_maker.getPage()
+		return html_string
+
 	def makeBillPage(self):
 		id_tag = self.params["bill"]
 		bill_obj = self.db_source.getBillWithVotes(id_tag)
@@ -78,7 +86,7 @@ class UserInputParser:
 
 	def makeBillIndexPage(self):
 		bill_list = self.db_source.getBillList()
-		self.page_maker.makeBillIndexPage()
+		self.page_maker.makeBillIndexPage(bill_list)
 		html_string = self.page_maker.getPage()
 		return html_string
 
