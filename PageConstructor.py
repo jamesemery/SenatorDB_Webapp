@@ -77,7 +77,7 @@ class PageConstructor:
 	#Just opens Homepage.html. Simple as that. The page is complete, so we're
 	#not bothering to read from the template.
 	def makeHomepage(self):
-		pageFile = open("Homepage.html", r)
+		pageFile = open("Homepage.html", "r")
 		pageString = pageFile.read()
 		self.page += pageString
 
@@ -122,6 +122,8 @@ class PageConstructor:
 
 		content_string = subtemplateString.format(**subreplacements)
 		self.replacements["results"] = content_string
+		page = page.format(**self.replacements)
+		return page
 
 
 	def makeSenatorIndexPage(self, senator_list):
@@ -132,7 +134,7 @@ class PageConstructor:
 	#list, and appends to the page variable.
 	def makeStatePage(self, state_name, senator_list):
 		self.readTemplate()
-		stateFile = open("Website/StatePageTemplate.html", r)
+		stateFile = open("Website/StatePageTemplate.html", "r")
 		stateString = stateFile.read()
 
 		table_string = ""
