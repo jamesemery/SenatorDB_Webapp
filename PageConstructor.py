@@ -102,7 +102,7 @@ class PageConstructor:
 	#Things to pass in: {SenatorData} and {BillTable}
 	def makeSenatorPage(self, senator):
 		self.readTemplate("senator")
-		templateFile = open("SenatorPageTemplate.html", r)
+		templateFile = open("Website/SenatorPageTemplate.html", r)
 		subtemplateString = templateFile.read()
 		subreplacements = {}
 
