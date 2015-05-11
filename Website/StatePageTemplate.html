@@ -1,0 +1,32 @@
+        <div class="container-fluid">
+            <div class="row row-border"></div>
+
+            <!-- Section for a table of senators -->
+
+            <div class="row">
+                <div class="col-xs-2"></div>
+                <div class="senatorbox col-xs-8">
+                    <h3 class="center">Senators from {StateName} <small>(Togglable)</small></h3> <!-- Get the name from that big list -->
+                    <table class="table table-hover table-bordered table-fixed sortable-theme-bootstrap" data-sortable>
+                        <thead>
+                            <tr>
+                                <th class="col-xs-3">Current?</th>
+                                <th class="col-xs-6">Senator</th>
+                                <th class="col-xs-3">Party</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- <tr> -->
+                                <!-- <td>Yes</td> -->
+                                <!-- <td><a href="#">Richard White</a></td> -->
+                                <!-- <td>Republican</td> -->
+                            <!-- </tr> -->
+                            {SenatorTable}
+                        </tbody>
+                    </table>
+                </div>
+                <div class="col-xs-2"></div>
+            </div>
+
+            <div class="row row-border"></div>
+        </div>

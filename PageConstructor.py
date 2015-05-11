@@ -150,15 +150,15 @@ class PageConstructor:
 
 
 		#TODO get the committes working
-		subreplacements["ComitteeList"] = ""
-		subreplacements["BillTable"] = ""
+		subreplacements["ComitteeList"] = " "
+		subreplacements["BillTable"] = " "
 
 		subreplacements["SenatorName"] = senator.getName()
 		subreplacements["SenatorParty"] = senator.getParty()
-		subreplacements["SenatorBirthday"] = senator.getBirthday.strftime("%B %d, %Y")
+		subreplacements["SenatorBirthday"] = senator.getBirthday().strftime("%B %d, %Y")
 		
 		#getting the real state name for the senator
-		i = STATE_ABBREVIATION_LIST.index(senator.GetState())
+		i = STATE_ABBREVIATION_LIST.index(senator.getState())
 		subreplacements["SenatorState"] = STATE_LIST[i]
 
 		if senator.isCurrent() == True:
@@ -174,7 +174,18 @@ class PageConstructor:
 
 	def makeSenatorIndexPage(self, senator_list):
 		self.readTemplate()
-		#do stuff
+		senatorIndexFile = open("Website/SenatorIndexPageTemplate.html", "r")
+		senatorIndexString = senatorIndexFile.read()
+
+		table_string = ""
+		for senator in senator_list:
+			table_string += "<tr><td>" + senator.getSenatorLink()
+			table_string += "</td><td>" + senator.getParty()
+			table_string += "</td><td>" + senator.getStateLink() + "</td></tr>"
+
+		fill_tags = {"SenatorTable": table_string}
+		content_string = senatorIndexString.format(**fill_tags)
+		self.replacements[results] = content_string
 
 	#Makes a page with a big list of all bills ever.
 	#Things to pass in: {BillTableRows}
@@ -190,7 +201,7 @@ class PageConstructor:
 			table_string += "</td><td>" + bill.getBillLink() + "</td></tr>"
 
 		fill_tags = {"BillData": table_string}
-		content_string = stateString.format(**fill_tags)
+		content_string = billIndexString.format(**fill_tags)
 		self.replacements[results] = content_string
 
 	#Gets html from statePageTemplate.html, fills in the state name and senator
