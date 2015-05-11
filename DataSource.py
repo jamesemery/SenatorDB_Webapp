@@ -124,7 +124,10 @@ class DataSource:
             committees = []
             for pair in cursor:
                 committees.append([self.getCommittee(pair[0]), pair[2]])
-            sen_row = list(rows[0]).append(committees)
+            subrow = rows[0]
+            sen_row = [subrow[0], subrow[1], subrow[2], subrow[3], subrow[4],
+                  subrow[5], subrow[6], subrow[7], subrow[8], subrow[9],
+                  committees]
             return Senator(sen_row)
         else: return None 
         #except:
