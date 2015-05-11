@@ -63,7 +63,7 @@ class PageConstructor:
 		self.replacements["SenatorDropdown"] = senators_by_state_html
 
 		#Bill Dropdown Menu via replacement
-		bill_list = self.dbSource.getBilllsInCongress(114)
+		bill_list = self.dbSource.getBillsInCongress(114)
 		self.replacements["BillDropdown"] = ""
 		for i in range(20):
 			self.replacements["BillDropdown"] += ('<li>' +
