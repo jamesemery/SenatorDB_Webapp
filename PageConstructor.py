@@ -125,7 +125,18 @@ class PageConstructor:
 	#page variable.
 	def makeCommitteePage(self, committee):
 		self.readTemplate()
-		#do stuff
+		committeeFile = open("Website/CommitteePageTemplate.html", "r")
+		committeeString = committeeFile.read()
+
+		commitee_table = ""
+		for s in commitee.getSenators():
+			commitee_table += "<tr><td>" + s.getSenatorLink()
+			commitee_table += "</td><td>" + s.getParty()
+			commitee_table += "</td><td>" + s.getStateLink() + "</td></tr>"
+
+		fill_tags = {"Supercommittee": committee.getSuperCommittee().getCommitteeLink(), "SenatorTable": committee_table}
+		content_string = committeeString.format(**fill_tags)
+		self.replacements[results] = content_string
 
 	#Gets html from senatorPageTemplate.html, fills in the senator’s info, and
 	#appends to the page variable.

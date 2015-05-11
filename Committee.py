@@ -17,7 +17,7 @@ class Committee:
 
 	#Generates an Html link to this committee's page.
 	def getCommitteeLink(self):
-		return "<a href = 'http://thacker.mathcs.carleton.edu/cs257/emeryj/index.py?page_type=committee&committee='" + self.getId() + ">" + self.getName() + "</a>"
+		return "<a href = 'http://thacker.mathcs.carleton.edu/cs257/emeryj/index.py?page_type=committee&committee='" + str(self.getId()) + ">" + self.getName() + "</a>"
 
 	def getId(self):
 		return self.id
