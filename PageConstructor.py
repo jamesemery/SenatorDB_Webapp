@@ -80,6 +80,7 @@ class PageConstructor:
 		pageFile = open("DummyHomepage.html", "r")
 		pageString = pageFile.read()
 		self.page += pageString
+		return pageString
 
 	#Gets html from billPageTemplate.html, fills in the info of the bill passed
 	#to it, and appends to the page variable. 
