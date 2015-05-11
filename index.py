@@ -17,8 +17,11 @@ cgitb.enable()
 
 def main():
 	params = getParameters()
+	print "Super 1 \n"
 	backend = UserInputParser(params)
+	print "Super 2 \n"
 	htmlPage = backend.generateHtmlPageOutput()
+	print "Super 3 \n"
 	print htmlPage
 
 def getParameters():
