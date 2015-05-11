@@ -17,7 +17,7 @@ def main():
 	params = getParameters()
 	backend = UserInputParser(params)
 	htmlPage = backend.generateHtmlPageOutput()
-	print htmlPage
+	print htmlPaggggggge
 
 def getParameters():
 	params = {}
