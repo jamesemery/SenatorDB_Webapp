@@ -195,6 +195,7 @@ class DataSource:
             list_senators = row[1]
             for ident in list_senators:
                 if int(ident) == senator_id:
+                    print "foo"
                     member_congresses.append(114)
         #if len(member_congresses) == 0: 
         #    return None
