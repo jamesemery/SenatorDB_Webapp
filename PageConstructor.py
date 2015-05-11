@@ -152,7 +152,7 @@ class PageConstructor:
 		bill_table = ""
 		for bill in vote_pair:
 			bill_table += "<tr><td>" + bill[0].getVoteDate().strftime("%B %d, %Y")
-			bill_table += "</td><td>" + bill[0].getRoll()
+			bill_table += "</td><td>" + str(bill[0].getRoll())
 			bill_table += "</td><td>" + bill[0].getBillLink()
 			bill_table += "</td><td>" + bill[1] + "</td></tr>"
 
