@@ -142,7 +142,7 @@ class PageConstructor:
 	#Gets html from senatorPageTemplate.html, fills in the senator’s info, and
 	#appends to the page variable.
 	#Things to pass in: {SenatorData} and {BillTable}
-	def makeSenatorPage(self, senator):
+	def makeSenatorPage(self, senator, vote_pair):
 		self.readTemplate()
 		senatorFile = open("Website/SenatorPageTemplate.html", "r")
 		senatorString = senatorFile.read()
@@ -155,7 +155,7 @@ class PageConstructor:
 			bill_table += "<tr><td>" + bill.getVoteDate()
 			bill_table += "</td><td>" + bill.getRoll()
 			bill_table += "</td><td>" + bill.getBillLink()
-			bill_table += "</td><td>" + THEIR VOTE SOMEFUCKINGHOW + "</td></tr>"
+			bill_table += "</td><td>" + "</td></tr>"
 
 		fill_tags = {"SenatorName": senator.getName(), "SenatorParty": senator.getParty(), "SenatorStateLink": senator.getStateLink(), "Birthday": senator.getBirthday(), "Currently": senator.isCurrent(), "CommitteeList": committee_list, "BillTable": bill_table}
 		content_string = billString.format(**fill_tags)
