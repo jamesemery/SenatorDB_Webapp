@@ -115,7 +115,7 @@ class PageConstructor:
 		i = STATE_ABBREVIATION_LIST.index(senator.GetState())
 		subreplacements["SenatorState"] = STATE_LIST[i]
 
-		if senator.isCurrent() = True:
+		if senator.isCurrent() == True:
 			subreplacements["Currently"] = "Currently in office."
 		else:
 			subreplacements["Currently"] = "Not Currently in Office"
