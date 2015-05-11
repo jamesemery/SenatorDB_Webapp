@@ -77,7 +77,7 @@ class PageConstructor:
 	#Just opens Homepage.html. Simple as that. The page is complete, so we're
 	#not bothering to read from the template.
 	def makeHomepage(self):
-		pageFile = open("DummyHomepage.html", "r")
+		pageFile = open("Website/DummyHomepage.html", "r")
 		pageString = pageFile.read()
 		self.page += pageString
 		return pageString
