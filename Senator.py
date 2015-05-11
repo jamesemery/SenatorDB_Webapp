@@ -14,17 +14,22 @@ class Senator:
 		self.first = params[2]
 		self.birthday = params[3]
 		self.gender = params[4]
-		self.party = params[5]
-		self.wiki = params[6]
-		self.current = params[7] #Boolean value, true means a current senator
+		self.state = params[5]
+		self.party = params[6]
+		self.wiki = params[7]
+		self.current = params[8] #Boolean value, true means a current senator
 		self.committees = []
 		#if there is a 9th argument in params then it indicates that a list has
 		#committee objects from the database and will thus store them
-		if len(params) == 9:
-			self.committees = params[8]
+		if len(params) == 10:
+			self.committees = params[9]
 
 	#Generates a link to the senator’s page with the properly formatted text and
 	#returns it as a string(e.g. (R-AK) Richard White ).
+
+	def getStateLink(self):
+		htmlLink = "<a href = 'http://thacker.mathcs.carleton.edu/cs257/emeryj/index.py?page_type=state&state='" + self.getState() + ">" + self.getState() + "</a>"
+		return htmlLink
 
 	def getSenatorLink(self):
 		htmlLink = "<a href = 'http://thacker.mathcs.carleton.edu/cs257/emeryj/index.py?page_type=senator&senator='" + self.getId() + ">" + self.getName() + "</a>"
