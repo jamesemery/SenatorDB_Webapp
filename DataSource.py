@@ -36,20 +36,19 @@ class DataSource:
     #Returns a bill object corresponding to id of the bill it is given withouth
     #any vote information
     def getBill(self, bill_id):
-        try:
-            cursor = db_connection.cursor()
-            print 'foo'
-            print cursor.mogrify('SELECT id, session, roll, vote_date, type, question FROM bills WHERE id = (%s);',
-                (bill_id, ))
-            bills = []
-            for row in cursor:
-                bills.append(Bill(row))
-            if len(bills)==1:
-                return bills[0]
-            else: return None 
-        except:
-            print "failed to retieve item from the database"
-            return None
+        cursor = db_connection.cursor()
+        print 'foo'
+        print cursor.mogrify('SELECT id, session, roll, vote_date, type, question FROM bills WHERE id = (%s);',
+            (bill_id, ))
+        bills = []
+        for row in cursor:
+            bills.append(Bill(row))
+        if len(bills)==1:
+            return bills[0]
+        else: return None 
+        #except:
+         #   print "failed to retieve item from the database"
+          #  return None
 
 
 
