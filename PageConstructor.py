@@ -150,12 +150,11 @@ class PageConstructor:
 		committee_list = ""
 
 		bill_table = ""
-		
-		for bill in the-bills-that-we-somehow-have:
-			bill_table += "<tr><td>" + bill.getVoteDate()
-			bill_table += "</td><td>" + bill.getRoll()
-			bill_table += "</td><td>" + bill.getBillLink()
-			bill_table += "</td><td>" + "</td></tr>"
+		for bill in vote_pair:
+			bill_table += "<tr><td>" + bill[0].getVoteDate()
+			bill_table += "</td><td>" + bill[0].getRoll()
+			bill_table += "</td><td>" + bill[0].getBillLink()
+			bill_table += "</td><td>" + bill[1] + "</td></tr>"
 
 		fill_tags = {"SenatorName": senator.getName(), "SenatorParty": senator.getParty(), "SenatorStateLink": senator.getStateLink(), "Birthday": senator.getBirthday(), "Currently": senator.isCurrent(), "CommitteeList": committee_list, "BillTable": bill_table}
 		content_string = billString.format(**fill_tags)
