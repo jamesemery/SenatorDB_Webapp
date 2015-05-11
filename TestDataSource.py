@@ -83,27 +83,27 @@ class TestDataSource(unittest.TestCase):
         	present.append(senator.getId())
         for senator in actual.getAbsent():
         	not_voting.append(senator.getId())
-        self.assertItemsEqual(test_billwv.getYea_Votes(),yea)
-        self.assertItemsEqual(test_billwv.getNay_Votes(),nay)
-        self.assertItemsEqual(test_billwv.getAbstaining(),present)
-        self.assertItemsEqual(test_billwv.getAbsent(),not_voting)
+        self.assertItemsEqual(tuple(test_billwv.getYea_Votes()),tuple(yea))
+        self.assertItemsEqual(tuple(test_billwv.getNay_Votes()),tuple(nay))
+        self.assertItemsEqual(tuple(test_billwv.getAbstaining()),tuple(present))
+        self.assertItemsEqual(tuple(test_billwv.getAbsent()),tuple(not_voting))
 
 
 
     def testGetSenator(self):
     	actual = db_source.getSenator(412390)
-    	self.AssertEquals(test_senator.getId(), actual.getId())
-    	self.AssertEquals(test_senator.getFirst(), actual.getFirst())
-    	self.AssertEquals(test_senator.getLast(), actual.getLast())
-    	self.AssertEquals(test_senator.getBirthday(), actual.getBirthday())
-    	self.AssertEquals(test_senator.getGender(), actual.getGender())
-    	self.AssertEquals(test_senator.getParty(), actual.getParty())
-    	self.AssertEquals(test_senator.getWiki(), actual.getWiki())
-    	self.AssertEquals(test_senator.isCurrent(), actual.isCurrent())
+    	self.assertEquals(test_senator.getId(), actual.getId())
+    	self.assertEquals(test_senator.getFirst(), actual.getFirst())
+    	self.assertEquals(test_senator.getLast(), actual.getLast())
+    	self.assertEquals(test_senator.getBirthday(), actual.getBirthday())
+    	self.assertEquals(test_senator.getGender(), actual.getGender())
+    	self.assertEquals(test_senator.getParty(), actual.getParty())
+    	self.assertEquals(test_senator.getWiki(), actual.getWiki())
+    	self.assertEquals(test_senator.isCurrent(), actual.isCurrent())
 
 
     def testGetSenatorWithCommittees(self):
-    	assertEquals(false)
+   f.assertEquals(false)
     	#TODO
 
 
