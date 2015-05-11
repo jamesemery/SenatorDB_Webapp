@@ -64,7 +64,7 @@ class TestDataSource(unittest.TestCase):
 
     # testing that GetBillWithVotes works properly, makes the assumption that a senator object that gets built and passed works properly and that a matching id is all that's necessary
     def testGetBillWithVotes(self):
-    	actual = db_source.getBill(100)
+    	actual = db_source.getBillWithVotes(100)
         self.assertEquals(test_billwv.getId(), actual.getId())
         self.assertEquals(test_billwv.getSession(), actual.getSession())
         self.assertEquals(test_billwv.getRoll(), actual.getRoll())
