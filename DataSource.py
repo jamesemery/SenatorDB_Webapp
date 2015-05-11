@@ -193,9 +193,9 @@ class DataSource:
         member_congresses = []
         for row in cursor:
             list_senators = row[1]
-            if senator_id in list_senators:
-                member_congresses.append(row[0])
-        
+            for ident in list_senators:
+                if int(ident) == senator_id:
+                    member_congresses.append(row[0])
         if len(member_congresses) == 0: 
             return None
 ##TODO FIGURE OUT ISSUE HERER
