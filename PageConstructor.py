@@ -48,7 +48,6 @@ class PageConstructor:
 		#Senator Dropdown Menu via replacement
 		senators_by_state_html = ""
 
-		int i 
 		while i < len(STATE_LIST):
 			senators_by_state_html += ('<li><a href = "http://thacker.mathcs.' + 'carleton.edu/cs257/emeryj/index.py?page_type=state&state=' 
 				+ STATE_ABBREVIATION_LIST[i] + '">'
@@ -61,15 +60,15 @@ class PageConstructor:
 		bill_list = self.dbSource.getBilllsInCongress(114)
 		self.replacements["BillDropdown"] = ""
 		for i in range(20):
-			self.replacements["BillDropdown"] += '<li>' +
-				bill_list[i].getBillLink() + '</li>'
+			self.replacements["BillDropdown"] += ('<li>' +
+				bill_list[i].getBillLink() + '</li>')
 
 		#Committee Dropdown Menu via replacement
 		committee_list = self.dbSource.getCommitteeBySession(114)
 		self.replacements["CommitteeDropdown"] = ""
 		for entry in committee_list:
-			self.replacements["CommitteeDropdown"] += '<li>' +
-				entry.getCommitteeLink() + </li>
+			self.replacements["CommitteeDropdown"] += ('<li>' +
+				entry.getCommitteeLink() + "</li>")
 		#doesn't return anything, just makes changes to the page field.
 
 	#TODO
@@ -116,7 +115,7 @@ class PageConstructor:
 		i = STATE_ABBREVIATION_LIST.index(senator.GetState())
 		subreplacements["SenatorState"] = STATE_LIST[i]
 
-		if senator.isCurrent() = True:
+		if senator.isCurrent() == True:
 			subreplacements["Currently"] = "Currently in office."
 		else:
 			subreplacements["Currently"] = "Not Currently in Office"
