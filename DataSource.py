@@ -89,7 +89,7 @@ class DataSource:
     def getSenator(self, senator_id):
         #try:
         cursor = db_connection.cursor()
-        cursor.execute('SELECT * FROM senators WHERE id = (%s);'
+        cursor.execute('SELECT * FROM senators WHERE id = (%s);',
             (senator_id,))
         print 'foo'
         senators = []
@@ -108,7 +108,7 @@ class DataSource:
     def getSenatorWithCommittees(self, senator_id):
         #try:
         cursor = db_connection.cursor()
-        cursor.execute('SELECT * FROM senators WHERE id = (%s);'
+        cursor.execute('SELECT * FROM senators WHERE id = (%s);',
             (senator_id,))
         rows = []
         for row in cursor:
