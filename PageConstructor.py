@@ -154,7 +154,7 @@ class PageConstructor:
 
 		subreplacements["SenatorName"] = senator.getName()
 		subreplacements["SenatorParty"] = senator.getParty()
-		subreplacements["SenatorBirthday"] = senator.getBirthday.strftime("%B %d, %Y")
+		subreplacements["SenatorBirthday"] = senator.getBirthday().strftime("%B %d, %Y")
 		
 		#getting the real state name for the senator
 		i = STATE_ABBREVIATION_LIST.index(senator.GetState())
