@@ -74,8 +74,7 @@ class DataSource:
             for senator in row[9]:
                 not_voting.append(self.getSenator(senator))
 
-            bil = row[:6] + [yea, nay, present, not_voting]
-            print bil
+            bil = list(row)[:6] + list([yea, nay, present, not_voting])
             bills.append(Bill(bil))
         if len(bills)==1:
             return bills[0]
