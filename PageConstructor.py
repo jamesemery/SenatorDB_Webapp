@@ -31,6 +31,9 @@ class PageConstructor:
 
 	#Constructor that builds a PageConstructor object and an empty string for
 	#the page.
+
+
+
 	def __init__(self):
 		self.page = ""
 		self.replacements = {} #the various inserts that will be created
@@ -80,7 +83,6 @@ class PageConstructor:
 		pageFile = open("Website/DummyHomepage.html", "r")
 		pageString = pageFile.read()
 		self.page += pageString
-		return pageString
 
 	#Gets html from billPageTemplate.html, fills in the info of the bill passed
 	#to it, and appends to the page variable. 
@@ -185,5 +187,5 @@ class PageConstructor:
 
 	#Returns the finished page.
 	def getPage(self):
-		self.page = self.page.format(**replacements)
+		self.page = self.page.format(**self.replacements)
 		return self.page
