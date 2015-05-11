@@ -25,12 +25,12 @@ class DataSource:
             f.close()
         except:
             print "failed to connect to the database directory"
-        try:
-            db_connection = psycopg2.connect(user=USERNAME,
+        
+        db_connection = psycopg2.connect(user=USERNAME,
                                              database=DB_NAME,
                                              password=PASSWORD)
-        except:
-            print "psycopg2 failed to load the directory"
+        #except:
+        #    print "psycopg2 failed to load the directory"
         print db_connection
 
     #Returns a bill object corresponding to id of the bill it is given withouth
