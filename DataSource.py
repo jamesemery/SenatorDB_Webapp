@@ -184,9 +184,9 @@ class DataSource:
     def getVotesBySenator(self, senator_id, number):
         #try:
         cursor = db_connection.cursor()
-        cursor.execute('''SELECT number,senators 
-            FROM sessions 
-            ORDER BY number DESC;''')
+        #cursor.execute('''SELECT number,senators 
+        #    FROM sessions 
+        #    ORDER BY number DESC;''')
         
         #determines what congress the senator belongs and stores the ID of
         #the congress in a list
@@ -205,7 +205,7 @@ class DataSource:
         bills_voted = []
         #for session in member_congresses:
         cursor.execute('''SELECT id, yea_votes, nay_votes, present, not_voting FROM bills  
-            ORDER BY date DESC;'''
+            ORDER BY date DESC;''')
 #TODO RETURN TO ITS REAL STATE
         for row in cursor:
             if senator_id in row[1]: 
