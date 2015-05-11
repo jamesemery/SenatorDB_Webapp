@@ -121,6 +121,14 @@ class PageConstructor:
 	#Gets a general-purpose error page.
 	def makeErrorPage(self):
 		self.readTemplate()
+		templateFile = open("template.html", r)
+		templateString = templateFile.read()
+		self.page += templateString
+
+		errorFile = open("Website/ErrorPageTemplate.html")
+		errorString = errorFile.read()
+
+		self.replacements["results"] = errorString
 
 
 	#Returns the finished page.
