@@ -38,14 +38,18 @@ class PageConstructor:
 
 		#Senator Dropdown Menu via replacement
 		senators_by_state_html = ""
-		for state in STATE_LIST:
-			#TODO make the links work correctly.
-			senators_by_state_html += ('<li><a href = "link to the state">'
-				+ state + '</a></li>')
+		
+		int i 
+		while i < len(STATE_LIST):
+			senators_by_state_html += ('<li><a href = "http://thacker.mathcs.' + 'carleton.edu/cs257/emeryj/index.py?page_type=state&state=' 
+				+ STATE_ABBREVIATION_LIST[i] + '">'
+				+ STATE_LIST[i] + '</a></li>')
+			i+=1
+
 		self.replacements["SenatorDropdown"] = senators_by_state_html
 
 		#Bill Dropdown Menu via replacement
-		bill_list = self.dbSource.getBillList()
+		bill_list = self.dbSource.getBilllsInCongress(114)
 		self.replacements["BillDropdown"] = ""
 		for i in range(20):
 			self.replacements["BillDropdown"] += '<li>' +
@@ -86,6 +90,11 @@ class PageConstructor:
 	#Things to pass in: {SenatorData} and {BillTable}
 	def makeSenatorPage(self, senator):
 		self.readTemplate()
+		templateFile = open("template.html", r)
+		templateString = templateFile.read()
+		self.page += templateString
+
+
 		self.replacements["results"] = ""
 		#do stuff
 
