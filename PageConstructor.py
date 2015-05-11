@@ -59,7 +59,7 @@ class PageConstructor:
 		committee_list = self.dbSource.getCommitteeBySession(114)
 		self.replacements["CommitteeDropdown"] = ""
 		for entry in committee_list:
-			self.replacements["CommitteeDropdown"] += '<li' +
+			self.replacements["CommitteeDropdown"] += '<li>' +
 				entry.getCommitteeLink() + </li>
 		#doesn't return anything, just makes changes to the page field.
 
@@ -121,6 +121,14 @@ class PageConstructor:
 	#Gets a general-purpose error page.
 	def makeErrorPage(self):
 		self.readTemplate()
+		templateFile = open("template.html", r)
+		templateString = templateFile.read()
+		self.page += templateString
+
+		errorFile = open("Website/ErrorPageTemplate.html")
+		errorString = errorFile.read()
+
+		self.replacements["results"] = errorString
 
 
 	#Returns the finished page.
