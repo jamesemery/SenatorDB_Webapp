@@ -19,15 +19,12 @@ class DataSource:
         USERNAME = 'emeryj'
         DB_NAME = 'emeryj'
         try:
-            print os.path.dirname(os.path.realpath('.'))
-            f = open(os.path.join('/cs257', USERNAME))
+            f = open('testpassfileworkaround')
+            #f = open(os.path.join('/cs257', USERNAME)) ###TODO DELETE THIS
             PASSWORD = f.read().strip()
-            print PASSWORD
             f.close()
         except:
             print "failed to connect to the database directory"
-            print 'Your database password is %s.<br>' % PASSWORD
-            print 'Your database username is %s.<br>' % USERNAME
         try:
             db_connection = psycopg2.connect(user=USERNAME,
                                              database=DB_NAME,
@@ -39,8 +36,9 @@ class DataSource:
     #any vote information
     def getBill(self, bill_id):
         try:
+            print 'foo'
             cursor = db_connection.cursor()
-            cursor.execute('SELECT id, session, roll, vote_date, type, question FROM bills WHERE id = %s;',
+            print cursor.mogrify('SELECT id, session, roll, vote_date, type, question FROM bills WHERE id = (%s);',
                 (bill_id, ))
             bills = []
             for row in cursor:
@@ -49,6 +47,7 @@ class DataSource:
                 return bills[0]
             else: return None 
         except:
+            print "failed to retieve item from the database"
             return None
 
 
