@@ -81,15 +81,18 @@ class PageConstructor:
 	#Just opens Homepage.html. Simple as that. The page is complete, so we're
 	#not bothering to read from the template.
 	def makeHomepage(self):
-		pageFile = open("Website/DummyHomepage.html", "r")
+		self.readTemplate()
+		pageFile = open("Website/BillPageTemplate.html", "r")
 		pageString = pageFile.read()
 		self.page += pageString
+
+
 
 	#Gets html from billPageTemplate.html, fills in the info of the bill passed
 	#to it, and appends to the page variable. 
 	def makeBillPage(self, bill):
 		self.readTemplate()
-		billFile = open("Website/BillPageTemplate.html", r)
+		billFile = open("Website/BillPageTemplate.html", "r")
 		billString = billFile.read()
 
 		bill_string = ""
