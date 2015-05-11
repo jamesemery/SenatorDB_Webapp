@@ -1,0 +1,61 @@
+        <div class="container-fluid">
+            <div class="row row-border"></div>
+
+            <!-- Section for the bill's info. -->
+
+            <div class="row">
+                <div class="col-xs-3"></div>
+                <div class="billbox col-xs-6">
+                    <h2 class="center">{Bill Name}</h2>
+                    <p>Type: {BillSession}</p>
+                    <p>Session: {BillSession}</p>
+                    <p>Question: {BillQuestion}</p>
+                    <p>Vote Date: {BillDate}</p>
+                    <p>{BillVotes}</p>
+                </div>
+                <div class="col-xs-3"></div>
+            </div>
+
+            <div class="filler row"></div>
+
+            <!-- Section for a table of votes -->
+
+            <div class="row">
+                <div class="col-xs-2"></div>
+                <div class="senatorbox col-xs-8">
+                    <h3>Voting Data <small>(Togglable)</small></h3>
+                    <table class="table table-hover table-bordered table-fixed sortable-theme-bootstrap" data-sortable>
+                        <thead>
+                            <tr>
+                                <th class="col-xs-2">Vote</th>
+                                <th class="col-xs-4">Senator</th>
+                                <th class="col-xs-3">Party</th>
+                                <th class="col-xs-3">State</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!--<tr>
+                                <td>Aye</td>
+                                <td><a href="#">Richard White</a></td>
+                                <td>Republican</td>
+                                <td><a href="#">Alaska</a></td>
+                            </tr>-->
+                            {SenatorTableRows}
+                        </tbody>
+                    </table>
+                </div>
+                <div class="col-xs-2"></div>
+            </div>
+
+            <div class="row row-border"></div>
+        </div>
+
+        <nav class="navbar navbar-fixed-bottom" id="footer">
+            <div class="container-fluid">
+                <div class="navbar-right">
+                    <p>All data was downloaded from govtrack.us, and is freely available to the public.</p>
+                </div>
+            </div>
+        </nav>
+	</body>
+</html>

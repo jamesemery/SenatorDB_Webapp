@@ -1,5 +1,7 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
+import cgitb
+cgitb.enable()
 
 class Senator:
 	#Constructor that builds a senator object from the senators id and an 
@@ -23,15 +25,16 @@ class Senator:
 
 	#Generates a link to the senator’s page with the properly formatted text and
 	#returns it as a string(e.g. (R-AK) Richard White ).
+
 	def getSenatorLink(self):
 		htmlLink = "<a href = 'http://thacker.mathcs.carleton.edu/cs257/emeryj/index.py?page_type=senator&senator'" + self.getId() + ">" + self.getName() + "</a>"
 		return htmlLink
 
-	def getId(self):
-		return self.id
-
 	def getFirst(self):
 		return self.first
+
+	def getBirthday(self):
+		return self.birthday
 
 	def getLast(self):
 		return self.last
@@ -39,20 +42,17 @@ class Senator:
 	def getName(self):
 		return self.first + " " + self.last
 
-	def getBirthday(self):
-		return self.birthday
+	def getId(self):
+		return self.id
 
-	def getGender(self):
-		return self.gender
+	def getState(self):
+		return self.state
 
-	def getParty(self):
-		return self.party
-
-	def getWiki(self):
-		return self.wiki
+	def getCongressesServed(self):
+		return self.congresses_served
 
 	def isCurrent(self):
 		return self.current
 
-	def getCommittees(self):
-		return self.committees
+	def getParty(self):
+		return self.party
