@@ -137,7 +137,7 @@ class PageConstructor:
 		stateString = stateFile.read()
 
 		table_string = ""
-		for senator in senator_list:
+		for s in senator_list:
 			table_string += "<tr><td>" + s.isCurrent()
 			table_string += "</td><td>" + s.getSenatorLink()
 			table_string += "</td><td>" + s.getParty() + "</td></tr>"
@@ -150,6 +150,24 @@ class PageConstructor:
 	#senators from the session and the last few bills from the session 
 	def makeSessionPage(self, session_id,senator_list,bill_list):
 		self.readTemplate()
+		sessionFile = open("Website/SessionPageTemplate.html", r)
+		sessionString = sessionFile.read()
+
+		s_table_string = ""
+		for s in senator_list:
+			s_table_string += "<tr><td>" + s.getSenatorLink()
+			s_table_string += "</td><td>" + s.getParty()
+			s_table_string += "</td><td>" + s.getState() + "</td></tr>"
+
+		b_table_string = ""
+		for b in bill_list:
+			b_table_string += "<tr><td>" + b.getVoteDate()
+			b_table_string += "</td><td>" + s.getRoll()
+			b_table_string += "</td><td>" + s.getQuestion() + "</td></tr>"
+
+		fill_tags = {"sessionID": session_id, "SenatorTable": s_table_string, "BillTable": b_table_string}
+		content_string = sessionString.format(**fill_tags)
+		self.replacements[results] = content_string
 
 	#Makes a page with a big list of all bills ever.
 	#Things to pass in: {BillTableRows}
