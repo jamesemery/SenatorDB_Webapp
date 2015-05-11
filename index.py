@@ -12,8 +12,6 @@ cgitb.enable()
 
 import cgi
 from UserInputParser import UserInputParser
-import cgitb
-cgitb.enable()
 
 def main():
 	params = getParameters()

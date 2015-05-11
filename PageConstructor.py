@@ -3,12 +3,13 @@
 
 #Although it's kind of a pain, the drop-down menus in the header need to make
 #database calls.
+import cgitb
+cgitb.enable()
 from DataSource import DataSource
 from Bill import Bill
 from Senator import Senator
 from Committee import Committee
-import cgitb
-cgitb.enable()
+
 
 
 class PageConstructor:

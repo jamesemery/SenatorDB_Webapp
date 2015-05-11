@@ -1,6 +1,7 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-
+import cgitb
+cgitb.enable()
 import os.path
 import sys
 import psycopg2
@@ -9,8 +10,7 @@ import datetime
 from Bill import Bill
 from Senator import Senator
 from Committee import Committee
-import cgitb
-cgitb.enable()
+
 
 class DataSource:
     #Constructor for the DataSource database interface class.
