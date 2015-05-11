@@ -9,10 +9,6 @@ import datetime
 
 class DataSource:
     #Constructor for the DataSource database interface class.
-    global USERNAME
-    global DB_NAME
-    global PASSWORD
-    global db_connection
 
 
     def __init__(self):
@@ -25,8 +21,9 @@ class DataSource:
             f.close()
         except:
             print "failed to connect to the database directory"
-        
-        db_connection = psycopg2.connect(user=USERNAME,
+        global db_connection
+        try:
+            db_connection = psycopg2.connect(user=USERNAME,
                                              database=DB_NAME,
                                              password=PASSWORD)
         #except:
