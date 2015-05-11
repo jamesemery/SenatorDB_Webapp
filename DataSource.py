@@ -6,13 +6,13 @@ import sys
 import psycopg2
 import cgitb
 import datetime
+from DataSource import DataSource
+from Bill import Bill
+from Senator import Senator
+from Committee import Committee
 
 class DataSource:
     #Constructor for the DataSource database interface class.
-    global USERNAME
-    global DB_NAME
-    global PASSWORD
-    global db_connection
 
 
     def __init__(self):
@@ -25,30 +25,31 @@ class DataSource:
             f.close()
         except:
             print "failed to connect to the database directory"
+        global db_connection
         try:
             db_connection = psycopg2.connect(user=USERNAME,
                                              database=DB_NAME,
                                              password=PASSWORD)
         except:
             print "psycopg2 failed to load the directory"
+        print db_connection
 
     #Returns a bill object corresponding to id of the bill it is given withouth
     #any vote information
     def getBill(self, bill_id):
-        try:
-            print 'foo'
-            cursor = db_connection.cursor()
-            print cursor.mogrify('SELECT id, session, roll, vote_date, type, question FROM bills WHERE id = (%s);',
-                (bill_id, ))
-            bills = []
-            for row in cursor:
-                bills.append(Bill(row))
-            if len(bills)==1:
-                return bills[0]
-            else: return None 
-        except:
-            print "failed to retieve item from the database"
-            return None
+        cursor = db_connection.cursor()
+        print 'foo'
+        cursor.execute('SELECT id, session, roll, vote_date, type, question FROM bills WHERE id = (%s);',
+            (bill_id, ))
+        bills = []
+        for row in cursor:
+            bills.append(Bill(row))
+        if len(bills)==1:
+            return bills[0]
+        else: return None 
+        #except:
+         #   print "failed to retieve item from the database"
+          #  return None
 
 
 
