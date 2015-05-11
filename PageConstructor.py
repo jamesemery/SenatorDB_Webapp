@@ -100,22 +100,22 @@ class PageConstructor:
 		votes = len(bill.getYea_Votes()) + " yea | " + len(bill.getNay_Votes()) + " nay | " + len(bill.getAbstaining()) + " abstain | " + len(bill.getAbsent()) + " absent"
 
 		bill_table = ""
-		for b in bill.getYea_Votes():
-			bill_table += "<tr><td>Yea</td><td>" + b.getSenatorLink()
-			bill_table += "</td><td>" + b.getParty()
-			bill_table += "</td><td>" + b.getState() + "</td></tr>"
-		for b in bill.getNay_Votes():
-			bill_table += "<tr><td>Nay</td><td>" + b.getSenatorLink()
-			bill_table += "</td><td>" + b.getParty()
-			bill_table += "</td><td>" + b.getState() + "</td></tr>"
-		for b in bill.getAbstaining():
-			bill_table += "<tr><td>Abstain</td><td>" + b.getSenatorLink()
-			bill_table += "</td><td>" + b.getParty()
-			bill_table += "</td><td>" + b.getState() + "</td></tr>"
-		for b in bill.getAbsent():
-			bill_table += "<tr><td>Absent</td><td>" + b.getSenatorLink()
-			bill_table += "</td><td>" + b.getParty()
-			bill_table += "</td><td>" + b.getState() + "</td></tr>"
+		for s in bill.getYea_Votes():
+			bill_table += "<tr><td>Yea</td><td>" + s.getSenatorLink()
+			bill_table += "</td><td>" + s.getParty()
+			bill_table += "</td><td>" + s.getStateLink() + "</td></tr>"
+		for s in bill.getNay_Votes():
+			bill_table += "<tr><td>Nay</td><td>" + s.getSenatorLink()
+			bill_table += "</td><td>" + s.getParty()
+			bill_table += "</td><td>" + s.getStateLink() + "</td></tr>"
+		for s in bill.getAbstaining():
+			bill_table += "<tr><td>Abstain</td><td>" + s.getSenatorLink()
+			bill_table += "</td><td>" + s.getParty()
+			bill_table += "</td><td>" + s.getStateLink() + "</td></tr>"
+		for s in bill.getAbsent():
+			bill_table += "<tr><td>Absent</td><td>" + s.getSenatorLink()
+			bill_table += "</td><td>" + s.getParty()
+			bill_table += "</td><td>" + s.getStateLink() + "</td></tr>"
 
 		fill_tags = {"BillName": bill.getQuestion(), "BillType": bill.getType(), "BillSession": bill.getSession(), "BillDate": bill.getVoteDate(), "BillVotes": votes, "SenatorTable": bill_table}
 		content_string = billString.format(**fill_tags)
@@ -168,16 +168,16 @@ class PageConstructor:
 	#Things to pass in: {BillTableRows}
 	def makeBillIndexPage(self, bill_list):
 		self.readTemplate()
-		stateFile = open("Website/BillIndexPageTemplate.html", "r")
-		stateString = stateFile.read()
+		billIndexFile = open("Website/BillIndexPageTemplate.html", "r")
+		billIndexString = billIndexFile.read()
 
 		table_string = ""
-		for s in senator_list:
-			table_string += "<tr><td>" + s.isCurrent()
-			table_string += "</td><td>" + s.getSenatorLink()
-			table_string += "</td><td>" + s.getParty() + "</td></tr>"
+		for bill in bill_list:
+			table_string += "<tr><td>" + bill.getVoteDate()
+			table_string += "</td><td>" + bill.getRoll()
+			table_string += "</td><td>" + bill.getBillLink() + "</td></tr>"
 
-		fill_tags = {"StateName": state_name, "SenatorTable": table_string}
+		fill_tags = {"BillData": table_string}
 		content_string = stateString.format(**fill_tags)
 		self.replacements[results] = content_string
 
@@ -209,13 +209,13 @@ class PageConstructor:
 		for s in senator_list:
 			s_table_string += "<tr><td>" + s.getSenatorLink()
 			s_table_string += "</td><td>" + s.getParty()
-			s_table_string += "</td><td>" + s.getState() + "</td></tr>"
+			s_table_string += "</td><td>" + s.getStateLink() + "</td></tr>"
 
 		b_table_string = ""
 		for b in bill_list:
 			b_table_string += "<tr><td>" + b.getVoteDate()
-			b_table_string += "</td><td>" + s.getRoll()
-			b_table_string += "</td><td>" + s.getQuestion() + "</td></tr>"
+			b_table_string += "</td><td>" + b.getRoll()
+			b_table_string += "</td><td>" + b.getBillLink() + "</td></tr>"
 
 		fill_tags = {"sessionID": session_id, "SenatorTable": s_table_string, "BillTable": b_table_string}
 		content_string = sessionString.format(**fill_tags)
