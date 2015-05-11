@@ -13,6 +13,8 @@ from Committee import Committee
 
 
 class PageConstructor:
+	global STATE_LIST
+	global STATE_ABBREVIATION_LIST
 	STATE_LIST = ['Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California',
 		'Colorado', 'Connecticut', 'Delaware', 'Florida', 'Georgia', 'Hawaii',
 		'Idaho', 'Illinois', 'Indiana', 'Iowa', 'Kansas', 'Kentucky',
@@ -43,7 +45,7 @@ class PageConstructor:
 	#Method that reads headerTemplate.html and makes changes to it based on
 	#page_type (for example filling in breadcrumbs) then adds it to
 	#the beginning of page.
-	def readTemplate(self, page_type):
+	def readTemplate(self):
 
 		templateFile = open("Website/template.html", "r")
 		templateString = templateFile.read()
