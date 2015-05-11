@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="description" content="Search recent senate activity by senate, bill, and more!">
+        <meta name="author" content="Joe Adkisson, Jamie Emery, and Michael Stoneman">
+        
+        <title>SenatorVotes</title>
+
+        <!-- Bootstrap -->
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <!-- Our changes to it -->
+        <link rel="stylesheet" type="text/css" href="css/custom.css">
+        <!-- Table sorting -->
+        <link rel="stylesheet" href="css/sortable-theme-bootstrap.css">
+    </head>
+
+    <body>
+        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+        <!-- Include all compiled plugins (below), or include individual files as needed -->
+        <script src="js/bootstrap.min.js"></script>
+        <!-- Table sorting -->
+        <script src="js/sortable.min.js"></script>
+
+		<nav class="navbar navbar-fixed-top navbar-default">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="DummyHomepage.html">SenatorVotes</a>
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Senators<span class="caret"></span></a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="DummySenatorPage.html">(R-AK) Richard White</a></li>
+                                <li><a href="DummySenatorPage.html">(D-WA) Laura Palmer</a></li>
+                                <li><a href="DummySenatorPage.html">(S-VT) Bernie Sanders</a></li>
+                                <li class="divider"></li>
+                                <!-- Links to Senators by State? -->
+                                <li><a href="DummySenatorPage.html">Past Senators</a></li>
+                            </ul>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Bills<span class="caret"></span></a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="DummyBillPage.html">Bill Nye</a></li>
+                                <li><a href="DummyBillPage.html">Bill Gates</a></li>
+                                <li><a href="DummyBillPage.html">Bill Cosby</a></li>
+                                <li class="divider"></li>
+                                <li><a href="DummyBillPage.html">More Bills</a></li>
+                            </ul>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Congresses<span class="caret"></span></a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="#">(2015-2016) 124<sup>th</sup></a></li>
+                                <li><a href="#">(2013-2014) 123<sup>rd</sup></a></li>
+                                <li><a href="#">(2011-2012) 122<sup>nd</sup></a></li>
+                                <li class="divider"></li>
+                                <li><a href="#">Past Congresses</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <!-- That's the navbar done with. Everything above this should be pretty
+        standard to all pages, save for the title, and even that doesn't need to
+        be custom if we don't want it to be. -->
+
+        <div class="container-fluid">
+            <div class="row row-border"></div>
+
+            <div class="row">
+                <div class="col-xs-3"></div>
+                <div class="center col-xs-6" id="summarybox">
+                    <h2>Bill Index</h2>
+                    <h2 id="short"><small>(Contains all bills in our database.)</small></h2>
+                </div>
+                <div class="col-xs-3"></div>
+            </div>
+
+            <div class="filler row"></div>
+
+            <!-- Section for two tables: senators and bills -->
+
+            <div class="row">
+                <div class="col-xs-1"></div>
+                <div class="billbox col-xs-10">
+                    <h3>Bills <small>(Togglable)</small></h3>
+                    <table class="table table-hover table-bordered table-fixed sortable-theme-bootstrap" data-sortable>
+                        <thead>
+                            <tr>
+                                <th class="col-xs-3">Date</th>
+                                <th class="col-xs-3">#</th>
+                                <th class="col-xs-6">Bill</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>2001-10-25</td>
+                                <td>H.R. 3162</td>
+                                <td>USA PATRIOT Act</td>
+                            </tr>
+                            <tr>
+                                <td>2001-10-25</td>
+                                <td>H.R. 3162</td>
+                                <td>USA PATRIOT Act</td>
+                            </tr>
+                            <tr>
+                                <td>2001-10-25</td>
+                                <td>H.R. 3162</td>
+                                <td>USA PATRIOT Act</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="col-xs-1"></div>
+            </div>
+
+            <div class="row row-border"></div>
+        </div>
+
+        <nav class="navbar navbar-fixed-bottom" id="footer">
+            <div class="container-fluid">
+                <div class="navbar-right">
+                    <p>All data was downloaded from govtrack.us, and is freely available to the public.</p>
+                </div>
+            </div>
+        </nav>
+	</body>
+</html>
