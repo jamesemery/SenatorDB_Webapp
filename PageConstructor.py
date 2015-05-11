@@ -41,7 +41,7 @@ class PageConstructor:
 	#the beginning of page.
 	def readTemplate(self, page_type):
 
-		templateFile = open("template.html", r)
+		templateFile = open("Website/DummyHompage.html", r)
 		templateString = templateFile.read()
 		self.page += templateString
 
