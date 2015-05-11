@@ -1,13 +1,13 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-
+import cgitb
+cgitb.enable()
 from PageConstructor import PageConstructor
 from DataSource import DataSource
 from Bill import Bill
 from Senator import Senator
 from Committee import Committee
-import cgitb
-cgitb.enable()
+
 
 class UserInputParser:
 	#Constructor that stores params internally for later calling as well

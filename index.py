@@ -7,24 +7,22 @@
  Michael Stoneman
  """
 
-print 'Content-type: text/html\r\n\r\n'
-print '<html><head></head><body>'
 import cgitb
 cgitb.enable()
 
 import cgi
 from UserInputParser import UserInputParser
-import cgitb
-cgitb.enable()
+print 'Content-type: text/html\r\n\r\n'
+print '<html><head></head><body>'
 
 def main():
-	print "Super 0 \n"
+	print "1"
 	params = getParameters()
-	print "Super 1 \n"
+	print "1"
 	backend = UserInputParser(params)
-	print "Super 2 \n"
+	print "1"
 	htmlPage = backend.generateHtmlPageOutput()
-	print "Super 3 \n"
+	print "1"
 	print htmlPage
 	print '</body></html>'
 

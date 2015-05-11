@@ -3,12 +3,13 @@
 
 #Although it's kind of a pain, the drop-down menus in the header need to make
 #database calls.
+import cgitb
+cgitb.enable()
 from DataSource import DataSource
 from Bill import Bill
 from Senator import Senator
 from Committee import Committee
-import cgitb
-cgitb.enable()
+
 
 
 class PageConstructor:
@@ -31,6 +32,9 @@ class PageConstructor:
 
 	#Constructor that builds a PageConstructor object and an empty string for
 	#the page.
+
+
+
 	def __init__(self):
 		self.page = ""
 		self.replacements = {} #the various inserts that will be created
@@ -41,7 +45,7 @@ class PageConstructor:
 	#the beginning of page.
 	def readTemplate(self, page_type):
 
-		templateFile = open("template.html", r)
+		templateFile = open("Website/DummyHompage.html", r)
 		templateString = templateFile.read()
 		self.page += templateString
 
@@ -77,7 +81,7 @@ class PageConstructor:
 	#Just opens Homepage.html. Simple as that. The page is complete, so we're
 	#not bothering to read from the template.
 	def makeHomepage(self):
-		pageFile = open("Homepage.html", r)
+		pageFile = open("Website/DummyHomepage.html", "r")
 		pageString = pageFile.read()
 		self.page += pageString
 
@@ -110,7 +114,7 @@ class PageConstructor:
 	#Things to pass in: {SenatorData} and {BillTable}
 	def makeSenatorPage(self, senator):
 		self.readTemplate("senator")
-		templateFile = open("SenatorPageTemplate.html", r)
+		templateFile = open("Website/SenatorPageTemplate.html", r)
 		subtemplateString = templateFile.read()
 		subreplacements = {}
 
@@ -134,6 +138,8 @@ class PageConstructor:
 
 		content_string = subtemplateString.format(**subreplacements)
 		self.replacements["results"] = content_string
+		page = page.format(**self.replacements)
+		return page
 
 
 	def makeSenatorIndexPage(self, senator_list):
@@ -149,7 +155,7 @@ class PageConstructor:
 	#list, and appends to the page variable.
 	def makeStatePage(self, state_name, senator_list):
 		self.readTemplate()
-		stateFile = open("Website/StatePageTemplate.html", r)
+		stateFile = open("Website/StatePageTemplate.html", "r")
 		stateString = stateFile.read()
 
 		table_string = ""
@@ -194,5 +200,5 @@ class PageConstructor:
 
 	#Returns the finished page.
 	def getPage(self):
-		self.page = self.page.format(**replacements)
+		self.page = self.page.format(**self.replacements)
 		return self.page

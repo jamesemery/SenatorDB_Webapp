@@ -1,8 +1,9 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
-import unittest
 import cgitb
+cgitb.enable()
+import unittest
 import datetime
 from DataSource import DataSource
 from Bill import Bill
