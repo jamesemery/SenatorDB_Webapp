@@ -89,6 +89,18 @@ class PageConstructor:
 	#to it, and appends to the page variable. 
 	def makeBillPage(self, bill):
 		self.readTemplate()
+		billFile = open("Website/BillPageTemplate.html", r)
+		billString = billFile.read()
+
+		bill_string = ""
+		for s in senator_list:
+			table_string += "<tr><td>" + s.isCurrent()
+			table_string += "</td><td>" + s.getSenatorLink()
+			table_string += "</td><td>" + s.getParty() + "</td></tr>"
+
+		fill_tags = {"StateName": state_name, "SenatorTable": table_string}
+		content_string = stateString.format(**fill_tags)
+		self.replacements[results] = content_string
 		#do stuff
 
 	#Gets html from committeeTemplate.html, fills in info, and appends to the 
@@ -102,7 +114,7 @@ class PageConstructor:
 	#Things to pass in: {SenatorData} and {BillTable}
 	def makeSenatorPage(self, senator):
 		self.readTemplate("senator")
-		templateFile = open("SenatorPageTemplate.html", r)
+		templateFile = open("Website/SenatorPageTemplate.html", r)
 		subtemplateString = templateFile.read()
 		subreplacements = {}
 
@@ -133,6 +145,11 @@ class PageConstructor:
 	def makeSenatorIndexPage(self, senator_list):
 		self.readTemplate()
 		#do stuff
+
+	#Makes a page with a big list of all bills ever.
+	#Things to pass in: {BillTableRows}
+	def makeBillIndexPage(self, bill_list):
+		self.readTemplate()
 
 	#Gets html from statePageTemplate.html, fills in the state name and senator
 	#list, and appends to the page variable.
@@ -173,11 +190,6 @@ class PageConstructor:
 		fill_tags = {"sessionID": session_id, "SenatorTable": s_table_string, "BillTable": b_table_string}
 		content_string = sessionString.format(**fill_tags)
 		self.replacements[results] = content_string
-
-	#Makes a page with a big list of all bills ever.
-	#Things to pass in: {BillTableRows}
-	def makeBillIndexPage(self, bill_list):
-		self.readTemplate()
 
 	#Gets a general-purpose error page.
 	def makeErrorPage(self):
