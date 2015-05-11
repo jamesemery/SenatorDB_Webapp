@@ -124,7 +124,7 @@ class DataSource:
             committees = []
             for pair in cursor:
                 committees.append([self.getCommittee(pair[0]), pair[2]])
-            sen_row = row.append(committees)
+            sen_row = rows[0].append(committees)
             return Senator(sen_row)
         else: return None 
         #except:
@@ -233,7 +233,8 @@ class DataSource:
             (congress,))
         bills = []
         for row in cursor:
-            bills.append(self.getBill(row[0]))
+            for bill_id in row[0]:
+                bills.append(self.getBill(bill_id))
             if (number != 0)&(len(bills) >= number): break
         return bills
         #except:
