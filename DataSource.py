@@ -229,7 +229,7 @@ class DataSource:
     def getBillsInCongress(self, congress, number):
         #try:
         cursor = db_connection.cursor()
-        cursor.execute('SELECT bills FROM sessions WHERE number = (%s);' 
+        cursor.execute('SELECT bills FROM sessions WHERE number = (%s);', 
             (congress,))
         bills = []
         for row in cursor:
@@ -247,7 +247,7 @@ class DataSource:
     def getSenatorsInState(self, state_name):
         #try:
         cursor = db_connection.cursor()
-        cursor.execute('SELECT * FROM senators WHERE state = (%s);' 
+        cursor.execute('SELECT * FROM senators WHERE state = (%s);', 
             (state_name,))
         senators = []
         for row in cursor:
@@ -281,7 +281,7 @@ class DataSource:
     def getCommitteeWithMembers(self, committee_id):
         #try:
         cursor = db_connection.cursor()
-        cursor.execute('SELECT * FROM committees WHERE id = (%s);' 
+        cursor.execute('SELECT * FROM committees WHERE id = (%s);', 
             (committee_id,))
         committees = []
         for row in cursor:
@@ -305,7 +305,7 @@ class DataSource:
     def getCommitteeBySession(self, congress):
         #try:
         cursor = db_connection.cursor()
-        cursor.execute('SELECT * FROM committees WHERE number = (%s);' 
+        cursor.execute('SELECT * FROM committees WHERE number = (%s);', 
             (congress,))
         committees = []
         for row in cursor:
