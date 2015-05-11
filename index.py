@@ -19,18 +19,26 @@ def main():
 def getParameters():
 	params = {}
 	form = cgi.FieldStorage()
-	if 'senator' in form:
-		params['senator'] = sanitizeInput(form['senator'].value)
-	else:
-		params['senator'] = ''
-	if 'state' in form:
-		params['state'] = sanitizeInput(form['state'].value)
-	else:
-		params['state'] = ''
+	param_list = ['senator', 'bill', 'state', 'session', 'committee',
+			'bill_index', 'error']
+	for entry in param_list:
+		if entry in form:
+			params[entry] = sanitizeInput(form[entry].value)
+		else:
+			params[entry] = ''
+
+	#Page_type gets special treatment b/c we want to default to the homepage/
 	if 'page_type' in form:
-		params['page_type'] = sanitizeInput(form['page_type'].value)
+		params['page_type'] = sanitizeInput(form['page_type'])
 	else:
-		params['page_type'] = 'error'
+		params['page_type'] = 'home'
+
+	#old code. just in case switching over to the for loop screwed things up
+	#TODO delete this comment at some point.
+	#if 'page_type' in form:
+	#	params['page_type'] = sanitizeInput(form['page_type'].value)
+	#else:
+	#	params['page_type'] = 'error'
 	return params
 
 def sanitizeInput(yarn):
