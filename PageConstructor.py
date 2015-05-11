@@ -144,32 +144,22 @@ class PageConstructor:
 	#Things to pass in: {SenatorData} and {BillTable}
 	def makeSenatorPage(self, senator):
 		self.readTemplate()
-		templateFile = open("Website/SenatorPageTemplate.html", "r")
-		subtemplateString = templateFile.read()
-		subreplacements = {}
+		senatorFile = open("Website/SenatorPageTemplate.html", "r")
+		senatorString = senatorFile.read()
 
+		committee_list = ""
 
-		#TODO get the committes working
-		subreplacements["CommitteeMemberList"] = "  "
-		subreplacements["BillTable"] = " "
-
-		subreplacements["SenatorName"] = senator.getName()
-		subreplacements["SenatorParty"] = senator.getParty()
-		subreplacements["SenatorBirthday"] = senator.getBirthday().strftime("%B %d, %Y")
+		bill_table = ""
 		
-		#getting the real state name for the senator
-		i = STATE_ABBREVIATION_LIST.index(senator.getState())
-		subreplacements["SenatorState"] = STATE_LIST[i]
+		for bill in the-bills-that-we-somehow-have:
+			bill_table += "<tr><td>" + bill.getVoteDate()
+			bill_table += "</td><td>" + bill.getRoll()
+			bill_table += "</td><td>" + bill.getBillLink()
+			bill_table += "</td><td>" + THEIR VOTE SOMEFUCKINGHOW + "</td></tr>"
 
-		if senator.isCurrent() == True:
-			subreplacements["Currently"] = "Currently in office."
-		else:
-			subreplacements["Currently"] = "Not Currently in Office"
-
-		content_string = subtemplateString.format(**subreplacements)
-		self.replacements["results"] = content_string
-		page = page.format(**self.replacements)
-		return page
+		fill_tags = {"SenatorName": senator.getName(), "SenatorParty": senator.getParty(), "SenatorStateLink": senator.getStateLink(), "Birthday": senator.getBirthday(), "Currently": senator.isCurrent(), "CommitteeList": committee_list, "BillTable": bill_table}
+		content_string = billString.format(**fill_tags)
+		self.replacements[results] = content_string
 
 
 	def makeSenatorIndexPage(self, senator_list):
