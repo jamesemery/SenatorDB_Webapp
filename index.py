@@ -16,6 +16,7 @@ import cgitb
 cgitb.enable()
 
 def main():
+	print "Super 0 \n"
 	params = getParameters()
 	print "Super 1 \n"
 	backend = UserInputParser(params)
