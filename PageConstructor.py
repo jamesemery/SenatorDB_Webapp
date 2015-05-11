@@ -125,9 +125,10 @@ class PageConstructor:
 
 		committee_table = ""
 		for s in committee.getSenators():
-			committee_table += "<tr><td>" + s.getSenatorLink()
-			committee_table += "</td><td>" + s.getParty()
-			committee_table += "</td><td>" + s.getStateLink() + "</td></tr>"
+			senator = s[0]
+			committee_table += "<tr><td>" + senator.getSenatorLink()
+			committee_table += "</td><td>" + senator.getParty()
+			committee_table += "</td><td>" + senator.getStateLink() + "</td></tr>"
 
 		fill_tags = {"Supercommittee": committee.getSuperCommittee().getCommitteeLink(), "SenatorTable": committee_table}
 		content_string = committeeString.format(**fill_tags)
