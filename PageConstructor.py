@@ -85,6 +85,7 @@ class PageConstructor:
 	#appends to the page variable.
 	def makeSenatorPage(self, senator):
 		self.readTemplate()
+		self.replacements["results"] = "
 		#do stuff
 
 	def makeSenatorIndexPage(self, senator_list):
