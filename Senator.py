@@ -1,5 +1,7 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
+import cgitb
+cgitb.enable()
 
 class Senator:
 	#Constructor that builds a senator object from the senators id and an 

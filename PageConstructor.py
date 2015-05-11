@@ -7,6 +7,9 @@ from DataSource import DataSource
 from Bill import Bill
 from Senator import Senator
 from Committee import Committee
+import cgitb
+cgitb.enable()
+
 
 class PageConstructor:
 	STATE_LIST = ['Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California',

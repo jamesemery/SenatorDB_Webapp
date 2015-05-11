@@ -1,5 +1,7 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
+import cgitb
+cgitb.enable()
 
 class Bill:
 	#Constructor that builds a bill object given an ordered list of strings
