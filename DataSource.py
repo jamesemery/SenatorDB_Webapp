@@ -78,7 +78,6 @@ class DataSource:
             bills.append(Bill(bil))
         print str(bills) + str(len(bills))
         if len(bills)==1:
-            print 'foo'
             return bills[0]
         else: return None 
         #except:
