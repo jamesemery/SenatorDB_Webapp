@@ -75,7 +75,7 @@ class TestDataSource(unittest.TestCase):
         nay = []
         present = []
         not_voting = []
-        print actual.getYeaVotes()
+        print actual.getYea_Votes()
         for senator in actual.getYea_Votes():
         	yea.append(senator.getId())
         for senator in actual.getNay_Votes():
@@ -104,7 +104,7 @@ class TestDataSource(unittest.TestCase):
 
 
     def testGetSenatorWithCommittees(self):
-    	self.assertEquals(false)
+    	self.assertEquals(False, True)
     	#TODO adsf asd fa 
 
 

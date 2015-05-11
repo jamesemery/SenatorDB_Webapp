@@ -88,6 +88,7 @@ class DataSource:
     def getSenator(self, senator_id):
         try:
             cursor = db_connection.cursor()
+            print 'foo'
             cursor.execute('SELECT * FROM senators WHERE id = (%s);'
                 (senator_id,))
             senators = []
