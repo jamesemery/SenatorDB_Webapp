@@ -25,8 +25,9 @@ class Senator:
 
 	#Generates a link to the senator’s page with the properly formatted text and
 	#returns it as a string(e.g. (R-AK) Richard White ).
-	def generateSenatorLink(self):
-		htmlLink = ""
+
+	def getSenatorLink(self):
+		htmlLink = "<a href = 'http://thacker.mathcs.carleton.edu/cs257/emeryj/index.py?page_type=senator&senator'" + self.getId() + ">" + self.getName() + "</a>"
 		return htmlLink
 
 	def getFirst(self):
@@ -49,6 +50,9 @@ class Senator:
 
 	def getCongressesServed(self):
 		return self.congresses_served
+
+	def isCurrent(self):
+		return self.current
 
 	def getParty(self):
 		return self.party

@@ -133,6 +133,17 @@ class PageConstructor:
 	#list, and appends to the page variable.
 	def makeStatePage(self, state_name, senator_list):
 		self.readTemplate()
+		stateFile = open("Website/StatePageTemplate.html", r)
+		stateString = stateFile.read()
+
+		table_string = ""
+		for senator in senator_list:
+			table_string += "<tr><td>" + s.isCurrent()
+			table_string += "</td><td>" + s.getSenatorLink()
+			table_string += "</td><td>" + s.getParty()
+			table_string += "</td><td>" + 
+
+		fill_tags = {"StateName": state_name, ""}
 		#do stuff
 
 	#Gets html from congressPage.html and adds into it a list of all the
