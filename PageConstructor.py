@@ -77,9 +77,6 @@ class PageConstructor:
 				entry.getCommitteeLink() + "</li>")
 		#doesn't return anything, just makes changes to the page field.
 
-	#TODO
-	#MAKE SURE ALL MAKEPAGE FUNCTIONS CALL READTEMPLATE AND GIVE TYPE
-
 	#Just opens Homepage.html. Simple as that. The page is complete, so we're
 	#not bothering to read from the template.
 	def makeHomepage(self):
@@ -87,9 +84,6 @@ class PageConstructor:
 		pageFile = open("Website/HomepageTemplate.html", "r")
 		pageString = pageFile.read()
 		self.replacements["results"] = pageString
-		#self.page += pageString
-
-
 
 	#Gets html from billPageTemplate.html, fills in the info of the bill passed
 	#to it, and appends to the page variable. 
@@ -130,10 +124,10 @@ class PageConstructor:
 		committeeString = committeeFile.read()
 
 		commitee_table = ""
-		for s in commitee.getSenators():
-			commitee_table += "<tr><td>" + s.getSenatorLink()
-			commitee_table += "</td><td>" + s.getParty()
-			commitee_table += "</td><td>" + s.getStateLink() + "</td></tr>"
+		for s in committee.getSenators():
+			committee_table += "<tr><td>" + s.getSenatorLink()
+			committee_table += "</td><td>" + s.getParty()
+			committee_table += "</td><td>" + s.getStateLink() + "</td></tr>"
 
 		fill_tags = {"Supercommittee": committee.getSuperCommittee().getCommitteeLink(), "SenatorTable": committee_table}
 		content_string = committeeString.format(**fill_tags)
