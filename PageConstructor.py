@@ -95,7 +95,7 @@ class PageConstructor:
 		billFile = open("Website/BillPageTemplate.html", "r")
 		billString = billFile.read()
 
-		votes = len(bill.getYea_Votes()) + " yea | " len(bill.getNay_Votes()) + " nay | " len(bill.getAbstaining()) + " abstain | " len(bill.getAbsent()) + " absent"
+		votes = len(bill.getYea_Votes()) + " yea | " + len(bill.getNay_Votes()) + " nay | " + len(bill.getAbstaining()) + " abstain | " + len(bill.getAbsent()) + " absent"
 
 		bill_table = ""
 		for b in bill.getYea_Votes():
