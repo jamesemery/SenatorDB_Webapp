@@ -140,11 +140,11 @@ class PageConstructor:
 		for senator in senator_list:
 			table_string += "<tr><td>" + s.isCurrent()
 			table_string += "</td><td>" + s.getSenatorLink()
-			table_string += "</td><td>" + s.getParty()
-			table_string += "</td><td>" + 
+			table_string += "</td><td>" + s.getParty() + "</td></tr>"
 
-		fill_tags = {"StateName": state_name, ""}
-		#do stuff
+		fill_tags = {"StateName": state_name, "SenatorTable": table_string}
+		content_string = stateString.format(**fill_tags)
+		self.replacements[results] = content_string
 
 	#Gets html from congressPage.html and adds into it a list of all the
 	#senators from the session and the last few bills from the session 
