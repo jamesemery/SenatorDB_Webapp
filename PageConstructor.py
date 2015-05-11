@@ -43,7 +43,7 @@ class PageConstructor:
 	#Method that reads headerTemplate.html and makes changes to it based on
 	#page_type (for example filling in breadcrumbs) then adds it to
 	#the beginning of page.
-	def readTemplate(self, page_type):
+	def readTemplate(self):
 
 		templateFile = open("Website/template.html", "r")
 		templateString = templateFile.read()
