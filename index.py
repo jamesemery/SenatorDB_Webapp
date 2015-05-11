@@ -7,6 +7,9 @@
  Michael Stoneman
  """
 
+print 'Content-type: text/html\r\n\r\n'
+print '<html><head></head><body>'
+
 import cgi
 from UserInputParser import UserInputParser
 import cgitb
