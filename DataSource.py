@@ -75,6 +75,7 @@ class DataSource:
                     not_voting.append(getSenator(senator))
 
                 bil = row[:6] + [yea, nay, present, not_voting]
+                print bil
                 bills.append(Bill(bil))
             if len(bills)==1:
                 return bills[0]
@@ -88,9 +89,9 @@ class DataSource:
     def getSenator(self, senator_id):
         try:
             cursor = db_connection.cursor()
-            print 'foo'
             cursor.execute('SELECT * FROM senators WHERE id = (%s);'
                 (senator_id,))
+            print 'foo'
             senators = []
             for row in cursor:
                 senators.append(Senator(row))
