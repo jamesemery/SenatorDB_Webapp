@@ -117,13 +117,13 @@ class DataSource:
             rows.append(row)
         
         #if only one senator was found, it searches the committee_membership_pair table to find all the committees the senator is a part of and builds a committee object
-        if len(row)==1:
+        if len(rows)==1:
             cursor.execute('''SELECT * FROM committee_membership_pair 
                 WHERE senator = (%s);''',
                 (senator_id,))
             committees = []
             for pair in cursor:
-                committees.append([self.getCommittee(pair[0]), pair[2]])
+                committees.append([self.getCommittee(int(pair[0])), pair[2]])
             sen_row = row.append(committees)
             return Senator(sen_row)
         else: return None 
