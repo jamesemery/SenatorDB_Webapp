@@ -29,7 +29,7 @@ class Committee:
 		return self.super_committee
 
 	def getSuperCommitteeLink(self):
-		return '<a href = "http://thacker.mathcs.carleton.edu/cs257/emeryj/index.py?page_type=committee&committee=' + str(self.super_committee()) + '">' + 'Super-Committee' + '</a>'
+		return '<a href = "http://thacker.mathcs.carleton.edu/cs257/emeryj/index.py?page_type=committee&committee=' + str(self.getSuperCommittee()) + '">' + 'Super-Committee' + '</a>'
 
 	def getSession(self):
 		return self.session

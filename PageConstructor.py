@@ -147,7 +147,7 @@ class PageConstructor:
 		committee_list = ""
 		committees = senator.getCommittees()
 		for pair in committees:
-			membership_string = "<li>" + pair[1] + " of the " + pair[0].getCommitteeLink() + "</li>"
+			membership_string = "<li>" + pair[1] + " of the " + pair[0].getCommitteeLink() + " during the " + pair[0].getSession() + "th Congress</li>"
 			committee_list += membership_string
 
 		bill_table = ""
