@@ -17,7 +17,7 @@ def main():
 	params = getParameters()
 	backend = UserInputParser(params)
 	htmlPage = backend.generateHtmlPageOutput()
-	print htmlPage
+	print htmlPagge
 
 def getParameters():
 	params = {}
@@ -31,7 +31,7 @@ def getParameters():
 
 	#Page_type gets special treatment b/c we want to default to the homepage/
 	if 'page_type' in form:
-		params['page_type'] = sanitizeInput(form['page_type'].value)
+		params['page_type'] = sanitizeInput(form['page_type'])
 	else:
 		params['page_type'] = 'home'
 
