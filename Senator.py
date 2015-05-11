@@ -28,11 +28,11 @@ class Senator:
 	#returns it as a string(e.g. (R-AK) Richard White ).
 
 	def getStateLink(self):
-		htmlLink = "<a href = 'http://thacker.mathcs.carleton.edu/cs257/emeryj/index.py?page_type=state&state='" + self.getState() + ">" + self.getState() + "</a>"
+		htmlLink = '<a href = "http://thacker.mathcs.carleton.edu/cs257/emeryj/index.py?page_type=state&state="' + self.getState() + ">" + self.getState() + "</a>"
 		return htmlLink
 
 	def getSenatorLink(self):
-		htmlLink = "<a href = 'http://thacker.mathcs.carleton.edu/cs257/emeryj/index.py?page_type=senator&senator='" + str(self.getId()) + ">" + self.getName() + "</a>"
+		htmlLink = '<a href = "http://thacker.mathcs.carleton.edu/cs257/emeryj/index.py?page_type=senator&senator="' + str(self.getId()) + ">" + self.getName() + "</a>"
 		return htmlLink
 
 	def getFirst(self):
