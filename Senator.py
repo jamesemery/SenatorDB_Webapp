@@ -23,15 +23,15 @@ class Senator:
 
 	#Generates a link to the senator’s page with the properly formatted text and
 	#returns it as a string(e.g. (R-AK) Richard White ).
-	def getSenatorLink(self):
+	def generateSenatorLink(self):
 		htmlLink = ""
 		return htmlLink
 
-	def getId(self):
-		return self.id
-
 	def getFirst(self):
 		return self.first
+
+	def getBirthday(self):
+		return self.birthday
 
 	def getLast(self):
 		return self.last
@@ -39,20 +39,14 @@ class Senator:
 	def getName(self):
 		return self.first + " " + self.last
 
-	def getBirthday(self):
-		return self.birthday
+	def getId(self):
+		return self.id
 
-	def getGender(self):
-		return self.gender
+	def getState(self):
+		return self.state
+
+	def getCongressesServed(self):
+		return self.congresses_served
 
 	def getParty(self):
 		return self.party
-
-	def getWiki(self):
-		return self.wiki
-
-	def isCurrent(self):
-		return self.current
-
-	def getCommittees(self):
-		return self.committees

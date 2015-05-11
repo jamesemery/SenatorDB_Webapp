@@ -20,6 +20,12 @@ class PageConstructor:
 		'Tennessee', 'Texas', 'Utah', 'Vermont', 'Virginia', 'Washington',
 		'West Virginia', 'Wisconsin', 'Wyoming']
 
+	STATE_ABBREVIATION_LIST = ['AK', 'AL', 'AR', 'AZ', 'CA', 'CO', 'CT', 'DC'
+		, 'DE', 'FL', 'GA', 'HI', 'IA', 'ID', 'IL', 'IN', 'KS', 'KY', 'LA', 'MA'
+		, 'MD', 'ME', 'MI', 'MN', 'MO', 'MS', 'MT', 'NC', 'ND', 'NE', 'NH', 'NJ'
+		, 'NM', 'NV', 'NY', 'OH', 'OK', 'OR', 'PA', 'RI', 'SC', 'SD', 'TN', 'TX'
+		, 'UT', 'VA', 'VT', 'WA', 'WI', 'WV', 'WY']
+
 	#Constructor that builds a PageConstructor object and an empty string for
 	#the page.
 	def __init__(self):
@@ -38,7 +44,7 @@ class PageConstructor:
 
 		#Senator Dropdown Menu via replacement
 		senators_by_state_html = ""
-		
+
 		int i 
 		while i < len(STATE_LIST):
 			senators_by_state_html += ('<li><a href = "http://thacker.mathcs.' + 'carleton.edu/cs257/emeryj/index.py?page_type=state&state=' 
@@ -89,14 +95,32 @@ class PageConstructor:
 	#appends to the page variable.
 	#Things to pass in: {SenatorData} and {BillTable}
 	def makeSenatorPage(self, senator):
-		self.readTemplate()
-		templateFile = open("template.html", r)
-		templateString = templateFile.read()
-		self.page += templateString
+		self.readTemplate("senator")
+		templateFile = open("SenatorPageTemplate.html", r)
+		subtemplateString = templateFile.read()
+		subreplacements = {}
 
 
-		self.replacements["results"] = ""
-		#do stuff
+		#TODO get the committes working
+		subreplacements["ComitteeList"] = ""
+		subreplacements["BillTable"] = ""
+
+		subreplacements["SenatorName"] = senator.getName()
+		subreplacements["SenatorParty"] = senator.getParty()
+		subreplacements["SenatorBirthday"] = senator.getBirthday.strftime("%B %d, %Y")
+		
+		#getting the real state name for the senator
+		i = STATE_ABBREVIATION_LIST.index(senator.GetState())
+		subreplacements["SenatorState"] = STATE_LIST[i]
+
+		if senator.isCurrent() = True:
+			subreplacements["Currently"] = "Currently in office."
+		else:
+			subreplacements["Currently"] = "Not Currently in Office"
+
+		content_string = subtemplateString.format(**subreplacements)
+		self.replacements["results"] = content_string
+
 
 	def makeSenatorIndexPage(self, senator_list):
 		self.readTemplate()
