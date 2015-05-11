@@ -28,7 +28,7 @@ class Bill:
 	#Generates a link to the bill’s page with the properly formatted HTML text
 	#and returns it as a string.
 	def getBillLink(self):
-		HtmlString = "<a href = 'http://thacker.mathcs.carleton.edu/cs257/emeryj/index.py?page_type=bill&bill='" + str(self.getId()) + ">" + self.getQuestion() + "</a>"
+		HtmlString = '<a href = "http://thacker.mathcs.carleton.edu/cs257/emeryj/index.py?page_type=bill&bill=' + str(self.getId()) + '">' + self.getQuestion() + '</a>'
 		return HtmlString
 
 	def getId(self):
