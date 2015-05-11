@@ -37,7 +37,7 @@ class TestDataSource(unittest.TestCase):
     #senator example = (407661, 'Metcalfe', 'Thomas', datetime.date(1780, 3, 20), 'M', 'KY', 'Whig', 'Thomas Metcalfe (Kentucky)', False)
 
     global test_senator
-    test_senator = Senator([(412390, 'Coons', 'Chris', datetime.date(2063, 9, 9), 'M', 'DE', 'Democrat', 'Chris Coons', True)])
+    test_senator = Senator([412390, 'Coons', 'Chris', datetime.date(2063, 9, 9), 'M', 'DE', 'Democrat', 'Chris Coons', True])
 
 
     short_bill_list = [100, 109, 188, datetime.date(2005, 7, 14), 'amendment', 'On the Amendment S.Amdt. 1222 to H.R. 2360 (Department of Homeland Security Appropriations Act, 2006)']
@@ -75,6 +75,7 @@ class TestDataSource(unittest.TestCase):
         nay = []
         present = []
         not_voting = []
+        print actual.getYea_Votes()
         for senator in actual.getYea_Votes():
         	yea.append(senator.getId())
         for senator in actual.getNay_Votes():
@@ -83,28 +84,28 @@ class TestDataSource(unittest.TestCase):
         	present.append(senator.getId())
         for senator in actual.getAbsent():
         	not_voting.append(senator.getId())
-        self.assertItemsEqual(test_billwv.getYea_Votes(),yea)
-        self.assertItemsEqual(test_billwv.getNay_Votes(),nay)
-        self.assertItemsEqual(test_billwv.getAbstaining(),present)
-        self.assertItemsEqual(test_billwv.getAbsent(),not_voting)
+        self.assertEqual(tuple(test_billwv.getYea_Votes()),tuple(yea))
+        self.assertEqual(tuple(test_billwv.getNay_Votes()),tuple(nay))
+        self.assertEqual(tuple(test_billwv.getAbstaining()),tuple(present))
+        self.assertEqual(tuple(test_billwv.getAbsent()),tuple(not_voting))
 
 
 
-    def testGetSenator:
-    	(412390, 'Coons', 'Chris', datetime.date(2063, 9, 9), 'M', 'DE', 'Democrat', 'Chris Coons', True)
+    def testGetSenator(self):
     	actual = db_source.getSenator(412390)
-    	self.AssertEquals(test_senator.getId(), actual.getId())
-    	self.AssertEquals(test_senator.getFirst(), actual.getFirst())
-    	self.AssertEquals(test_senator.getLast(), actual.getLast())
-    	self.AssertEquals(test_senator.getBirthday(), actual.getBirthday())
-    	self.AssertEquals(test_senator.getGender(), actual.getGender())
-    	self.AssertEquals(test_senator.getParty(), actual.getParty())
-    	self.AssertEquals(test_senator.getWiki(), actual.getWiki())
-    	self.AssertEquals(test_senator.isCurrent(), actual.isCurrent())
+    	self.assertEquals(test_senator.getId(), actual.getId())
+    	self.assertEquals(test_senator.getFirst(), actual.getFirst())
+    	self.assertEquals(test_senator.getLast(), actual.getLast())
+    	self.assertEquals(test_senator.getBirthday(), actual.getBirthday())
+    	self.assertEquals(test_senator.getGender(), actual.getGender())
+    	self.assertEquals(test_senator.getParty(), actual.getParty())
+    	self.assertEquals(test_senator.getWiki(), actual.getWiki())
+    	self.assertEquals(test_senator.isCurrent(), actual.isCurrent())
 
 
-    def testGetSenatorWithCommittees:
-    	#TODO
+    def testGetSenatorWithCommittees(self):
+    	self.assertEquals(False, True)
+    	#TODO adsf asd fa 
 
 
 

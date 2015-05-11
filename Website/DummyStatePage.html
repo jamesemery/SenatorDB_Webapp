@@ -13,10 +13,10 @@
         <link rel="stylesheet" type="text/css" href="css/custom.css">
         <!-- Table sorting -->
         <link rel="stylesheet" href="css/sortable-theme-bootstrap.css">
-	</head>
+    </head>
 
-	<body>
-		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <body>
+        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
         <!-- Include all compiled plugins (below), or include individual files as needed -->
         <script src="js/bootstrap.min.js"></script>
@@ -29,7 +29,9 @@
                     <a class="navbar-brand" href="DummyHomepage.html">SenatorVotes</a>
                 </div>
                 <ol class="breadcrumb">
-                    <li class="active">Home</li>
+                    <li><a href="DummyHomepage.html">Home</a></li>
+                    <li><a href="#">States</a></li>
+                    <li class="active">Alaska</li>
                 </ol>
                 <ul class="nav navbar-nav navbar-right">
                     <li class="dropdown">
@@ -72,32 +74,50 @@
         <div class="container-fluid">
             <div class="row first-row"></div>
 
-            <div class="row">
-                <div class="col-xs-1"></div>
-                <div class="center col-xs-10" id="summarybox">
-                    <h1>SenatorVotes</h1>
-                    <h1 id="short"><small>Putting the government at your fingertips.</small></h1>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                </div>
-                <div class="col-xs-1"></div>
-            </div>
-
-            <div class="filler row"></div>
+            <!-- Section for a table of senators -->
 
             <div class="row">
-                <div class="col-xs-1"></div>
-                <div class="senatorbox col-xs-4">
-                    <h2 class="center">Senators</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                    <div class="center"><a href="#" class="btn btn-danger" role="button">Find a Senator</a></div>
+                <div class="col-xs-2"></div>
+                <div class="senatorbox col-xs-8">
+                    <h3 class="center">Senators from Alaska <small>(Togglable)</small></h3>
+                    <table class="table table-hover table-bordered table-fixed sortable-theme-bootstrap" data-sortable>
+                        <thead>
+                            <tr>
+                                <th class="col-xs-2">Current?</th>
+                                <th class="col-xs-6">Senator</th>
+                                <th class="col-xs-2">Party</th>
+                                <th class="col-xs-2">Congress</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Yes</td>
+                                <td><a href="#">Richard White</a></td>
+                                <td>Republican</td>
+                                <td><a href="#">114<sup>th</sup></a></td>
+                            </tr>
+                            <tr>
+                                <td>Yes</td>
+                                <td><a href="#">Katherine White</a></td>
+                                <td>Republican</td>
+                                <td><a href="#">114<sup>th</sup></a></td>
+                            </tr>
+                            <tr>
+                                <td>No</td>
+                                <td><a href="#">Sarah Palin</a></td>
+                                <td>Republican</td>
+                                <td><a href="#">113<sup>th</sup></a></td>
+                            </tr>
+                            <tr>
+                                <td>No</td>
+                                <td><a href="#">Tagg Palin</a></td>
+                                <td>Democrat</td>
+                                <td><a href="#">113<sup>th</sup></a></td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
                 <div class="col-xs-2"></div>
-                <div class="billbox col-xs-4">
-                    <h2 class="center">Bills</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                    <div class="center"><a href="#" class="btn btn-primary" role="button">Find a Bill</a></div>
-                </div>
-                <div class="col-xs-1"></div>
             </div>
 
             <div class="filler row"></div>

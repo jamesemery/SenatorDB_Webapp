@@ -23,46 +23,54 @@
         <!-- Table sorting -->
         <script src="js/sortable.min.js"></script>
 
-		<nav class="navbar navbar-fixed-top">
+		<nav class="navbar navbar-fixed-top navbar-default">
             <div class="container-fluid">
                 <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
                     <a class="navbar-brand" href="DummyHomepage.html">SenatorVotes</a>
                 </div>
-                <ul class="nav navbar-nav navbar-right">
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Senators by State<span class="caret"></span></a>
-                        <ul class="dropdown-menu" role="menu">
-                            {SenatorDropDown}<!--TODO FILL THIS IN -->
-                            <li class="divider"></li>
-                            <!-- Links to Senators by State? -->
-                            <li><a href="DummySenatorPage.html">Past Senators</a></li>
-                            <!--TODO make the above link point to a real place-->
-                        </ul>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Bills<span class="caret"></span></a>
-                        <ul class="dropdown-menu" role="menu">
-                            {BillDropDown}<!--TODO fill this in -->
-                            <li class="divider"></li>
-                            <li><a href="DummyBillPage.html">More Bills</a></li>
-                            <!--TODO make the above link point somewhere real -->
-                        </ul>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Committees<span class="caret"></span></a>
-                        <ul class="dropdown-menu" role="menu">
-                            {CommitteeDropDown} <!--TODO fill this in-->
-                            <li class="divider"></li>
-                            <li><a href="#">Past Committees</a></li>
-                            <!-- TODO make the above link point somewhere real -->
-                        </ul>
-                    </li>
-                </ul>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Senators by State<span class="caret"></span></a>
+                            <ul class="dropdown-menu" role="menu">
+                                {SenatorDropdown}<!--TODO FILL THIS IN -->
+                                <li class="divider"></li>
+                                <!-- Links to Senators by State? -->
+                                <li><a href="DummySenatorPage.html">Past Senators</a></li>
+                                <!--TODO make the above link point to a real place-->
+                            </ul>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Bills<span class="caret"></span></a>
+                            <ul class="dropdown-menu" role="menu">
+                                {BillDropDown}<!--TODO fill this in -->
+                                <li class="divider"></li>
+                                <li><a href="DummyBillPage.html">More Bills</a></li>
+                                <!--TODO make the above link point somewhere real -->
+                            </ul>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Congresses<span class="caret"></span></a>
+                            <ul class="dropdown-menu" role="menu">
+                                {CongressDropDown} <!--TODO fill this in-->
+                                <li class="divider"></li>
+                                <li><a href="#">Past Congresses</a></li>
+                                <!-- TODO make the above link point somewhere real -->
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </nav>
 
         <!-- That's the navbar done with. Everything above this should be pretty
         standard to all pages, save for the title, and even that doesn't need to
         be custom if we don't want it to be. -->
-
+        
         {results}
 
         <nav class="navbar" id="footer">
