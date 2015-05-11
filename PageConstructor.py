@@ -19,11 +19,6 @@ class PageConstructor:
 		'Pennsylvania', 'Rhode Island', 'South Carolina', 'South Dakota',
 		'Tennessee', 'Texas', 'Utah', 'Vermont', 'Virginia', 'Washington',
 		'West Virginia', 'Wisconsin', 'Wyoming']
-	STATE_ABBREVIATION_LIST = ['AK', 'AL', 'AR', 'AZ', 'CA', 'CO', 'CT', 'DC',
-		 'DE', 'FL', 'GA', 'HI', 'IA', 'ID', 'IL', 'IN', 'KS', 'KY', 'LA', 'MA'
-		 , 'MD', 'ME', 'MI', 'MN', 'MO', 'MS', 'MT', 'NC', 'ND', 'NE', 'NH'
-		 , 'NJ', 'NM', 'NV', 'NY', 'OH', 'OK', 'OR', 'PA', 'RI', 'SC', 'SD'
-		 , 'TN', 'TX', 'UT', 'VA', 'VT', 'WA', 'WI', 'WV', 'WY']
 
 	#Constructor that builds a PageConstructor object and an empty string for
 	#the page.
@@ -43,13 +38,10 @@ class PageConstructor:
 
 		#Senator Dropdown Menu via replacement
 		senators_by_state_html = ""
-		int i 
-		while i < len(STATE_LIST):
+		for state in STATE_LIST:
 			#TODO make the links work correctly.
-			senators_by_state_html += ('<li><a href = "http://thacker.mathcs.' + 'carleton.edu/cs257/emeryj/index.py?page_type=state&state=' 
-				+ STATE_ABBREVIATION_LIST[i] + '">'
-				+ STATE_LIST[i] + '</a></li>')
-			i+=1
+			senators_by_state_html += ('<li><a href = "link to the state">'
+				+ state + '</a></li>')
 		self.replacements["SenatorDropdown"] = senators_by_state_html
 
 		#Bill Dropdown Menu via replacement
@@ -91,9 +83,10 @@ class PageConstructor:
 
 	#Gets html from senatorPageTemplate.html, fills in the senator’s info, and
 	#appends to the page variable.
+	#Things to pass in: {SenatorData} and 
 	def makeSenatorPage(self, senator):
 		self.readTemplate()
-		self.replacements["results"] = "
+		self.replacements["results"] = ""
 		#do stuff
 
 	def makeSenatorIndexPage(self, senator_list):
