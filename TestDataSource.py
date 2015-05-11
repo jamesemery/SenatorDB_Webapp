@@ -72,13 +72,13 @@ class TestDataSource(unittest.TestCase):
         nay = []
         present = []
         not_voting = []
-        for senator in actual.getYea_Votes:
+        for senator in actual.getYea_Votes():
         	yea.append(senator.getId())
-        for senator in actual.getNay_Votes:
+        for senator in actual.getNay_Votes():
         	nay.append(senator.getId())
-        for senator in actual.getAbstaning:
+        for senator in actual.getAbstaning():
         	present.append(senator.getId())
-        for senator in actual.getAbsent:
+        for senator in actual.getAbsent():
         	not_voting.append(senator.getId())
         self.assertItemsEqual(test_billwv.getYea_Votes(),yea)
         self.assertItemsEqual(test_billwv.getNay_Votes(),nay)

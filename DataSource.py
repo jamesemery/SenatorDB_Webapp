@@ -31,14 +31,12 @@ class DataSource:
                                              password=PASSWORD)
         except:
             print "psycopg2 failed to load the directory"
-        print db_connection
 
     #Returns a bill object corresponding to id of the bill it is given withouth
     #any vote information
     def getBill(self, bill_id):
         try:
             cursor = db_connection.cursor()
-            print 'foo'
             cursor.execute('SELECT id, session, roll, vote_date, type, question FROM bills WHERE id = (%s);',
                 (bill_id, ))
             bills = []
