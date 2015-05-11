@@ -82,7 +82,7 @@ class TestDataSource(unittest.TestCase):
         	not_voting.append(senator.getId())
         self.assertItemsEqual(test_billwv.getYea_Votes(),yea)
         self.assertItemsEqual(test_billwv.getNay_Votes(),nay)
-        self.assertItemsEqual(test_billwv.getAbstaning(),present)
+        self.assertItemsEqual(test_billwv.getAbstaining(),present)
         self.assertItemsEqual(test_billwv.getAbsent(),not_voting)
 
 
