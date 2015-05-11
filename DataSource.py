@@ -197,6 +197,7 @@ class DataSource:
                 if ident == int(senator_id):
                     member_congresses.append(114)
         if len(member_congresses) == 0: 
+            print "asdfasd "
             return None
 ##TODO FIGURE OUT ISSUE HERER
         #loops through the bills in the congress, then loops through the 
