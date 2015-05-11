@@ -13,7 +13,7 @@ class Committee:
 		if (len(params) == 5):
 			self.senators = params[4]
 		else:
-			self.senators = []
+			self.senators = [[]] #[[SenObj, name], [SenObj, name]]
 
 	#Generates an Html link to this committee's page.
 	def getCommitteeLink(self):
