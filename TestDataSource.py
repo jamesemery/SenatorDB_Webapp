@@ -37,7 +37,8 @@ class TestDataSource(unittest.TestCase):
     #senator example = (407661, 'Metcalfe', 'Thomas', datetime.date(1780, 3, 20), 'M', 'KY', 'Whig', 'Thomas Metcalfe (Kentucky)', False)
 
     global test_senator
-    test_senator = Senator([(412390, 'Coons', 'Chris', datetime.date(2063, 9, 9), 'M', 'DE', 'Democrat', 'Chris Coons', True)])
+    senator_list = [(412390, 'Coons', 'Chris', datetime.date(2063, 9, 9), 'M', 'DE', 'Democrat', 'Chris Coons', True)]
+    test_senator = Senator(senator_list)
 
 
     short_bill_list = [100, 109, 188, datetime.date(2005, 7, 14), 'amendment', 'On the Amendment S.Amdt. 1222 to H.R. 2360 (Department of Homeland Security Appropriations Act, 2006)']
