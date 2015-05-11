@@ -120,7 +120,7 @@ class PageConstructor:
 
 		fill_tags = {"BillName": bill.getQuestion(), "BillType": bill.getType(), "BillSession": bill.getSession(), "BillDate": bill.getVoteDate(), "BillVotes": votes, "SenatorTable": bill_table}
 		content_string = billString.format(**fill_tags)
-		self.replacements[results] = content_string
+		self.replacements["results"] = content_string
 
 	#Gets html from committeeTemplate.html, fills in info, and appends to the 
 	#page variable.
