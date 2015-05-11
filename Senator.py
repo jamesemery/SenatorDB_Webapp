@@ -61,3 +61,6 @@ class Senator:
 
 	def getParty(self):
 		return self.party
+
+	def getCommittees(self):
+		return committees
