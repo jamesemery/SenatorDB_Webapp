@@ -48,7 +48,6 @@ class PageConstructor:
 		#Senator Dropdown Menu via replacement
 		senators_by_state_html = ""
 
-		int i 
 		while i < len(STATE_LIST):
 			senators_by_state_html += ('<li><a href = "http://thacker.mathcs.' + 'carleton.edu/cs257/emeryj/index.py?page_type=state&state=' 
 				+ STATE_ABBREVIATION_LIST[i] + '">'
