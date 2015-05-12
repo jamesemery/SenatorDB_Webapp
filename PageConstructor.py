@@ -56,7 +56,7 @@ class PageConstructor:
 		senators_by_state_html = ""
 		i = 0
 		while i < len(STATE_LIST):
-			senators_by_state_html += ('<li><a href = "http://thacker.mathcs.' + 'carleton.edu/cs257/emeryj/index.py?page_type=state&state=' 
+			senators_by_state_html += ('<li><a href = "index.py?page_type=state&state=' 
 				+ STATE_ABBREVIATION_LIST[i] + '">'
 				+ STATE_LIST[i] + '</a></li>')
 			i+=1
