@@ -28,7 +28,7 @@ class Senator:
 	#returns it as a string(e.g. (R-AK) Richard White ).
 
 	def getStateLink(self):
-		htmlLink = ('<a href = "http://index.py?page_type=state&state='
+		htmlLink = ('<a href = "index.py?page_type=state&state='
 			+ self.getState() + '">' + self.getState() + '</a>')
 		return htmlLink
 
