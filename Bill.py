@@ -23,7 +23,6 @@ class Bill:
             self.nay_votes = params[7]
             self.abstaining = params[8]
             self.absent = params[9]
-        
         else:
             self.yea_votes = []
             self.nay_votes = []
