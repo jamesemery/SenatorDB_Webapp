@@ -30,9 +30,10 @@ class Bill:
             self.absent = []
 
     def getBillLink(self):
-        # Generates an HTML link to the bill’s page and returns it as a string.
-        HTML_string = ('<a href = "index.py?page_type=bill&bill='
-                    + str(self.getId()) + '">' + self.getQuestion() + '</a>')
+        # Generates an HTML link to the bill’s page and returns it as a
+        # properly formatted string.
+        HTML_string = ('<a href = "index.py?page_type=bill&bill=' +
+                       str(self.getId()) + '">' + self.getQuestion() + '</a>')
         return HTML_string
 
     def getId(self):

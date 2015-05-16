@@ -1,7 +1,9 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
+
 import cgitb
 cgitb.enable()
+
 import os.path
 import sys
 import psycopg2

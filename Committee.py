@@ -16,16 +16,16 @@ class Committee:
         self.session_of_congress = params[3]
 
         # [[SenObj, name], [SenObj, name]]
-        if (len(params) == 5):
+        if len(params) == 5:
             self.senators = params[4]
         else:
             self.senators = [[]]
 
     def getCommitteeLink(self):
         # Generates an HTML link to the committee's page and returns it as a
-        # string.
-        HTML_string = ('<a href = "index.py?page_type=committee&committee='
-                    + str(self.getId()) + '">' + self.getName() + '</a>')
+        # properly formatted string.
+        HTML_string = ('<a href = "index.py?page_type=committee&committee=' + 
+                       str(self.getId()) + '">' + self.getName() + '</a>')
         return HTML_string
 
     def getId(self):
@@ -38,9 +38,9 @@ class Committee:
         return self.super_committee
 
     def getSuperCommitteeLink(self):
-        HTML_string = ('<a href = "index.py?page_type=committee&committee='
-                    + str(self.getSuperCommittee()) + '">' + 'Super-Committee'
-                    + '</a>')
+        HTML_string = ('<a href = "index.py?page_type=committee&committee=' + 
+                       str(self.getSuperCommittee()) + '">' + 'Super-Committee'
+                       + '</a>')
         return HTML_string
 
     def getSession(self):
