@@ -327,7 +327,7 @@ class DataSource:
             members = []
             if row != None:
                 for member in row[4]:
-                   senator = self.getSenator(int(member[0]))
+                    senator = self.getSenator(int(member[0]))
                     members.append([senator,member[1]])
                 args = [row[0], row[1], row[2], row[3], members]
             # Searches the database for all the committees that have this
