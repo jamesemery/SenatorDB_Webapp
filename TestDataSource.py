@@ -41,6 +41,8 @@ class TestDataSource(unittest.TestCase):
     test_senator = Senator([412390, 'Coons', 'Chris', datetime.date(2063, 9, 9), 'M', 'DE', 'Democrat', 'Chris Coons', True])
 
 
+
+
     short_bill_list = [100, 109, 188, datetime.date(2005, 7, 14), 'amendment', 'On the Amendment S.Amdt. 1222 to H.R. 2360 (Department of Homeland Security Appropriations Act, 2006)']
     global test_billnv
     test_billnv = Bill(short_bill_list)
@@ -119,8 +121,32 @@ class TestDataSource(unittest.TestCase):
 
 
     def testGetSenatorWithCommittees(self):
-    	self.assertEquals(False, True)
+    	actual = db_source.getSenator(412390)
+        self.assertEquals(test_senator.getId(), actual.getId())
+        self.assertEquals(test_senator.getFirst(), actual.getFirst())
+        self.assertEquals(test_senator.getLast(), actual.getLast())
+        self.assertEquals(test_senator.getBirthday(), actual.getBirthday())
+        self.assertEquals(test_senator.getGender(), actual.getGender())
+        self.assertEquals(test_senator.getParty(), actual.getParty())
+        self.assertEquals(test_senator.getWiki(), actual.getWiki())
+        self.assertEquals(test_senator.isCurrent(), actual.isCurrent())
+
+        # Goes through the list of 
+        self.assertEquals(False, True)
     	#TODO adsf asd fa 
+
+    def testGetSenatorsInSession(self):
+
+
+    def getVotesBySenator(self):
+        # The last 5 bill id's and votes that the test senator voted on
+        expected_table = [[3224,"yea"],[3223,"nay"],[3222,"nay"],[3220,"yea"],[3219,"nay"]]
+        actual = db_source.getVotesBySenator(412390,5)
+        i = 0;
+        while i < len(actual):
+            assertEquals(expected_table[i],actual[i].getid())
+            i+=1
+
 
 
 
