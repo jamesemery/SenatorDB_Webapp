@@ -225,7 +225,7 @@ class DataSource:
             for row in cursor:
                 # stops the search if the requisite number of bills has been
                 # found
-                if (number == 0)|(len(bills_voted) < number):
+                if (number != 0)&(len(bills_voted) >= number):
                     break
 
                 # Loops through each list of votes and searches for the senator
