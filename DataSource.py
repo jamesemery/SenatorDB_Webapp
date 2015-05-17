@@ -12,6 +12,7 @@ import datetime
 from Bill import Bill
 from Senator import Senator
 from Committee import Committee
+from Session import Session
 
 class DataSource:
     """SQL database interface class that contains methods for getting 
