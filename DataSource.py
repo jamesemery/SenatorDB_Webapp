@@ -325,7 +325,7 @@ class DataSource:
             # Grabs the senators in the nested array stored in the
             # database and builds a senator object out of them
             members = []
-            if row != None:
+            if row[4] != None:
                 for member in row[4]:
                     senator = self.getSenator(int(member[0]))
                     members.append([senator,member[1]])
