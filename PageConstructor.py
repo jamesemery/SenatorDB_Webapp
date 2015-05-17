@@ -223,7 +223,7 @@ class PageConstructor:
                              bill.getVoteDate().strftime("%B %d, %Y") +
                              "</td><td>" + bill.getVoteDate().strftime("%Y") + 
                              " s" + str(bill.getRoll()) +
-                             "</td><td>" + bill.getBillLink() + "</td></tr>")
+                             " </td><td>" + bill.getBillLink() + "</td></tr>")
 
         fill_tags = {"BillData": table_string}
 
