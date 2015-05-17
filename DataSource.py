@@ -325,10 +325,11 @@ class DataSource:
             # Grabs the senators in the nested array stored in the
             # database and builds a senator object out of them
             members = []
-            for member in row[4]:
-                senator = self.getSenator(int(member[0]))
-                members.append([senator,member[1]])
-            args = [row[0], row[1], row[2], row[3], members]
+            if row != None:
+                for member in row[4]:
+                   senator = self.getSenator(int(member[0]))
+                    members.append([senator,member[1]])
+                args = [row[0], row[1], row[2], row[3], members]
             # Searches the database for all the committees that have this
             # committee listed in the 'super_committee' category and adds a
             # tuple of it's id and name to the end of the row for the
