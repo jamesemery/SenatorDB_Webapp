@@ -53,3 +53,7 @@ class Committee:
 
     def getAssociated(self):
         return self.associated
+
+    def isSuper(self):
+        # returns true if this committee is a super committee (i.e. super_committee == id)
+        return (self.super_committee == self.id)

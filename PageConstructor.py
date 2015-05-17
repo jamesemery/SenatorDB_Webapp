@@ -124,11 +124,6 @@ class PageConstructor:
         committeeFile = open("Website/CommitteePageTemplate.html", "r")
         committeeString = committeeFile.read()
 
-        #votes = (str(len(bill.getYea_Votes())) + " yea | " + 
-        #        str(len(bill.getNay_Votes())) + " nay | " +
-        #        str(len(bill.getAbstaining())) + " abstain | " + 
-        #        str(len(bill.getAbsent())) + " absent")
-
         # Table headers: Position | Senator | Party | State
         table_string = ""
         for senator_pair in committee.getSenators():
@@ -140,8 +135,26 @@ class PageConstructor:
                              senator.getParty() + "</td><td>" + 
                              senator.getStateLink() + "</td></tr>")
 
+        associated_string = ""
+        if committee.isSuper():
+            associated_list = committee.getAssociated()
+            if len(associated_list)>0:
+                associated_string = "Sub-Committees:"
+                for pair in associated_list:
+                    associated_string += ("\n" + '<a href = "index.py?'
+                                    + "page_type=committee&committee='"
+                                    + str(pair[0]) + '">' + pair[1] +
+                                    + '</a>')
+        else:
+            pair = committee.getAssociated()[0]
+            associated_string += ("Super-Committee:" + '<a href = "index.py?'
+                                    + "page_type=committee&committee='"
+                                    + str(pair[0]) + '">' + pair[1] +
+                                    + '</a>')
+
+
         fill_tags = {"CommitteeName": committee.getName(),
-                     "Supercommittee": committee.getSuperCommitteeLink(), 
+                     "Supercommittee": associated_string, 
                      # TODO: make the supercommittee link disappear if it's not a subcommittee
                      "SenatorTable": table_string}
                      
