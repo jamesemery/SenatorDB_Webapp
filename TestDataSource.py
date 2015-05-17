@@ -136,15 +136,16 @@ class TestDataSource(unittest.TestCase):
     	#TODO adsf asd fa 
 
     def testGetSenatorsInSession(self):
+        self.assertEquals(False, True)
 
-
-    def getVotesBySenator(self):
+    def testGetVotesBySenator(self):
         # The last 5 bill id's and votes that the test senator voted on
         expected_table = [[3224,"yea"],[3223,"nay"],[3222,"nay"],[3220,"yea"],[3219,"nay"]]
         actual = db_source.getVotesBySenator(412390,5)
         i = 0;
+        assertEquals(len(actual),len(expected_table))
         while i < len(actual):
-            assertEquals(expected_table[i],actual[i].getid())
+            assertEquals(expected_table[i],[actual[i][0].getid(),actual[i][1]])
             i+=1
 
 

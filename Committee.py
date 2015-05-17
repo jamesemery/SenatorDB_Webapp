@@ -16,10 +16,12 @@ class Committee:
         self.session_of_congress = params[3]
 
         # [[SenObj, name], [SenObj, name]]
-        if len(params) == 5:
+        if len(params) == 6:
             self.senators = params[4]
+            self.associated = params[5]
         else:
             self.senators = [[]]
+            self.associated = [[]]
 
     def getCommitteeLink(self):
         # Generates an HTML link to the committee's page and returns it as a
@@ -48,3 +50,6 @@ class Committee:
 
     def getSenators(self):
         return self.senators
+
+    def getAssociated(self):
+        return self.associated
