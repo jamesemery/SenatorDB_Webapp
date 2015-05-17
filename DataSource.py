@@ -184,7 +184,8 @@ class DataSource:
             WHERE number = (%s);''',  (session, ))
         senators = []
         for row in cursor:
-            senators.append(self.getSenator(row[0]))
+            for ident in row[0]:
+                senators.append(self.getSenator(ident))
         return senators
         #except:
         #    print "failed to retieve item from the database"
