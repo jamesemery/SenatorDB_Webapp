@@ -336,11 +336,12 @@ class DataSource:
             # if the current commmittee is a sub committee or super committee
             # and either gets the super committee or all of the committees
             # associated with this one
-            if args[0] = args[2]:
+            if args[0] == args[2]:
                 subcursor.execute('''SELECT id,name FROM committees 
                     WHERE super_committee = (%s);''', 
                     (args[2],))
-            else subcursor.execute('''SELECT id,name FROM committees 
+            else:
+                subcursor.execute('''SELECT id,name FROM committees 
                     WHERE id = (%s);''', 
                     (args[2],))
 
