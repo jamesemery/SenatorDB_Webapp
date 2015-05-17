@@ -83,7 +83,8 @@ class PageConstructor:
         billString = billFile.read()
 
         session_link = ('<a href="index.py?page_type=session&session=' +
-                        bill.getSession() + '">' + bill.getSession() + "</a>")
+                        str(bill.getSession()) + '">' + str(bill.getSession()) +
+                        "</a>")
 
         votes = (str(len(bill.getYea_Votes())) + " yea | " + 
                  str(len(bill.getNay_Votes())) + " nay | " +
@@ -128,8 +129,8 @@ class PageConstructor:
         committeeString = committeeFile.read()
 
         session_link = ('<a href="index.py?page_type=session&session=' +
-                        committee.getSession() + '">' + committee.getSession() +
-                        "</a>")
+                        str(committee.getSession()) + '">' +
+                        str(committee.getSession()) + "</a>")
 
         # Table headers: Position | Senator | Party | State
         table_string = ""
@@ -187,8 +188,8 @@ class PageConstructor:
                                committee_pair[0].getCommitteeLink() +
                                ' during Session <a href="index.py?page_type='
                                + 'session&session=' + 
-                               committee_pair[0].getSession() + '">' + 
-                               committee_pair[0].getSession() + "</a></li>")
+                               str(committee_pair[0].getSession()) + '">' + 
+                               str(committee_pair[0].getSession()) + "</a></li>")
 
         # Table headers: Date | Number | Bill Name | Vote
         table_string = ""
