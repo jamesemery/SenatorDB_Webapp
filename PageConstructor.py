@@ -61,7 +61,7 @@ class PageConstructor:
             self.replacements["BillDropdown"] += ('<li>' +
                 entry.getBillLink() + '</li>')
 
-        committee_list = self.dbSource.getCommitteeBySession(114)
+        committee_list = self.dbSource.getCommitteesBySession(114)
         self.replacements["CommitteeDropdown"] = ""
         for entry in committee_list:
             self.replacements["CommitteeDropdown"] += ('<li>' +

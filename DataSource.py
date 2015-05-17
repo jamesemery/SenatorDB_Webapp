@@ -330,29 +330,29 @@ class DataSource:
                     senator = self.getSenator(int(member[0]))
                     members.append([senator,member[1]])
                 args = [row[0], row[1], row[2], row[3], members]
-            # Searches the database for all the committees that have this
-            # committee listed in the 'super_committee' category and adds a
-            # tuple of it's id and name to the end of the row for the
-            # constructor
-            subcursor = db_connection.cursor()
-            # if the current commmittee is a sub committee or super committee
-            # and either gets the super committee or all of the committees
-            # associated with this one
-            if args[0] == args[2]:
-                subcursor.execute('''SELECT id,name FROM committees 
-                    WHERE super_committee = (%s);''', 
-                    (args[2],))
-            else:
-                subcursor.execute('''SELECT id,name FROM committees 
-                    WHERE id = (%s);''', 
-                    (args[2],))
+                # Searches the database for all the committees that have this
+                # committee listed in the 'super_committee' category and adds a
+                # tuple of it's id and name to the end of the row for the
+                # constructor
+                subcursor = db_connection.cursor()
+                # if the current commmittee is a sub committee or super committee
+                # and either gets the super committee or all of the committees
+                # associated with this one
+                if args[0] == args[2]:
+                    subcursor.execute('''SELECT id,name FROM committees 
+                        WHERE super_committee = (%s);''', 
+                        (args[2],))
+                else:
+                    subcursor.execute('''SELECT id,name FROM committees 
+                        WHERE id = (%s);''', 
+                        (args[2],))
 
-            associated_committees = []
-            for subrow in subcursor:
-                if args[0] != subrow[0]:
-                    associated_committees.append([subrow[0],subrow[1]])
-            args.append(associated_committees)
-            committees.append(Committee(args))
+                associated_committees = []
+                for subrow in subcursor:
+                    if args[0] != subrow[0]:
+                        associated_committees.append([subrow[0],subrow[1]])
+                args.append(associated_committees)
+                committees.append(Committee(args))
         if len(committees) == 1: 
             return committees[0]
         else: return None
