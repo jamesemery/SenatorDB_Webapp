@@ -349,6 +349,7 @@ class DataSource:
             for subrow in subcursor:
                 if args[0] != subrow[0]:
                     associated_committees.append([subrow[0],subrow[1]])
+            args.append(associated_committees)
             committees.append(Committee(args))
         if len(committees) == 1: 
             return committees[0]
