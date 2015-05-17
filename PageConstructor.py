@@ -268,13 +268,19 @@ class PageConstructor:
         content_string = stateString.format(**fill_tags)
         self.replacements["results"] = content_string
 
-    def makeSessionPage(self, session_id,senator_list,bill_list):
+    def makeSessionPage(self, session_id,senator_list,bill_list,committee_list):
         # Gets HTML from SessionPageTemplate.html, fills in the two tables with
         # info on the session's senators and bills, and places the HTML in the
         # body of the generated page.
         self.readTemplate()
         sessionFile = open("Website/SessionPageTemplate.html", "r")
         sessionString = sessionFile.read()
+
+        c_list_string = ""
+        for c in committee_list:
+            c_list_string += ('<li><a href = "index.py?' +
+                              "page_type=committee&committee='" + str(pair[0]) +
+                              '">' + str(pair[1]) + '</a></li>')
 
         # Table headers: Senator | Party | State
         s_table_string = ""
@@ -292,6 +298,7 @@ class PageConstructor:
                                "</td><td>" + b.getBillLink() + "</td></tr>")
 
         fill_tags = {"sessionID": session_id,
+                     "CommitteeList": committee_string
                      "SenatorTable": s_table_string,
                      "BillTable": b_table_string}
 
