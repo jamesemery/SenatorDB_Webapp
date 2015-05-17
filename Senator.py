@@ -5,6 +5,7 @@ import cgitb
 cgitb.enable()
 
 import datetime
+from datetime import date
 
 class Senator:
     """An object that stores the database's information on a senator."""
