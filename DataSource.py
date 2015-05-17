@@ -385,7 +385,7 @@ class DataSource:
             (congress,))
         congresses = []
         for row in cursor: 
-            args = row
+            args = [row[0],row[1],row[2]]
             args.append(getSenatorsInSession(congress))
             args.append(getBillsInCongress(congress,0))
             args.append(getCommitteesBySession())
