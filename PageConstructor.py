@@ -82,6 +82,9 @@ class PageConstructor:
         billFile = open("Website/BillPageTemplate.html", "r")
         billString = billFile.read()
 
+        session_link = ('<a href="index.py?page_type=session&session=' +
+                        bill.getSession() + '">' + bill.getSession() + "</a>")
+
         votes = (str(len(bill.getYea_Votes())) + " yea | " + 
                  str(len(bill.getNay_Votes())) + " nay | " +
                  str(len(bill.getAbstaining())) + " abstain | " + 
@@ -108,7 +111,7 @@ class PageConstructor:
 
         fill_tags = {"BillName": bill.getQuestion(),
                      "BillType": bill.getType(),
-                     "BillSession": bill.getSession(),
+                     "BillSession": session_link,
                      "BillDate": bill.getVoteDate().strftime("%B %d, %Y"),
                      "BillVotes": votes,
                      "SenatorTable": table_string}
@@ -123,6 +126,10 @@ class PageConstructor:
         self.readTemplate()
         committeeFile = open("Website/CommitteePageTemplate.html", "r")
         committeeString = committeeFile.read()
+
+        session_link = ('<a href="index.py?page_type=session&session=' +
+                        committee.getSession() + '">' + committee.getSession() +
+                        "</a>")
 
         # Table headers: Position | Senator | Party | State
         table_string = ""
@@ -157,6 +164,7 @@ class PageConstructor:
 
 
         fill_tags = {"CommitteeName": committee.getName(),
+                     "SessionNumber": session_link,
                      "Supercommittee": associated_string, 
                      # TODO: make the supercommittee link disappear if it's not a subcommittee
                      "SenatorTable": table_string}
@@ -177,9 +185,10 @@ class PageConstructor:
             # string detailing the senator's role at index 1.
             committee_list += ("<li>" + committee_pair[1] + " of the " +
                                committee_pair[0].getCommitteeLink() +
-                               " during the " +
-                               str(committee_pair[0].getSession()) +
-                               "th Congress</li>")
+                               ' during Session <a href="index.py?page_type='
+                               + 'session&session=' + 
+                               committee_pair[0].getSession() + '">' + 
+                               committee_pair[0].getSession() + "</a></li>")
 
         # Table headers: Date | Number | Bill Name | Vote
         table_string = ""
