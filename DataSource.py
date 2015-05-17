@@ -13,12 +13,11 @@ from Bill import Bill
 from Senator import Senator
 from Committee import Committee
 
-
 class DataSource:
-    #Constructor for the DataSource database interface class.
-
+    """""" # TODO: Add a string docs thing                              <---hey!
 
     def __init__(self):
+        # 
         USERNAME = 'emeryj'
         DB_NAME = 'emeryj'
         try:
@@ -36,9 +35,9 @@ class DataSource:
         except:
             print "psycopg2 failed to load the directory"
 
-    #Returns a bill object corresponding to id of the bill it is given withouth
-    #any vote information
     def getBill(self, bill_id):
+        # Returns a bill object corresponding to the id of the bill it is given
+        # without any vote information
         #try:
         cursor = db_connection.cursor()
         cursor.execute('SELECT id, session, roll, vote_date, type, question FROM bills WHERE id = (%s);',
