@@ -124,10 +124,10 @@ class PageConstructor:
         committeeFile = open("Website/CommitteePageTemplate.html", "r")
         committeeString = committeeFile.read()
 
-        votes = str(len(bill.getYea_Votes())) + " yea | " + 
+        votes = (str(len(bill.getYea_Votes())) + " yea | " + 
                 str(len(bill.getNay_Votes())) + " nay | " +
                 str(len(bill.getAbstaining())) + " abstain | " + 
-                str(len(bill.getAbsent())) + " absent"
+                str(len(bill.getAbsent())) + " absent")
 
         # Table headers: Position | Senator | Party | State
         table_string = ""
