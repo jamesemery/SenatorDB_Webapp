@@ -51,14 +51,15 @@ class UserInputParser:
             
         return HTML_string
 
-    #The "make" methods all do about the same thing, but with enough
-    #variations that it'd be a pain to make them all one. They get the major
-    #info we need from the database, then call the requisite PageConstructor
-    #method to make the page, after which they get it back as a string and
-    #return it.
-    #For Senators, Bills & Committees, the object returned by DataSource.py
-    #will be an object of the appropriate type; otherwise, it'll be a list of
-    #objects.
+    # The "make" methods all do about the same thing, but with enough
+    # variations that it'd be a pain to make them all one. They get the major
+    # info we need from the database, then call the requisite PageConstructor
+    # method to make the page, after which they get it back as a string and
+    # return it.
+    # 
+    # For Senators, Bills & Committees, the object returned by DataSource.py
+    # will be an object of the appropriate type; otherwise, it'll be a list of
+    # objects.
     def makeSenatorPage(self):
         id_tag = self.params["senator"]
         senator_obj = self.db_source.getSenatorWithCommittees(id_tag)
@@ -104,8 +105,8 @@ class UserInputParser:
         session_id = self.params["session"]
         senator_list = self.db_source.getSenatorsInSession(session_id)
         bill_list = self.db_source.getBillsInCongress(session_id, 0)
-        #The 0 argument specifies that we want all bills rather than a given
-        #number of them.
+        # The 0 argument specifies that we want all bills rather than a certain
+        # number of them.
         self.page_maker.makeSessionPage(session_id,senator_list,bill_list)
         HTML_string = self.page_maker.getPage()
         return HTML_string
