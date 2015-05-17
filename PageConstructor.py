@@ -150,10 +150,10 @@ class PageConstructor:
                 associated_string += "</ul>"
         else:
             pair = committee.getAssociated()[0]
-            associated_string += ("<h5>Super-Committee:</h5>" + 
+            associated_string += ("<p><strong>Super-Committee:</strong>" + 
                                   '<a href = "index.py?' + 
                                   "page_type=committee&committee='" + 
-                                  str(pair[0]) + '">' + str(pair[1]) + '</a>')
+                                  str(pair[0]) + '">' + str(pair[1]) + '</a></p>')
 
 
         fill_tags = {"CommitteeName": committee.getName(),
