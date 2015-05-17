@@ -310,8 +310,11 @@ class DataSource:
 
     
     def getCommitteeWithMembers(self, committee_id):
-        # Returns a Committee object corresponding to the ID number it gets 
+        # Returns a Committee object corresponding to the ID number it gets
         # with a populated list of senator objects corresponding to its members
+        # as well as populating the 'associated' field in committes with a list
+        # of tuples that contain the id and name of the super committee or sub
+        # committee
         #try:
         cursor = db_connection.cursor()
         cursor.execute('SELECT * FROM committees WHERE id = (%s);', 
@@ -330,9 +333,17 @@ class DataSource:
             # tuple of it's id and name to the end of the row for the
             # constructor
             subcursor = db_connection.cursor()
-            subcursor.execute('''SELECT id,name FROM committees 
-                WHERE super_committee = (%s);''', 
-                (args[2],))
+            # if the current commmittee is a sub committee or super committee
+            # and either gets the super committee or all of the committees
+            # associated with this one
+            if args[0] = args[2]:
+                subcursor.execute('''SELECT id,name FROM committees 
+                    WHERE super_committee = (%s);''', 
+                    (args[2],))
+            else subcursor.execute('''SELECT id,name FROM committees 
+                    WHERE id = (%s);''', 
+                    (args[2],))
+
             associated_committees = []
             for subrow in subcursor:
                 if args[0] != subrow[0]:
