@@ -4,7 +4,6 @@
 import cgitb
 cgitb.enable()
 
-from dateutil.relativedelta import relativedelta
 import datetime
 
 class Senator:
@@ -50,7 +49,7 @@ class Senator:
         # then it will return a fixed date corresponding to the year in the
         # 20th century
         if self.birthday.date() >= date(2000, 1, 1):
-            self.birthday = birthday.date() - relativedelta(years=100)
+            self.birthday = date(self.birthday.year - 100, self.birthday.month, self.birthday.day)
         return self.birthday
 
     def getLast(self):
