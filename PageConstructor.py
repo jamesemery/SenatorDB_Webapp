@@ -139,18 +139,21 @@ class PageConstructor:
         if committee.isSuper():
             associated_list = committee.getAssociated()
             if len(associated_list)>0:
-                associated_string = "Sub-Committees:"
+                associated_string += ("<h5>Sub-Committees:</h5>" + 
+                                      '<ul id="committees">')
+
                 for pair in associated_list:
-                    associated_string += ("\n" + '<a href = "index.py?'
-                                    + "page_type=committee&committee='"
-                                    + str(pair[0]) + '">' + str(pair[1]) +
-                                    + '</a>')
+                    associated_string += ('<li><a href = "index.py?' +
+                                          "page_type=committee&committee='" +
+                                          str(pair[0]) + '">' + str(pair[1]) +
+                                          '</a></li>')
+                associated_string += "</ul>"
         else:
             pair = committee.getAssociated()[0]
-            associated_string += ("Super-Committee:" + '<a href = "index.py?'
-                                    + "page_type=committee&committee='"
-                                    + str(pair[0]) + '">' + str(pair[1]) +
-                                    + '</a>')
+            associated_string += ("<h5>Super-Committee:</h5>" + 
+                                  '<a href = "index.py?' + 
+                                  "page_type=committee&committee='" + 
+                                  str(pair[0]) + '">' + str(pair[1]) + '</a>')
 
 
         fill_tags = {"CommitteeName": committee.getName(),
