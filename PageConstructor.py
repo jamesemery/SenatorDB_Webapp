@@ -143,13 +143,13 @@ class PageConstructor:
                 for pair in associated_list:
                     associated_string += ("\n" + '<a href = "index.py?'
                                     + "page_type=committee&committee='"
-                                    + str(pair[0]) + '">' + pair[1] +
+                                    + str(pair[0]) + '">' + str(pair[1]) +
                                     + '</a>')
         else:
             pair = committee.getAssociated()[0]
             associated_string += ("Super-Committee:" + '<a href = "index.py?'
                                     + "page_type=committee&committee='"
-                                    + str(pair[0]) + '">' + pair[1] +
+                                    + str(pair[0]) + '">' + str(pair[1]) +
                                     + '</a>')
 
 
