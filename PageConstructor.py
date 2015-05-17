@@ -245,7 +245,8 @@ class PageConstructor:
                              "</td><td>" + s.getSenatorLink() +
                              "</td><td>" + s.getParty() + "</td></tr>")
 
-        fill_tags = {"StateName": state_name,
+        full_state_name = STATE_LIST[STATE_ABBREVIATION_LIST.index(state_name)]
+        fill_tags = {"StateName": full_state_name,
                      "SenatorTable": table_string}
 
         content_string = stateString.format(**fill_tags)
