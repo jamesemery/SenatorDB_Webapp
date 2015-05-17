@@ -377,7 +377,7 @@ class DataSource:
         #    print "failed to retieve item from the database"
         #    return None
 
-    def getSessionOjbect(self, congress):
+    def getSessionObject(self, congress):
         # Returns a session object containing the rows of the table and lists
         # of senator objects and bill objects corresponding to the session
         cursor = db_connection.cursor()
