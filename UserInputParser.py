@@ -106,11 +106,10 @@ class UserInputParser:
 
     def makeSessionPage(self):
         session_id = self.params["session"]
-        senator_list = self.db_source.getSenatorsInSession(session_id)
-        bill_list = self.db_source.getBillsInCongress(session_id, 0)
+        session = self.db_source.getSessionObject(session_id)
         # The 0 argument specifies that we want all bills rather than a certain
         # number of them.
-        self.page_maker.makeSessionPage(session_id,senator_list,bill_list)
+        self.page_maker.makeSessionPage(session)
         HTML_string = self.page_maker.getPage()
         return HTML_string
 

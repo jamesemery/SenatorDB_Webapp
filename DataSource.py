@@ -12,6 +12,7 @@ import datetime
 from Bill import Bill
 from Senator import Senator
 from Committee import Committee
+from Session import Session
 
 class DataSource:
     """SQL database interface class that contains methods for getting 
@@ -324,10 +325,11 @@ class DataSource:
             # Grabs the senators in the nested array stored in the
             # database and builds a senator object out of them
             members = []
-            for member in row[4]:
-                senator = self.getSenator(int(member[0]))
-                members.append([senator,member[1]])
-            args = [row[0], row[1], row[2], row[3], members]
+            if row != None:
+                for member in row[4]:
+                    senator = self.getSenator(int(member[0]))
+                    members.append([senator,member[1]])
+                args = [row[0], row[1], row[2], row[3], members]
             # Searches the database for all the committees that have this
             # committee listed in the 'super_committee' category and adds a
             # tuple of it's id and name to the end of the row for the
@@ -360,7 +362,7 @@ class DataSource:
 
 
     
-    def getCommitteeBySession(self, congress):
+    def getCommitteesBySession(self, congress):
         # Returns a list of committee objects correspoinding to the committees
         # in a given congressional session
         #try:
@@ -374,4 +376,23 @@ class DataSource:
         #except:
         #    print "failed to retieve item from the database"
         #    return None
+
+    def getSessionOjbect(self, congress):
+        # Returns a session object containing the rows of the table and lists
+        # of senator objects and bill objects corresponding to the session
+        cursor = db_connection.cursor()
+        cursor.execute('SELECT number, start_date, end_date FROM sessions WHERE number = (%s);', 
+            (congress,))
+        congresses = []
+        for row in cursor: 
+            args = row
+            args.append(getSenatorsInSession(congress))
+            args.append(getBillsInCongress(congress,0))
+            args.append(getCommitteesBySession())
+            congresses.append(Session(args))
+        if len(congresses) == 1:
+            return congresses[0]
+        else: return None
+
+
 
