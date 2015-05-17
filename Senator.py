@@ -4,6 +4,9 @@
 import cgitb
 cgitb.enable()
 
+from dateutil.relativedelta import relativedelta
+import datetime
+
 class Senator:
     """An object that stores the database's information on a senator."""
 
@@ -43,6 +46,11 @@ class Senator:
         return self.first_name
 
     def getBirthday(self):
+        # if the the date was interpreted by SQL as being in the 21st century
+        # then it will return a fixed date corresponding to the year in the
+        # 20th century
+        if birthday.date() >= date(2000, 1, 1):
+            self.birthday = birthday.date() - relativedelta(years=100)
         return self.birthday
 
     def getLast(self):
