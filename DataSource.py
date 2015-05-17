@@ -360,7 +360,7 @@ class DataSource:
 
 
     
-    def getCommitteeBySession(self, congress):
+    def getCommitteesBySession(self, congress):
         # Returns a list of committee objects correspoinding to the committees
         # in a given congressional session
         #try:
@@ -374,4 +374,23 @@ class DataSource:
         #except:
         #    print "failed to retieve item from the database"
         #    return None
+
+    def getSessionOjbect(self, congress):
+        # Returns a session object containing the rows of the table and lists
+        # of senator objects and bill objects corresponding to the session
+        cursor = db_connection.cursor()
+        cursor.execute('SELECT number, start_date, end_date FROM sessions WHERE number = (%s);', 
+            (congress,))
+        congresses = []
+        for row in cursor: 
+            args = row
+            args.append(getSenatorsInSession(congress))
+            args.append(getBillsInCongress(congress,0))
+            args.append(getCommitteesBySession())
+            congresses.append(Session(args))
+        if len(congresses) == 1:
+            return congresses[0]
+        else: return None
+
+
 
