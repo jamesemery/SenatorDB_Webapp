@@ -220,7 +220,7 @@ class PageConstructor:
         table_string = ""
         for bill in bill_list:
             table_string += ("<tr><td>" + 
-                             bill.getVoteDate().strftime("%B %d, %Y" +
+                             bill.getVoteDate().strftime("%B %d, %Y") +
                              "</td><td>" + str(bill.getRoll()) +
                              "</td><td>" + bill.getBillLink() + "</td></tr>")
 
