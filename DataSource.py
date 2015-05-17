@@ -389,7 +389,7 @@ class DataSource:
             args = [row[0],row[1],row[2]]
             args.append(self.getSenatorsInSession(congress))
             args.append(self.getBillsInCongress(congress,0))
-            args.append(self.getCommitteesBySession())
+            args.append(self.getCommitteesBySession(congress))
             congresses.append(Session(args))
         if len(congresses) == 1:
             return congresses[0]
