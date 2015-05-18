@@ -257,11 +257,14 @@ class PageConstructor:
         for bill_pair in vote_pair_list:
             # A bill_pair contains a bill object at index 0 and a string of
             # the senator's vote at index 1.
-            table_string += ("<tr><td>" + 
+            table_string += ('<tr><td class="col-xs-2">' + 
                              bill_pair[0].getVoteDate().strftime("%B %d, %Y") + 
-                             "</td><td>" + str(bill_pair[0].getRoll()) + 
-                             "</td><td>" + bill_pair[0].getBillLink() +
-                             "</td><td>" + bill_pair[1] + "</td></tr>")
+                             '</td><td class="col-xs-2">' + 
+                             str(bill_pair[0].getRoll()) + 
+                             '</td><td class="col-xs-6">' + 
+                             bill_pair[0].getBillLink() +
+                             '</td><td class="col-xs-2">' + bill_pair[1] +
+                             '</td></tr>')
 
         fill_tags = {"SenatorName": senator.getName(),
                      "SenatorParty": senator.getParty(),
@@ -285,10 +288,11 @@ class PageConstructor:
         # Table headers: Senator | Party | State
         table_string = ""
         for senator in senator_list:
-            table_string += ("<tr><td>" + senator.getSenatorLink() +
-                             "</td><td>" + senator.getParty() +
-                             "</td><td>" + senator.getStateLink() + 
-                             "</td></tr>")
+            table_string += ('<tr><td class="col-xs-4">' +
+                             senator.getSenatorLink() +
+                             '</td><td class="col-xs-4">' + senator.getParty() +
+                             '</td><td class="col-xs-4">' +
+                             senator.getStateLink() + '</td></tr>')
 
         fill_tags = {"SenatorTable": table_string}
 
@@ -306,11 +310,13 @@ class PageConstructor:
         # Table headers: Date | # | Bill
         table_string = ""
         for bill in bill_list:
-            table_string += ("<tr><td>" + 
+            table_string += ('<tr><td class="col-xs-3">' + 
                              bill.getVoteDate().strftime("%B %d, %Y") +
-                             "</td><td>" + bill.getVoteDate().strftime("%Y") + 
-                             " s" + str(bill.getRoll()) +
-                             " </td><td>" + bill.getBillLink() + "</td></tr>")
+                             '</td><td class="col-xs-3">' +
+                             bill.getVoteDate().strftime("%Y") + " s" + 
+                             str(bill.getRoll()) +
+                             '</td><td class="col-xs-6">' + bill.getBillLink() +
+                             '</td></tr>')
 
         fill_tags = {"BillData": table_string}
 
