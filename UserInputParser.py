@@ -11,7 +11,8 @@ from Senator import Senator
 from Committee import Committee
 
 class UserInputParser:
-    """""" # TODO: Write a class description/doc/thing!
+    """Parses the user's input and passes the information between
+    PageConstructor and DataSource."""
 
     def __init__(self, params):
         # A constructor that stores the provided parameters internally, as well
