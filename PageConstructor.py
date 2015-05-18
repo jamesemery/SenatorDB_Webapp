@@ -164,6 +164,7 @@ class PageConstructor:
                              s.getStateLink() + "</td></tr>")
 
         fill_tags = {"BillName": bill.getQuestion(),
+                     "VotesBreakdown": breakdown_string,
                      "BillType": bill.getType(),
                      "BillSession": session_link,
                      "BillDate": bill.getVoteDate().strftime("%B %d, %Y"),
