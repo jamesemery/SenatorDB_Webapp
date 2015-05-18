@@ -55,11 +55,13 @@ class PageConstructor:
                 + STATE_LIST[i] + '</a></li>')
             i+=1
 
-        bill_list = self.dbSource.getBillsInCongress(114,20)
-        self.replacements["BillDropdown"] = ""
-        for entry in bill_list:
-            self.replacements["BillDropdown"] += ('<li>' +
-                entry.getBillLink() + '</li>')
+        # TODO: DELETE THIS before finishing!
+        # 
+        # bill_list = self.dbSource.getBillsInCongress(114,20)
+        # self.replacements["BillDropdown"] = ""
+        # for entry in bill_list:
+        #     self.replacements["BillDropdown"] += ('<li>' +
+        #         entry.getBillLink() + '</li>')
 
         committee_list = self.dbSource.getCommitteesBySession(114)
         self.replacements["CommitteeDropdown"] = ""
