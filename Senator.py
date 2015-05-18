@@ -54,6 +54,12 @@ class Senator:
                 self.birthday = date(self.birthday.year - 100, self.birthday.month, self.birthday.day)
         return self.birthday
 
+    def getWikiLink(self):
+        wiki_string = ""
+        if self.wiki != "":
+            wiki_string =  ('<a href = "https://en.wikipedia.org/wiki/' +
+                self.wiki + '">' + self.wiki + '</a>')
+
     def getLast(self):
         return self.last_name
 
