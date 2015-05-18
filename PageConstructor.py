@@ -1,8 +1,8 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
-import cgitb
-cgitb.enable()
+#import cgitb
+#cgitb.enable()
 
 from DataSource import DataSource
 from Bill import Bill
@@ -263,7 +263,8 @@ class PageConstructor:
             elif bill_pair[1] == "present":
                 bill_pair[1] = "Abstain"
             else:
-                bill_pair[1] = bill_pair.capitalize()
+            	bill_pair[1] = bill_pair[1].capitalize()
+
 
             table_string += ('<tr><td>' + 
                              bill_pair[0].getVoteDate().strftime("%B %d, %Y") + 
