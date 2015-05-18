@@ -3,7 +3,7 @@ SenatorVotes
 Group Members: Joe Adkisson, Michael Stoneman, Jamie Emery
 
 Features Implemented:
-- Look up senators and see their voting records
+- Look up senators and see their voting records and biographical info
 - Look up bills and see senators who voted for them
 - Sort senators by states
 - Display rudimentary information about party voting percentages on bills
