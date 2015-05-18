@@ -247,10 +247,11 @@ class PageConstructor:
             # string detailing the senator's role at index 1.
             committee_list += ("<li>" + committee_pair[1] + " of the " +
                                committee_pair[0].getCommitteeLink() +
-                               ' during Session <a href="index.py?page_type='
+                               ' during the <a href="index.py?page_type='
                                + 'session&session=' + 
                                str(committee_pair[0].getSession()) + '">' + 
-                               str(committee_pair[0].getSession()) + "</a></li>")
+                               str(committee_pair[0].getSession()) + "th "
+                               + "congressional session</a></li>")
 
         # Table headers: Date | Number | Bill Name | Vote
         table_string = ""
