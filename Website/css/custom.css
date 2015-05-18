@@ -121,9 +121,9 @@ tbody a:active {
   display: block;
 }
 
-.table-fixed tbody > tr {
+/*.table-fixed tbody > tr {
   display: inline-block;
-}
+}*/
 
 .table-fixed tbody td, .table-fixed thead > tr> th {
   float: left;
