@@ -3,6 +3,7 @@
 
 #import cgitb
 #cgitb.enable()
+import datetime
 import unittest
 from Bill import Bill
 from Senator import Senator
@@ -78,32 +79,32 @@ class ObjectTests(unittest.TestCase):
 		self.assertEqual(com.getSenators(), ["sen1", "sen2", "sen3"])
 
 	def testSenatorConstructorShort(self):
-		params = [10, "White", "Rich", "05/12/2015", "Male", "Republican",
+		params = [10, "White", "Rich", datetime.date(1940,5,12), "Male", "TX", "Republican",
 			"WikiURL", True]
 		senator = Senator(params)
 		self.assertEqual(senator.getId(), 10)
 		self.assertEqual(senator.getLast(), "White")
 		self.assertEqual(senator.getFirst(), "Rich")
-		self.assertEqual(senator.getBirthday(), "05/12/2015")
-		self.assertEqual(senator.getGender(), "Male")
+		self.assertEqual(senator.getBirthday(), datetime.date(1940,5,12))
 		self.assertEqual(senator.getParty(), "Republican")
-		self.assertEqual(senator.getWiki(), "WikiURL")
+		self.assertEqual(senator.getWikiLink(), '<a href = "https://en.wikipedia.org/wiki/WikiURL">WikiURL</a>')
+		self.assertEqual(senator.getState(), "TX")
 		self.assertEqual(senator.isCurrent(), True)
 		self.assertEqual(senator.getCommittees(), [])
 
 	def testSenatorConstructorLong(self):
 		#A list of Committee objects should theoretically go in the last entry,
 		#but we're using strings for test purposes.
-		params = [10, "White", "Rich", "05/12/2015", "Male", "Republican",
+		params = [10, "White", "Rich", datetime.date(1940,5,12), "Male", "TX", "Republican",
 			"WikiURL", True, ["Committee", "Committee 2", "Committee 3"]]
 		senator = Senator(params)
 		self.assertEqual(senator.getId(), 10)
 		self.assertEqual(senator.getLast(), "White")
 		self.assertEqual(senator.getFirst(), "Rich")
-		self.assertEqual(senator.getBirthday(), "05/12/2015")
-		self.assertEqual(senator.getGender(), "Male")
+		self.assertEqual(senator.getBirthday(), datetime.date(1940,5,12))
 		self.assertEqual(senator.getParty(), "Republican")
-		self.assertEqual(senator.getWiki(), "WikiURL")
+		self.assertEqual(senator.getWikiLink(), '<a href = "https://en.wikipedia.org/wiki/WikiURL">WikiURL</a>')
+		self.assertEqual(senator.getState(), "TX")
 		self.assertEqual(senator.isCurrent(), True)
 		self.assertEqual(senator.getCommittees(), ["Committee", "Committee 2", "Committee 3"])
 
@@ -112,44 +113,24 @@ class ObjectTests(unittest.TestCase):
 	#the form <a href="URL"> Object Name </href> or similar.
 
 	def testCommitteeLinkGenerator(self):
-		htmlLink = "thisWillFail"
+		htmlLink = '<a href = "index.py?page_type=committee&committee=100">Committee to Discuss Commit Messages in Git</a>'
 		params = [100, "Committee to Discuss Commit Messages in Git",
 			"super-committee", 113, ["sen1", "sen2", "sen3"]]
 		com = Committee(params)
 		self.assertEqual(com.getCommitteeLink(), htmlLink)
 
 	def testBillLinkGenerator(self):
-		htmlLink = "thisWillFail"
+		htmlLink = '<a href = "index.py?page_type=bill&bill=100">Question</a>'
 		params = [100, 113, 2, "3/5/2012", "bill", "Question"]
 		bill = Bill(params)
 		self.assertEqual(bill.getBillLink(), htmlLink)
 
 	def testSenatorLinkGenerator(self):
-		htmlLink = "thisWillFail"
+		htmlLink = '<a href = "index.py?page_type=senator&senator=10">Rich White</a>'
 		params = [10, "White", "Rich", "05/12/2015", "Male", "Republican",
 			"WikiURL", True, ["Committee", "Committee 2", "Committee 3"]]
 		senator = Senator(params)
 		self.assertEqual(senator.getSenatorLink(), htmlLink)
-
-
-	#Old method.
-	#def testBillVoteTally(self):
-		#because Python doesn't care about typing, we're just going to pass in
-		#strings instead of Senator objects for testing purposes. The method
-		#should work the same either way.
-		params = [100, 113, 2, "3/5/2012", "bill", "Question", 
-					["Rich White", "Richard Whiter"],
-					["John Brown"],
-					[],
-					["George Washington"]]
-		bill = Bill(params)
-		expected = [["Rich White", "Richard Whiter", "John Brown", "George Washington"],
-					["Yea", "Yea", "Nay", "Absent"]]
-		self.assertEqual(bill.getVoteTally(), expected)
-
-
-
-
 
 
 if __name__ == '__main__':
