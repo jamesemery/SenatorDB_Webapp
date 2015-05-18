@@ -42,6 +42,12 @@ class Bill:
     def getSession(self):
         return self.session_of_congress
 
+    def getSessionLink(self):
+        HTML_string = ('<a href = "index.py?page_type=session&session=' +
+                       str(self.getSession()) + '">' + str(self.getSession()) +
+                       '<sup>th</sup>' + '</a>')
+        return HTML_string
+
     def getRoll(self):
         return self.roll
 
