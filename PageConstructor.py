@@ -142,8 +142,6 @@ class PageConstructor:
                  str(party_dict.get(party)[2]) + " abstain | " + 
                  str(party_dict.get(party)[3]) + " absent" + "\n")
 
-
-
         # Table headers: Vote | Senator | Party | State
         table_string = ""
         for s in bill.getYea_Votes():
