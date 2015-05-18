@@ -25,8 +25,8 @@ class DataSource:
         USERNAME = 'emeryj'
         DB_NAME = 'emeryj'
         try:
-            #f = open('testpassfileworkaround')
-            f = open(os.path.join('/cs257', USERNAME)) ###TODO DELETE THIS
+            #f = open('testpassfileworkaround') <--- UNCOMMENT ME FOR TESTS
+            f = open(os.path.join('/cs257', USERNAME)) 
             PASSWORD = f.read().strip()
             f.close()
         except:

@@ -12,7 +12,11 @@ from Committee import Committee
 
 
 #Unit tests for DataSource.py. assumes certian values about the database that are specified at the top
+
 class TestDataSource(unittest.TestCase):
+    '''TestCases for some methods in DataSource.py NOTE: will not work if run
+    from command line without uncommenting #f = open('testpassfileworkaround')
+    in DataSource.py and with password file existing in the directory'''
     
     global db_source
     db_source = DataSource()
@@ -119,25 +123,6 @@ class TestDataSource(unittest.TestCase):
     	self.assertEquals(test_senator.getWiki(), actual.getWiki())
     	self.assertEquals(test_senator.isCurrent(), actual.isCurrent())
 
-
-    def testGetSenatorWithCommittees(self):
-    	actual = db_source.getSenator(412390)
-        self.assertEquals(test_senator.getId(), actual.getId())
-        self.assertEquals(test_senator.getFirst(), actual.getFirst())
-        self.assertEquals(test_senator.getLast(), actual.getLast())
-        self.assertEquals(test_senator.getBirthday(), actual.getBirthday())
-        self.assertEquals(test_senator.getGender(), actual.getGender())
-        self.assertEquals(test_senator.getParty(), actual.getParty())
-        self.assertEquals(test_senator.getWiki(), actual.getWiki())
-        self.assertEquals(test_senator.isCurrent(), actual.isCurrent())
-
-        # Goes through the list of 
-        self.assertEquals(False, True)
-    	#TODO adsf asd fa 
-
-    def testGetSenatorsInSession(self):
-        self.assertEquals(False, True)
-
     def testGetVotesBySenator(self):
         # The last 5 bill id's and votes that the test senator voted on
         expected_table = [[3224,"yea"],[3223,"nay"],[3222,"nay"],[3220,"yea"],[3219,"nay"]]
@@ -147,9 +132,6 @@ class TestDataSource(unittest.TestCase):
         while i < len(actual):
             assertEquals(expected_table[i],[actual[i][0].getid(),actual[i][1]])
             i+=1
-
-
-
 
 
 if __name__ == '__main__':
