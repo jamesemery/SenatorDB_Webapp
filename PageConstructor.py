@@ -221,7 +221,6 @@ class PageConstructor:
         fill_tags = {"CommitteeName": committee.getName(),
                      "SessionNumber": session_link,
                      "Supercommittee": associated_string, 
-                     # TODO: make the supercommittee link disappear if it's not a subcommittee
                      "SenatorTable": table_string}
                      
         content_string = committeeString.format(**fill_tags)
