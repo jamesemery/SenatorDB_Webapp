@@ -278,7 +278,7 @@ class PageConstructor:
         fill_tags = {"SenatorName": senator.getName(),
                      "SenatorParty": senator.getParty(),
                      "SenatorStateLink": senator.getStateLink(),
-                     "Birthday": senator.getBirthday(),
+                     "Birthday": senator.getBirthday().strftime("%B %d, %Y"),
                      "Currently": senator.isCurrent(),
                      "CommitteeMemberList": committee_list,
                      "BillTable": table_string}
