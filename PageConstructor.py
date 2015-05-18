@@ -1,8 +1,8 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
-import cgitb
-cgitb.enable()
+#import cgitb
+#cgitb.enable()
 
 from DataSource import DataSource
 from Bill import Bill

@@ -1,8 +1,8 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
-import cgitb
-cgitb.enable()
+#import cgitb
+#cgitb.enable()
 
 from PageConstructor import PageConstructor
 from DataSource import DataSource
