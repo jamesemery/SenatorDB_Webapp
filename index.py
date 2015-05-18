@@ -7,8 +7,8 @@
  Michael Stoneman
  """
 
-import cgitb
-cgitb.enable()
+#import cgitb
+#cgitb.enable()
 
 import cgi
 from UserInputParser import UserInputParser

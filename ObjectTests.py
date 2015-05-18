@@ -1,8 +1,8 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
-import cgitb
-cgitb.enable()
+#import cgitb
+#cgitb.enable()
 import unittest
 from Bill import Bill
 from Senator import Senator
