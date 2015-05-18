@@ -258,6 +258,12 @@ class PageConstructor:
         for bill_pair in vote_pair_list:
             # A bill_pair contains a bill object at index 0 and a string of
             # the senator's vote at index 1.
+            if bill_pair[1] == "not_voting":
+            	bill_pair[1] = "Absent"
+            elif bill_pair[1] == "present":
+            	bill_pair[1] = "Abstain"
+            else:
+            	bill_pair[1] = bill_pair.capitalize()
             table_string += ('<tr><td class="col-xs-2">' + 
                              bill_pair[0].getVoteDate().strftime("%B %d, %Y") + 
                              '</td><td class="col-xs-2">' + 
