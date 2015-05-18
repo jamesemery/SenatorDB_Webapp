@@ -147,21 +147,29 @@ class PageConstructor:
         # Table headers: Vote | Senator | Party | State
         table_string = ""
         for s in bill.getYea_Votes():
-            table_string += ("<tr><td>Yea</td><td>" + s.getSenatorLink() + 
-                             "</td><td>" + s.getParty() + "</td><td>" +
-                             s.getStateLink() + "</td></tr>")
+            table_string += ('<tr><td class="col-xs-2">Yea</td>' + 
+                             '<td class="col-xs-4">' + s.getSenatorLink() + 
+                             '</td><td class="col-xs-3">' + s.getParty() + 
+                             '</td><td class="col-xs-3">' + s.getStateLink() + 
+                             '</td></tr>')
         for s in bill.getNay_Votes():
-            table_string += ("<tr><td>Nay</td><td>" + s.getSenatorLink() + 
-                             "</td><td>" + s.getParty() + "</td><td>" +
-                             s.getStateLink() + "</td></tr>")
+            table_string += ('<tr><td class="col-xs-2">Nay</td>' + 
+                             '<td class="col-xs-4">' + s.getSenatorLink() + 
+                             '</td><td class="col-xs-3">' + s.getParty() + 
+                             '</td><td class="col-xs-3">' + s.getStateLink() + 
+                             '</td></tr>')
         for s in bill.getAbstaining():
-            table_string += ("<tr><td>Abstain</td><td>" + s.getSenatorLink() + 
-                             "</td><td>" + s.getParty() + "</td><td>" +
-                             s.getStateLink() + "</td></tr>")
+            table_string += ('<tr><td class="col-xs-2">Abstain</td>' + 
+                             '<td class="col-xs-4">' + s.getSenatorLink() + 
+                             '</td><td class="col-xs-3">' + s.getParty() + 
+                             '</td><td class="col-xs-3">' + s.getStateLink() + 
+                             '</td></tr>')
         for s in bill.getAbsent():
-            table_string += ("<tr><td>Absent</td><td>" + s.getSenatorLink() + 
-                             "</td><td>" + s.getParty() + "</td><td>" +
-                             s.getStateLink() + "</td></tr>")
+            table_string += ('<tr><td class="col-xs-2">Absent</td>' + 
+                             '<td class="col-xs-4">' + s.getSenatorLink() + 
+                             '</td><td class="col-xs-3">' + s.getParty() + 
+                             '</td><td class="col-xs-3">' + s.getStateLink() + 
+                             '</td></tr>')
 
         fill_tags = {"BillName": bill.getQuestion(),
                      "VotesBreakdown": breakdown_string,
@@ -192,10 +200,12 @@ class PageConstructor:
             # A senator_pair has a senator object at index 0 and a string
             # describing the senator's role in the committee at index 1.
             senator = senator_pair[0]
-            table_string += ("<tr><td>" + senator_pair[1] + "</td><td>" +
-                             senator.getSenatorLink() + "</td><td>" + 
-                             senator.getParty() + "</td><td>" + 
-                             senator.getStateLink() + "</td></tr>")
+            table_string += ('<tr><td class="col-xs-3">' + senator_pair[1] + 
+                             '</td><td class="col-xs-3">' +
+                             senator.getSenatorLink() + '</td>' + 
+                             '<td class="col-xs-3">' + senator.getParty() +
+                             '</td><td class="col-xs-3">' + 
+                             senator.getStateLink() + '</td></tr>')
 
         associated_string = ""
         if committee.isSuper():
