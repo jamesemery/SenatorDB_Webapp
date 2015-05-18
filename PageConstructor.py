@@ -308,7 +308,7 @@ class PageConstructor:
                                "</td><td>" + b.getBillLink() + "</td></tr>")
 
         fill_tags = {"sessionID": session_id,
-                     "CommitteeList": committee_string,
+                     "CommitteeList": c_list_string,
                      "SenatorTable": s_table_string,
                      "BillTable": b_table_string}
 
