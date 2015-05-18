@@ -38,7 +38,7 @@ class UserInputParser:
         	"home": self.makeHomePage}
         try:
         	HTML_string = function_dictionary[self.page_type]()
-        except:
+        except (ValueError):
         	HTML_string = self.makeErrorPage()
 
         #try:
