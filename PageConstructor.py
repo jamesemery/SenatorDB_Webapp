@@ -267,7 +267,7 @@ class PageConstructor:
 
 
             table_string += ('<tr><td>' + 
-                             bill_pair[0].getVoteDate().strftime("%B %d, %Y") + 
+                             bill_pair[0].getVoteDate().isoformat() + 
                              '</td><td>' + 
                              str(bill_pair[0].getRoll()) + 
                              '</td><td>' + 
@@ -278,7 +278,7 @@ class PageConstructor:
         fill_tags = {"SenatorName": senator.getName(),
                      "SenatorParty": senator.getParty(),
                      "SenatorStateLink": senator.getStateLink(),
-                     "Birthday": senator.getBirthday(),
+                     "Birthday": senator.getBirthday().strftime("%B %d, %Y"),
                      "Currently": senator.isCurrent(),
                      "CommitteeMemberList": committee_list,
                      "BillTable": table_string}
@@ -381,7 +381,7 @@ class PageConstructor:
         bill_list = session.getBills()
         for b in bill_list:
             b_table_string += ('<tr><td>' + 
-                               b.getVoteDate().strftime("%B %d, %Y") + 
+                               b.getVoteDate().isoformat() + 
                                '</td><td>' + str(b.getRoll()) + 
                                '</td><td>' + b.getBillLink() + '</td></tr>')
 
