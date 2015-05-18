@@ -261,10 +261,10 @@ class PageConstructor:
             table_string += ('<tr><td class="col-xs-2">' + 
                              bill_pair[0].getVoteDate().strftime("%B %d, %Y") + 
                              '</td><td class="col-xs-2">' + 
-                             str(bill_pair[0].getRoll()) +
-                             '</td><td class="col-xs-2">' + bill_pair[1] + 
+                             str(bill_pair[0].getRoll()) + 
                              '</td><td class="col-xs-6">' + 
                              bill_pair[0].getBillLink() +
+                             '</td><td class="col-xs-2">' + bill_pair[1] +
                              '</td></tr>')
 
         fill_tags = {"SenatorName": senator.getName(),
