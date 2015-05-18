@@ -372,7 +372,7 @@ class PageConstructor:
                                "</td><td>" + str(b.getRoll()) + 
                                "</td><td>" + b.getBillLink() + "</td></tr>")
 
-        fill_tags = {"sessionID": str(session),
+        fill_tags = {"sessionID": str(session.getId()),
                      "StartDate": session.getStart_Date().strftime("%B %d, %Y"),
                      "EndDate": session.getEnd_Date().strftime("%B %d, %Y"),
                      "CommitteeList": c_list_string,
