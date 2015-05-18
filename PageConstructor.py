@@ -93,6 +93,57 @@ class PageConstructor:
                  str(len(bill.getAbstaining())) + " abstain | " + 
                  str(len(bill.getAbsent())) + " absent")
 
+        # Loops through the vote data and adds to a dictonary based 
+        # on the party of the senator with keyed values that correspond 
+        # to the votes in order
+        # all yea votes
+        party_dict = {}
+        for senator in bill.getYea_Votes():
+            party_votes = party_dict.get(senator.getParty())
+            if party == None:
+                party_dict[senator.getParty()] = [1,0,0,0]
+            else:
+                party_votes[0] = party_votes[0] + 1
+                party_dict[senator.getParty()] = party_votes
+
+        # all nay votes
+        for senator in bill.getNay_Votes():
+            party_votes = party_dict.get(senator.getParty())
+            if party == None:
+                party_dict[senator.getParty()] = [0,1,0,0]
+            else:
+                party_votes[1] = party_votes[1] + 1
+                party_dict[senator.getParty()] = party_votes
+
+        # all abstaining votes
+        for senator in bill.getAbstaining():
+            party_votes = party_dict.get(senator.getParty())
+            if party == None:
+                party_dict[senator.getParty()] = [0,0,1,0]
+            else:
+                party_votes[2] = party_votes[2] + 1
+                party_dict[senator.getParty()] = party_votes
+
+        # all absent votes
+        for senator in bill.getAbsent():
+            party_votes = party_dict.get(senator.getParty())
+            if party == None:
+                party_dict[senator.getParty()] = [0,0,0,1]
+            else:
+                party_votes[2] = party_votes[2] + 1
+                party_dict[senator.getParty()] = party_votes
+
+
+        breakdown_string = ""
+        for party in party_dict.iterkeys():
+            breakdown_string += party + ": "
+            breakdown_string += (str(party_dict.get(party)[0]) + " yea | " + 
+                 str(party_dict.get(party)[1]) + " nay | " +
+                 str(party_dict.get(party)[2]) + " abstain | " + 
+                 str(party_dict.get(party)[3]) + " absent" + "\n")
+
+
+
         # Table headers: Vote | Senator | Party | State
         table_string = ""
         for s in bill.getYea_Votes():
