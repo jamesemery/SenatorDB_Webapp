@@ -1,8 +1,8 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
-import cgitb
-cgitb.enable()
+#import cgitb
+#cgitb.enable()
 
 from DataSource import DataSource
 from Bill import Bill
@@ -278,7 +278,7 @@ class PageConstructor:
         fill_tags = {"SenatorName": senator.getName(),
                      "SenatorParty": senator.getParty(),
                      "SenatorStateLink": senator.getStateLink(),
-                     "Birthday": senator.getBirthday().isoformat()),
+                     "Birthday": senator.getBirthday().isoformat(),
                      "Currently": senator.isCurrent(),
                      "CommitteeMemberList": committee_list,
                      "BillTable": table_string}
