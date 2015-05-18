@@ -65,18 +65,21 @@ class ObjectTests(unittest.TestCase):
 		self.assertEqual(com.getName(), "Committee to Discuss Commit Messages in Git")
 		self.assertEqual(com.getSuperCommittee(), "super-committee")
 		self.assertEqual(com.getSession(), 113)
-		self.assertEqual(com.getSenators(), [])
+		self.assertEqual(com.getSenators(), [[]])
+		self.assertEqual(com.getAssociated(), [[]])
 
 	def testCommitteeConstructorLong(self):
 		#Same thing with super-committee as in the first constructor test.
 		params = [100, "Committee to Discuss Commit Messages in Git",
-			"super-committee", 113, ["sen1", "sen2", "sen3"]]
+			"super-committee", 113, [["sen1", "Member"], ["sen2", "Member"]],
+			[[10, "SubCom1"], [11, "SubCom2"]] ]
 		com = Committee(params)
 		self.assertEqual(com.getId(), 100)
 		self.assertEqual(com.getName(), "Committee to Discuss Commit Messages in Git")
 		self.assertEqual(com.getSuperCommittee(), "super-committee")
 		self.assertEqual(com.getSession(), 113)
-		self.assertEqual(com.getSenators(), ["sen1", "sen2", "sen3"])
+		self.assertEqual(com.getSenators(), [["sen1", "Member"], ["sen2", "Member"]])
+		self.assertEqual(com.getAssociated(),[[10, "SubCom1"], [11, "SubCom2"]])
 
 	def testSenatorConstructorShort(self):
 		params = [10, "White", "Rich", datetime.date(1940,5,12), "Male", "TX", "Republican",
