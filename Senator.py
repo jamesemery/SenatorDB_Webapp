@@ -1,8 +1,8 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
-import cgitb
-cgitb.enable()
+#mport cgitb
+#cgitb.enable()
 
 import datetime
 from datetime import date
