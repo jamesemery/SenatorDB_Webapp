@@ -3,6 +3,7 @@
 
 #import cgitb
 #cgitb.enable()
+
 import unittest
 import datetime
 from DataSource import DataSource
@@ -10,19 +11,21 @@ from Bill import Bill
 from Senator import Senator
 from Committee import Committee
 
-
-#Unit tests for DataSource.py. assumes certian values about the database that are specified at the top
-
 class TestDataSource(unittest.TestCase):
-    '''TestCases for some methods in DataSource.py NOTE: will not work if run
-    from command line without uncommenting #f = open('testpassfileworkaround')
-    in DataSource.py and with password file existing in the directory'''
+    """Test cases for some methods in DataSource.py. Not necessary but we left
+    what we had.
+
+    NOTE: will not work if run from command line without uncommenting
+    #f = open('testpassfileworkaround') in DataSource.py and with password file
+    existing in the directory.
+    """
     
     global db_source
     db_source = DataSource()
-    #for testing purpouses I will rely on several specific datapoints hardcoded
-    #into the test code, here are the databse entries for the particular objects
-    #I will be testing so it is clear to see what I am emulating in code
+    # For testing purposes, I will rely on several specific datapoints hardcoded
+    # into the test code. Here are the databse entries for the particular
+    # objects. I will be testing so it is clear to see what I am emulating in
+    # code.
 
     #Bill example = (100, 109, 188, datetime.date(2005, 7, 14), 'amendment', 'On
     #the Amendment S.Amdt. 1222 to H.R. 2360 (Department of Homeland Security
