@@ -247,7 +247,7 @@ class PageConstructor:
 
         # Adds in a wikipedia link if it exists
         wiki_string = ""
-        wiki_link = bill.getWikiLink()
+        wiki_link = senator.getWikiLink()
         if wiki_link != "":
             wiki_string = '<p><strong>Wikipedia:</strong>' + wiki_link + '</p>'
 
