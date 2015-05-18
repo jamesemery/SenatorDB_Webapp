@@ -17,8 +17,11 @@ class Committee:
 
         # [[SenObj, name], [SenObj, name]]
         if len(params) == 6:
+        	#A list of Senator objects paired with their role;
+        	#e.g. [[SenObj1, "Member"], [SenObj2, "Leader"]...]
             self.senators = params[4]
-            self.associated = params[5]
+            #A list of lists, e.g. [[102, "Subcommittee1"], [103, "SC2"]...]
+            self.associated = params[5] 
         else:
             self.senators = [[]]
             self.associated = [[]]

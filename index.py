@@ -28,9 +28,9 @@ def getParameters():
 	for entry in param_list:
 		if entry in form:
 			params[entry] = sanitizeInput(form[entry].value)
-		# else:
-		# 	params[entry] = '0'
-		#TODO BRING THESE LINES BACK IF THEY DON'T WORK
+		#We're not giving a default value to empty cgi params;
+		#if they become important later, they'll just throw a null pointer
+		#exception which will get caught.
 
 	# page_type gets special treatment so that it defaults to the homepage
 	if 'page_type' in form:
