@@ -85,7 +85,7 @@ class PageConstructor:
                  str(len(bill.getAbstaining())) + " abstain | " + 
                  str(len(bill.getAbsent())) + " absent")
 
-        # Loops through the vote data and adds to a dictonary based 
+        # Loops through the vote data and addsa tally to a dictonary based 
         # on the party of the senator with keyed values that correspond 
         # to the votes in order
         # all yea votes
@@ -125,7 +125,7 @@ class PageConstructor:
                 party_votes[2] = party_votes[2] + 1
                 party_dict[senator.getParty()] = party_votes
 
-
+        # Displays the the vote tallys for each party in the vote rolls
         breakdown_string = ""
         for party in party_dict.iterkeys():
             breakdown_string += "<p>" + party + ": "
