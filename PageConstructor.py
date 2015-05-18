@@ -314,8 +314,7 @@ class PageConstructor:
             table_string += ('<tr><td class="col-xs-3">' + 
                              bill.getVoteDate().strftime("%B %d, %Y") +
                              '</td><td class="col-xs-3">' +
-                             bill.getVoteDate().strftime("%Y") + " s" + 
-                             str(bill.getRoll()) +
+                             " s" + str(bill.getRoll()) +
                              '</td><td class="col-xs-6">' + bill.getBillLink() +
                              '</td></tr>')
 
