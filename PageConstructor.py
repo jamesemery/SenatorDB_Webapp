@@ -305,7 +305,7 @@ class PageConstructor:
         for b in bill_list:
             b_table_string += ("<tr><td>" + 
                                b.getVoteDate().strftime("%B %d, %Y") + 
-                               "</td><td>" + b.getRoll() + 
+                               "</td><td>" + str(b.getRoll()) + 
                                "</td><td>" + b.getBillLink() + "</td></tr>")
 
         fill_tags = {"sessionID": session_id,
