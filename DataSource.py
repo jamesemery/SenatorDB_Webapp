@@ -315,17 +315,20 @@ class DataSource:
     def getSessionObject(self, congress):
         # Returns a session object containing the rows of the table and lists
         # of senator objects and bill objects corresponding to the session.
-        cursor = db_connection.cursor()
-        cursor.execute('SELECT number, start_date, end_date FROM sessions WHERE number = (%s);', 
-            (congress,))
-        congresses = []
-        for row in cursor: 
-            args = [row[0],row[1],row[2]]
-            args.append(self.getSenatorsInSession(congress))
-            args.append(self.getBillsInCongress(congress,0))
-            args.append(self.getCommitteesBySession(congress))
-            congresses.append(Session(args))
-        if len(congresses) == 1:
-            return congresses[0]
-        else:
-            return None
+        try:
+            cursor = db_connection.cursor()
+            cursor.execute('SELECT number, start_date, end_date FROM sessions WHERE number = (%s);', 
+                (congress,))
+            congresses = []
+            for row in cursor: 
+                args = [row[0],row[1],row[2]]
+                args.append(self.getSenatorsInSession(congress))
+                args.append(self.getBillsInCongress(congress,0))
+                args.append(self.getCommitteesBySession(congress))
+                congresses.append(Session(args))
+            if len(congresses) == 1:
+                return congresses[0]
+            else:
+                return None
+        except:
+            db_connection.rollback()
