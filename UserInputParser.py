@@ -29,26 +29,26 @@ class UserInputParser:
         # The extra bits on the conditionals check that it's actually given a
         # specific senator/state/bill by the CGI parameters. If not, it'll just
         # go into the else.
-        #try:
-        if self.page_type == "senator" and self.params["senator"] != "":
-            HTML_string += self.makeSenatorPage()
-        elif self.page_type == "bill" and self.params["bill"] != "":
-            HTML_string += self.makeBillPage()
-        elif self.page_type == "state" and len(self.params["state"]) == 2:
-            # State should be listed as the abbreviation.
-            HTML_string += self.makeStatePage()
-        elif self.page_type == "committee" and self.params["committee"] != "":
-            HTML_string += self.makeCommitteePage()
-        elif self.page_type == "session" and self.params["session"] != "":
-            HTML_string += self.makeSessionPage()
-        elif self.page_type == "bill_index":
-            HTML_string += self.makeBillIndexPage()
-        elif self.page_type == "senator_index":
-            HTML_string += self.makeSenatorIndexPage()
-        elif self.page_type == "home":
-            HTML_string += self.makeHomePage()
-        else:
-            HTML_string += self.makeErrorPage()
+        try:
+	        if self.page_type == "senator" and self.params["senator"] != "":
+	            HTML_string += self.makeSenatorPage()
+	        elif self.page_type == "bill" and self.params["bill"] != "":
+	            HTML_string += self.makeBillPage()
+	        elif self.page_type == "state" and len(self.params["state"]) == 2:
+	            # State should be listed as the abbreviation.
+	            HTML_string += self.makeStatePage()
+	        elif self.page_type == "committee" and self.params["committee"] != "":
+	            HTML_string += self.makeCommitteePage()
+	        elif self.page_type == "session" and self.params["session"] != "":
+	            HTML_string += self.makeSessionPage()
+	        elif self.page_type == "bill_index":
+	            HTML_string += self.makeBillIndexPage()
+	        elif self.page_type == "senator_index":
+	            HTML_string += self.makeSenatorIndexPage()
+	        elif self.page_type == "home":
+	            HTML_string += self.makeHomePage()
+	        else:
+	            HTML_string += self.makeErrorPage()
         #except:
         #    HTML_string += self.makeErrorPage()
 ####TODO return exception handling to functionality
