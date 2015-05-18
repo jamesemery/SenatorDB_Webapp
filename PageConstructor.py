@@ -257,7 +257,7 @@ class PageConstructor:
         wiki_stirng = ""
         wiki_link = bill.getWikiLink()
         if wiki_link != "":
-            wiki_string = '<p><strong>Wikipedia:</strong>' + wiki_link + '</p>'
+            wiki_stirng = '<p><strong>Wikipedia:</strong>' + wiki_link + '</p>'
 
         # Table headers: Date | Number | Bill Name | Vote
         table_string = ""
