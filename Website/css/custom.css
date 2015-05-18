@@ -107,6 +107,21 @@ tbody a:active {
     text-decoration: none;
 }
 
+tbody {
+  height: 300px;
+  overflow-y: auto;
+  width: 100%;
+}
+
+thead, tbody, tr, td, th {
+  display: block;
+}
+
+tbody td, thead > tr> th {
+  float: left;
+  border-bottom-width: 0;
+}
+
 
 /* Footer */
 
