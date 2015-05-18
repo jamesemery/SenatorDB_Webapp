@@ -372,18 +372,18 @@ class PageConstructor:
         s_table_string = ""
         senator_list = session.getSenators()
         for s in senator_list:
-            s_table_string += ('<tr><td class="col-xs-6">' + s.getSenatorLink() + 
-                               '</td><td class="col-xs-3">' + s.getParty() + 
-                               '</td><td class="col-xs-3">' + s.getStateLink() + '</td></tr>')
+            s_table_string += ('<tr><td>' + s.getSenatorLink() + 
+                               '</td><td>' + s.getParty() + 
+                               '</td><td>' + s.getStateLink() + '</td></tr>')
 
         # Table headers: Date | # | Bill
         b_table_string = ""
         bill_list = session.getBills()
         for b in bill_list:
-            b_table_string += ('<tr><td class="col-xs-3">' + 
+            b_table_string += ('<tr><td>' + 
                                b.getVoteDate().strftime("%B %d, %Y") + 
-                               '</td><td class="col-xs-3">' + str(b.getRoll()) + 
-                               '</td><td class="col-xs-6">' + b.getBillLink() + '</td></tr>')
+                               '</td><td>' + str(b.getRoll()) + 
+                               '</td><td>' + b.getBillLink() + '</td></tr>')
 
         fill_tags = {"sessionID": str(session.getId()),
                      "StartDate": session.getStart_Date().strftime("%B %d, %Y"),
