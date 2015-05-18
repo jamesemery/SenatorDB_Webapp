@@ -252,6 +252,11 @@ class PageConstructor:
         if wiki_link != "":
             wiki_string = '<p><strong>Wikipedia:</strong> ' + wiki_link + '</p>'
 
+        # Checks for empty birthdays
+        date_string = ""
+        if senator.getBirthday() != None:
+            date_string = senator.getBirthday().isoformat()
+
         # Table headers: Date | Number | Bill Name | Vote
         table_string = ""
         for bill_pair in vote_pair_list:
@@ -278,7 +283,7 @@ class PageConstructor:
                      "Wikipedia": wiki_string,
                      "SenatorParty": senator.getParty(),
                      "SenatorStateLink": senator.getStateLink(),
-                     "Birthday": senator.getBirthday().isoformat(),
+                     "Birthday": date_string,
                      "Currently": senator.isCurrent(),
                      "CommitteeMemberList": committee_list,
                      "BillTable": table_string}
