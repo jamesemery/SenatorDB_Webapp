@@ -242,8 +242,9 @@ class PageConstructor:
                                ' during the <a href="index.py?page_type='
                                + 'session&session=' + 
                                str(committee_pair[0].getSession()) + '">' + 
-                               str(committee_pair[0].getSession()) + "th</a>"
-                               + " congressional session</li>")
+                               str(committee_pair[0].getSession()) +
+                               "<sup>th</sup></a>" +
+                               " congressional session</li>")
 
         # Adds in a wikipedia link if it exists
         wiki_string = ""
