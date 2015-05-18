@@ -37,12 +37,6 @@ def getParameters():
 	else:
 		params['page_type'] = 'home'
 
-	#old code. just in case switching over to the for loop screwed things up
-	#TODO delete this comment at some point.
-	#if 'page_type' in form:
-	#	params['page_type'] = sanitizeInput(form['page_type'].value)
-	#else:
-	#	params['page_type'] = 'error'
 	return params
 
 def sanitizeInput(yarn):
