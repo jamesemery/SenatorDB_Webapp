@@ -96,8 +96,6 @@ class UserInputParser:
     def makeSessionPage(self):
         session_id = self.params["session"]
         session = self.db_source.getSessionObject(session_id)
-        # The 0 argument specifies that we want all bills rather than a certain
-        # number of them.
         self.page_maker.makeSessionPage(session)
         HTML_string = self.page_maker.getPage()
         return HTML_string
