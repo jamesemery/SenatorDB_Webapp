@@ -125,7 +125,6 @@ class PageConstructor:
                 party_votes[2] = party_votes[2] + 1
                 party_dict[senator.getParty()] = party_votes
 
-
         breakdown_string = ""
         for party in party_dict.iterkeys():
             breakdown_string += "<p>" + party + ": "
