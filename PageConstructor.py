@@ -289,7 +289,8 @@ class PageConstructor:
         c_list_string = ""
         committee_list = session.getCommittees()
         for c in committee_list:
-            c_list_string += ('<li>' + c.getCommitteeLink() + ' </li>')
+            if c.isSuper():
+                c_list_string += ('<li>' + c.getCommitteeLink() + ' </li>')
 
         # Table headers: Senator | Party | State
         s_table_string = ""
