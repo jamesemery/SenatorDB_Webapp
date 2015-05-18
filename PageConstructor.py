@@ -258,13 +258,13 @@ class PageConstructor:
         for bill_pair in vote_pair_list:
             # A bill_pair contains a bill object at index 0 and a string of
             # the senator's vote at index 1.
-            table_string += ('<tr><td class="col-xs-2">' + 
+            table_string += ('<tr><td>' + 
                              bill_pair[0].getVoteDate().strftime("%B %d, %Y") + 
-                             '</td><td class="col-xs-2">' + 
+                             '</td><td>' + 
                              str(bill_pair[0].getRoll()) + 
-                             '</td><td class="col-xs-6">' + 
+                             '</td><td>' + 
                              bill_pair[0].getBillLink() +
-                             '</td><td class="col-xs-2">' + bill_pair[1] +
+                             '</td><td>' + bill_pair[1] +
                              '</td></tr>')
 
         fill_tags = {"SenatorName": senator.getName(),
