@@ -50,7 +50,7 @@ class UserInputParser:
             else:
                 HTML_string += self.makeErrorPage()
         except:
-            #HTML_string += self.makeErrorPage()
+            HTML_string += self.makeErrorPage()
 ####TODO return exception handling to functionality
         return HTML_string
 
