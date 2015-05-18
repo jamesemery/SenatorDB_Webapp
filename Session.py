@@ -30,7 +30,7 @@ class Session:
     	return self.senators
 
     def getBills(self):
-    	return self.Bills
+    	return self.bills
 
     def getCommittees(self):
     	return self.committees
