@@ -28,8 +28,9 @@ def getParameters():
 	for entry in param_list:
 		if entry in form:
 			params[entry] = sanitizeInput(form[entry].value)
-		else:
-			params[entry] = ''
+		# else:
+		# 	params[entry] = '0'
+		#TODO BRING THESE LINES BACK IF THEY DON'T WORK
 
 	# page_type gets special treatment so that it defaults to the homepage
 	if 'page_type' in form:
