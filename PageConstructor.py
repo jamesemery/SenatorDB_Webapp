@@ -245,10 +245,10 @@ class PageConstructor:
                                + " congressional session</li>")
 
         # Adds in a wikipedia link if it exists
-        wiki_stirng = ""
-        wiki_link = bill.getWikiLink()
+        wiki_string = ""
+        wiki_link = senator.getWikiLink()
         if wiki_link != "":
-            wiki_stirng = '<p><strong>Wikipedia:</strong>' + wiki_link + '</p>'
+            wiki_string = '<p><strong>Wikipedia:</strong> ' + wiki_link + '</p>'
 
         # Table headers: Date | Number | Bill Name | Vote
         table_string = ""
@@ -273,7 +273,7 @@ class PageConstructor:
                              '</td></tr>')
 
         fill_tags = {"SenatorName": senator.getName(),
-                     "Wikipedia": wiki_stirng,
+                     "Wikipedia": wiki_string,
                      "SenatorParty": senator.getParty(),
                      "SenatorStateLink": senator.getStateLink(),
                      "Birthday": senator.getBirthday().isoformat(),
