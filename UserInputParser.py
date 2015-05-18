@@ -66,7 +66,7 @@ class UserInputParser:
     def makeSenatorPage(self):
         id_tag = self.params["senator"]
         senator_obj = self.db_source.getSenatorWithCommittees(id_tag)
-        senator_vote_pair = self.db_source.getVotesBySenator(id_tag,20)
+        senator_vote_pair = self.db_source.getVotesBySenator(id_tag,0)
         self.page_maker.makeSenatorPage(senator_obj,senator_vote_pair)
         HTML_string = self.page_maker.getPage()
         return HTML_string
