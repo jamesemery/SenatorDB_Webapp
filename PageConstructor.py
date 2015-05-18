@@ -250,8 +250,8 @@ class PageConstructor:
                                ' during the <a href="index.py?page_type='
                                + 'session&session=' + 
                                str(committee_pair[0].getSession()) + '">' + 
-                               str(committee_pair[0].getSession()) + "th "
-                               + "congressional session</a></li>")
+                               str(committee_pair[0].getSession()) + "th</a>"
+                               + " congressional session</li>")
 
         # Table headers: Date | Number | Bill Name | Vote
         table_string = ""
