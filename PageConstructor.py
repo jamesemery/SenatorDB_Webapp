@@ -319,7 +319,7 @@ class PageConstructor:
         # Table headers: Date | # | Bill
         table_string = ""
         for bill in bill_list:
-            table_string += ('<tr><td>' + 
+            table_string += ('<tr><td>' + str(bill.getSession()) + '</td><td>' +
                              bill.getVoteDate().strftime("%B %d, %Y") +
                              '</td><td>' +
                              " s" + str(bill.getRoll()) +
