@@ -44,7 +44,7 @@ class Bill:
 
     def getSessionLink(self):
         HTML_string = ('<a href = "index.py?page_type=session&session=' +
-                       str(self.getSession()) + '">' + self.getSession() +
+                       str(self.getSession()) + '">' + str(self.getSession()) +
                        '<sup>th</sup>' + '</a>')
         return HTML_string
 
