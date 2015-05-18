@@ -1,8 +1,8 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
-#import cgitb
-#cgitb.enable()
+import cgitb
+cgitb.enable()
 
 import datetime
 from datetime import date
@@ -59,6 +59,7 @@ class Senator:
         if self.wiki != "":
             wiki_string =  ('<a href = "https://en.wikipedia.org/wiki/' +
                 self.wiki + '">' + self.wiki + '</a>')
+        return wiki_string
 
     def getLast(self):
         return self.last_name
