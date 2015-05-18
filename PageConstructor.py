@@ -100,7 +100,7 @@ class PageConstructor:
         party_dict = {}
         for senator in bill.getYea_Votes():
             party_votes = party_dict.get(senator.getParty())
-            if party == None:
+            if party_votes == None:
                 party_dict[senator.getParty()] = [1,0,0,0]
             else:
                 party_votes[0] = party_votes[0] + 1
@@ -109,7 +109,7 @@ class PageConstructor:
         # all nay votes
         for senator in bill.getNay_Votes():
             party_votes = party_dict.get(senator.getParty())
-            if party == None:
+            if party_votes == None:
                 party_dict[senator.getParty()] = [0,1,0,0]
             else:
                 party_votes[1] = party_votes[1] + 1
@@ -118,7 +118,7 @@ class PageConstructor:
         # all abstaining votes
         for senator in bill.getAbstaining():
             party_votes = party_dict.get(senator.getParty())
-            if party == None:
+            if party_votes == None:
                 party_dict[senator.getParty()] = [0,0,1,0]
             else:
                 party_votes[2] = party_votes[2] + 1
@@ -127,7 +127,7 @@ class PageConstructor:
         # all absent votes
         for senator in bill.getAbsent():
             party_votes = party_dict.get(senator.getParty())
-            if party == None:
+            if party_votes == None:
                 party_dict[senator.getParty()] = [0,0,0,1]
             else:
                 party_votes[2] = party_votes[2] + 1
