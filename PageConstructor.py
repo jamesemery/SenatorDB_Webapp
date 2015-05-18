@@ -136,11 +136,11 @@ class PageConstructor:
 
         breakdown_string = ""
         for party in party_dict.iterkeys():
-            breakdown_string += party + ": "
+            breakdown_string += "<p>" + party + ": "
             breakdown_string += (str(party_dict.get(party)[0]) + " yea | " + 
                  str(party_dict.get(party)[1]) + " nay | " +
                  str(party_dict.get(party)[2]) + " abstain | " + 
-                 str(party_dict.get(party)[3]) + " absent" + "\n")
+                 str(party_dict.get(party)[3]) + " absent" + "</p>" )
 
 
 
