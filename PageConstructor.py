@@ -173,7 +173,7 @@ class PageConstructor:
                      "VotesBreakdown": breakdown_string,
                      "BillType": bill.getType(),
                      "BillSession": session_link,
-                     "BillDate": bill.getVoteDate().strftime("%B %d, %Y"),
+                     "BillDate": bill.getVoteDate().isoformat(),
                      "BillVotes": votes,
                      "SenatorTable": table_string}
 
@@ -278,7 +278,7 @@ class PageConstructor:
         fill_tags = {"SenatorName": senator.getName(),
                      "SenatorParty": senator.getParty(),
                      "SenatorStateLink": senator.getStateLink(),
-                     "Birthday": senator.getBirthday().strftime("%B %d, %Y"),
+                     "Birthday": senator.getBirthday().isoformat()),
                      "Currently": senator.isCurrent(),
                      "CommitteeMemberList": committee_list,
                      "BillTable": table_string}
@@ -386,8 +386,8 @@ class PageConstructor:
                                '</td><td>' + b.getBillLink() + '</td></tr>')
 
         fill_tags = {"sessionID": str(session.getId()),
-                     "StartDate": session.getStart_Date().strftime("%B %d, %Y"),
-                     "EndDate": session.getEnd_Date().strftime("%B %d, %Y"),
+                     "StartDate": session.getStart_Date().isoformat(),
+                     "EndDate": session.getEnd_Date().isoformat(),
                      "CommitteeList": c_list_string,
                      "SenatorTable": s_table_string,
                      "BillTable": b_table_string}
