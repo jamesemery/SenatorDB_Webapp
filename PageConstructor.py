@@ -44,7 +44,7 @@ class PageConstructor:
         # adds the HTML for the dropdown menus to self.replacements.
         templateFile = open("Website/template.html", "r")
         templateString = templateFile.read()
-        self.page += templateString
+        self.page = templateString
 
         self.replacements["SenatorDropdown"] = ""
         i = 0
