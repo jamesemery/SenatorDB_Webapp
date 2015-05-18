@@ -18,10 +18,14 @@ class TestDataSource(unittest.TestCase):
     NOTE: will not work if run from command line without uncommenting
     #f = open('testpassfileworkaround') in DataSource.py and with password file
     existing in the directory.
-    """
-    
+
+    NOTE: on piazza jadrian pointed out that we probably shouldnt be doing unit
+    tests on database source that have dependencies on fickle databse files, as
+    a result these tests are not to be trusted and are not totally complete """
+
     global db_source
     db_source = DataSource()
+
     # For testing purposes, I will rely on several specific datapoints hardcoded
     # into the test code. Here are the databse entries for the particular
     # objects. I will be testing so it is clear to see what I am emulating in
@@ -45,7 +49,8 @@ class TestDataSource(unittest.TestCase):
     #senator example = (407661, 'Metcalfe', 'Thomas', datetime.date(1780, 3, 20), 'M', 'KY', 'Whig', 'Thomas Metcalfe (Kentucky)', False)
 
     global test_senator
-    test_senator = Senator([412390, 'Coons', 'Chris', datetime.date(2063, 9, 9), 'M', 'DE', 'Democrat', 'Chris Coons', True])
+    test_senator = Senator([412390, 'Coons', 'Chris', datetime.date(2063, 9, 9)
+        , 'M', 'DE', 'Democrat', 'Chris Coons', True])
 
 
 
