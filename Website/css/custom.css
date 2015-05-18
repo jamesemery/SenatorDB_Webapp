@@ -96,9 +96,9 @@ th {
 
 /* Table */
 
-.table-hover > tbody > tr:hover {
+/*.table-hover > tbody > tr:hover {
   font-weight: 500;
-}
+}*/
 
 tbody a:link,
 tbody a:visited,
