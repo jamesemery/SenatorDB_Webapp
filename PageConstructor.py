@@ -249,7 +249,7 @@ class PageConstructor:
         wiki_string = ""
         wiki_link = senator.getWikiLink()
         if wiki_link != "":
-            wiki_string = '<p><strong>Wikipedia:</strong>' + wiki_link + '</p>'
+            wiki_string = '<p><strong>Wikipedia:</strong> ' + wiki_link + '</p>'
 
         # Table headers: Date | Number | Bill Name | Vote
         table_string = ""
