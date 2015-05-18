@@ -145,28 +145,28 @@ class PageConstructor:
         # Table headers: Vote | Senator | Party | State
         table_string = ""
         for s in bill.getYea_Votes():
-            table_string += ('<tr><td class="col-xs-2">Yea</td>' + 
-                             '<td class="col-xs-4">' + s.getSenatorLink() + 
-                             '</td><td class="col-xs-3">' + s.getParty() + 
-                             '</td><td class="col-xs-3">' + s.getStateLink() + 
+            table_string += ('<tr><td>Yea</td>' + 
+                             '<td>' + s.getSenatorLink() + 
+                             '</td><td>' + s.getParty() + 
+                             '</td><td>' + s.getStateLink() + 
                              '</td></tr>')
         for s in bill.getNay_Votes():
-            table_string += ('<tr><td class="col-xs-2">Nay</td>' + 
-                             '<td class="col-xs-4">' + s.getSenatorLink() + 
-                             '</td><td class="col-xs-3">' + s.getParty() + 
-                             '</td><td class="col-xs-3">' + s.getStateLink() + 
+            table_string += ('<tr><td>Nay</td>' + 
+                             '<td>' + s.getSenatorLink() + 
+                             '</td><td>' + s.getParty() + 
+                             '</td><td>' + s.getStateLink() + 
                              '</td></tr>')
         for s in bill.getAbstaining():
-            table_string += ('<tr><td class="col-xs-2">Abstain</td>' + 
-                             '<td class="col-xs-4">' + s.getSenatorLink() + 
-                             '</td><td class="col-xs-3">' + s.getParty() + 
-                             '</td><td class="col-xs-3">' + s.getStateLink() + 
+            table_string += ('<tr><td>Abstain</td>' + 
+                             '<td>' + s.getSenatorLink() + 
+                             '</td><td>' + s.getParty() + 
+                             '</td><td>' + s.getStateLink() + 
                              '</td></tr>')
         for s in bill.getAbsent():
-            table_string += ('<tr><td class="col-xs-2">Absent</td>' + 
-                             '<td class="col-xs-4">' + s.getSenatorLink() + 
-                             '</td><td class="col-xs-3">' + s.getParty() + 
-                             '</td><td class="col-xs-3">' + s.getStateLink() + 
+            table_string += ('<tr><td>Absent</td>' + 
+                             '<td>' + s.getSenatorLink() + 
+                             '</td><td>' + s.getParty() + 
+                             '</td><td>' + s.getStateLink() + 
                              '</td></tr>')
 
         fill_tags = {"BillName": bill.getQuestion(),
@@ -198,11 +198,11 @@ class PageConstructor:
             # A senator_pair has a senator object at index 0 and a string
             # describing the senator's role in the committee at index 1.
             senator = senator_pair[0]
-            table_string += ('<tr><td class="col-xs-3">' + senator_pair[1] + 
-                             '</td><td class="col-xs-3">' +
+            table_string += ('<tr><td>' + senator_pair[1] + 
+                             '</td><td>' +
                              senator.getSenatorLink() + '</td>' + 
-                             '<td class="col-xs-3">' + senator.getParty() +
-                             '</td><td class="col-xs-3">' + 
+                             '<td>' + senator.getParty() +
+                             '</td><td>' + 
                              senator.getStateLink() + '</td></tr>')
 
         associated_string = ""
@@ -297,10 +297,10 @@ class PageConstructor:
         # Table headers: Senator | Party | State
         table_string = ""
         for senator in senator_list:
-            table_string += ('<tr><td class="col-xs-4">' +
+            table_string += ('<tr><td>' +
                              senator.getSenatorLink() +
-                             '</td><td class="col-xs-4">' + senator.getParty() +
-                             '</td><td class="col-xs-4">' +
+                             '</td><td>' + senator.getParty() +
+                             '</td><td>' +
                              senator.getStateLink() + '</td></tr>')
 
         fill_tags = {"SenatorTable": table_string}
@@ -319,11 +319,11 @@ class PageConstructor:
         # Table headers: Date | # | Bill
         table_string = ""
         for bill in bill_list:
-            table_string += ('<tr><td class="col-xs-3">' + 
+            table_string += ('<tr><td>' + 
                              bill.getVoteDate().strftime("%B %d, %Y") +
-                             '</td><td class="col-xs-3">' +
+                             '</td><td>' +
                              " s" + str(bill.getRoll()) +
-                             '</td><td class="col-xs-6">' + bill.getBillLink() +
+                             '</td><td>' + bill.getBillLink() +
                              '</td></tr>')
 
         fill_tags = {"BillData": table_string}
@@ -342,9 +342,9 @@ class PageConstructor:
         # Table headers: Current? | Senator | Party
         table_string = ""
         for s in senator_list:
-            table_string += ('<tr><td class="col-xs-3">' + str(s.isCurrent()) +
-                             '</td><td class="col-xs-6">' + s.getSenatorLink() +
-                             '</td><td class="col-xs-3">' + s.getParty() +
+            table_string += ('<tr><td>' + str(s.isCurrent()) +
+                             '</td><td>' + s.getSenatorLink() +
+                             '</td><td>' + s.getParty() +
                              '</td></tr>')
 
         full_state_name = STATE_LIST[STATE_ABBREVIATION_LIST.index(state_name)]
