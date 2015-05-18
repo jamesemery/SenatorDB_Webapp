@@ -311,7 +311,7 @@ class PageConstructor:
 
         fill_tags = {"sessionID": str(session),
                      "StartDate": session.getStart_Date().strftime("%B %d, %Y"),
-                     "EndDate": session.getEnd_Date.strftime("%B %d, %Y"),
+                     "EndDate": session.getEnd_Date().strftime("%B %d, %Y"),
                      "CommitteeList": c_list_string,
                      "SenatorTable": s_table_string,
                      "BillTable": b_table_string}
