@@ -49,8 +49,9 @@ class Senator:
         # if the the date was interpreted by SQL as being in the 21st century
         # then it will return a fixed date corresponding to the year in the
         # 20th century
-        if self.birthday >= date(2000, 1, 1):
-            self.birthday = date(self.birthday.year - 100, self.birthday.month, self.birthday.day)
+        if (self.birthday!=None):
+            if (self.birthday >= date(2000, 1, 1)):
+                self.birthday = date(self.birthday.year - 100, self.birthday.month, self.birthday.day)
         return self.birthday
 
     def getLast(self):
