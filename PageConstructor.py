@@ -287,12 +287,13 @@ class PageConstructor:
         sessionString = sessionFile.read()
 
         c_list_string = ""
-        committee_list = session.Committees()
+        committee_list = session.getCommittees()
         for c in committee_list:
             c_list_string += ('<li>' + c.getCommitteeLikn() + ' </li>')
 
         # Table headers: Senator | Party | State
         s_table_string = ""
+        senator_list = session.getSenators()
         for s in senator_list:
             s_table_string += ("<tr><td>" + s.getSenatorLink() + 
                                "</td><td>" + s.getParty() + 
@@ -300,6 +301,7 @@ class PageConstructor:
 
         # Table headers: Date | # | Bill
         b_table_string = ""
+        bill_list = session.getBills()
         for b in bill_list:
             b_table_string += ("<tr><td>" + 
                                b.getVoteDate().strftime("%B %d, %Y") + 
